@@ -2,7 +2,7 @@
 
 InputPin::InputPin()
 {}
-
+//GHJHKH
 void InputPin::setComponent(Component *pCmp)
 {
 	this->pComp = pCmp;
