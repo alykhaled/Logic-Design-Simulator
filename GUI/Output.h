@@ -27,7 +27,7 @@ public:
 	void DrawAND2(GraphicsInfo r_GfxInfo, bool selected = false) const;
 	void DrawOR2(GraphicsInfo r_GfxInfo, bool selected = false) const;
 	void DrawINV(GraphicsInfo r_GfxInfo, bool selected = false) const;
-	void DrawBuff(GraphicsInfo r_GfxInfo, bool selected) const;
+	void DrawBuff(GraphicsInfo r_GfxInfo, bool selected = false) const;
 	void DrawNAND2(GraphicsInfo r_GfxInfo, bool selected = false) const;
 	void DrawNOR2(GraphicsInfo r_GfxInfo, bool selected = false) const;
 	void DrawXOR2(GraphicsInfo r_GfxInfo, bool selected = false) const;

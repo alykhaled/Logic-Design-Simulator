@@ -140,6 +140,21 @@
     <ClCompile Include="CMUgraphicsLib\windowinput.cpp">
       <Filter>CMUgraphics Library</Filter>
     </ClCompile>
+    <ClCompile Include="BUFFER.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="INVERTER.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="NAND2.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="NOR2.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="OR2.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Defs.H" />
@@ -241,6 +256,21 @@
     </ClInclude>
     <ClInclude Include="CMUgraphicsLib\windowinput.h">
       <Filter>CMUgraphics Library</Filter>
+    </ClInclude>
+    <ClInclude Include="BUFFER.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="INVERTER.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="NAND2.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="NOR2.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="OR2.h">
+      <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

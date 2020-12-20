@@ -11,6 +11,16 @@ AND2::AND2(const GraphicsInfo &r_GfxInfo, int r_FanOut):Gate(2, r_FanOut)
 
 void AND2::Operate()
 {
+	for (int i = 0; i <m_Inputs; i++)
+	{
+		if (m_InputPins[i].getStatus()==LOW)
+		{
+			m_OutputPin.setStatus(LOW);
+			break;
+		}
+		m_OutputPin.setStatus(HIGH);
+
+	}
 	//caclulate the output status as the ANDing of the two input pins
 
 	//Add you code here
