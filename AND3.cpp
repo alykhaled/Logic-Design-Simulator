@@ -8,7 +8,6 @@ AND3::AND3(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(2, r_FanOut)
 	m_GfxInfo.y2 = r_GfxInfo.y2;
 }
 
-
 void AND3::Operate()
 {
 	for (int i = 0; i < m_Inputs; i++)
