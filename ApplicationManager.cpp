@@ -40,7 +40,6 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			//TODO: Create AddConection Action here
 			break;
 	
-
 		case EXIT:
 			///TODO: create ExitAction here
 			break;

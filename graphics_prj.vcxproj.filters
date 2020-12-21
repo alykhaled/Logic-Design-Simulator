@@ -140,6 +140,15 @@
     <ClCompile Include="CMUgraphicsLib\windowinput.cpp">
       <Filter>CMUgraphics Library</Filter>
     </ClCompile>
+    <ClCompile Include="NOR3.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="AND3.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="XNOR2.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Defs.H" />
@@ -241,6 +250,15 @@
     </ClInclude>
     <ClInclude Include="CMUgraphicsLib\windowinput.h">
       <Filter>CMUgraphics Library</Filter>
+    </ClInclude>
+    <ClInclude Include="NOR3.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="AND3.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="XNOR2.h">
+      <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

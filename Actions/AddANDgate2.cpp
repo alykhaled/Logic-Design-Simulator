@@ -3,10 +3,12 @@
 
 AddANDgate2::AddANDgate2(ApplicationManager *pApp):Action(pApp)
 {
+
 }
 
 AddANDgate2::~AddANDgate2(void)
 {
+
 }
 
 void AddANDgate2::ReadActionParameters()
@@ -46,8 +48,11 @@ void AddANDgate2::Execute()
 }
 
 void AddANDgate2::Undo()
-{}
+{
+
+}
 
 void AddANDgate2::Redo()
-{}
+{
 
+}
