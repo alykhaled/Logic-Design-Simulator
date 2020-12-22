@@ -1,17 +1,17 @@
-#include "AddANDgate2.h"
+#include "AddXORgate2.h"
 #include "..\ApplicationManager.h"
 
-AddANDgate2::AddANDgate2(ApplicationManager *pApp):Action(pApp)
+AddXORgate2::AddXORgate2(ApplicationManager* pApp) :Action(pApp)
 {
 
 }
 
-AddANDgate2::~AddANDgate2(void)
+AddXORgate2::~AddXORgate2(void)
 {
 
 }
 
-void AddANDgate2::ReadActionParameters()
+void AddXORgate2::ReadActionParameters()
 {
 	//Get a Pointer to the Input / Output Interfaces
 	Output* pOut = pManager->GetOutput();
@@ -25,10 +25,10 @@ void AddANDgate2::ReadActionParameters()
 
 	//Clear Status Bar
 	pOut->ClearStatusBar();
-	
+
 }
 
-void AddANDgate2::Execute()
+void AddXORgate2::Execute()
 {
 	//Get Center point of the Gate
 	ReadActionParameters();
@@ -37,9 +37,9 @@ void AddANDgate2::Execute()
 	//Calculate the rectangle Corners
 	int Len = UI.AND2_Width;
 	int Wdth = UI.AND2_Height;
-	
+
 	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
-	
+
 	GInfo.x1 = Cx - Len / 2;
 	GInfo.x2 = Cx + Len / 2;
 	GInfo.y1 = Cy - Wdth / 2;
@@ -60,16 +60,16 @@ void AddANDgate2::Execute()
 	{
 		GInfo.y1 = yup;
 	}
-	AND2 *pA=new AND2(GInfo, AND2_FANOUT); 
+	AND2* pA = new AND2(GInfo, AND2_FANOUT);
 	pManager->AddComponent(pA);
 }
 
-void AddANDgate2::Undo()
+void AddXORgate2::Undo()
 {
 
 }
 
-void AddANDgate2::Redo()
+void AddXORgate2::Redo()
 {
 
 }

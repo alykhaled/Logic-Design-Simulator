@@ -1,10 +1,9 @@
 #pragma once
-#include "Components/Gate.h"
-class BUFFER :
-    public Gate
-{
+#include "Gate.h"
+class OR2 : public Gate
+	{
 	public:
-		BUFFER(const GraphicsInfo& r_GfxInfo, int r_FanOut);
+		OR2(const GraphicsInfo& r_GfxInfo, int r_FanOut);
 		virtual void Operate();	//Calculates the output of the AND gate
 		virtual void Draw(Output* pOut);	//Draws 2-input gate
 
@@ -13,6 +12,4 @@ class BUFFER :
 
 		virtual void setInputPinStatus(int n, STATUS s);	//set status of Inputpin # n, to be used by connection class.
 };
-
-
 

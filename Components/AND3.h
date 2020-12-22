@@ -1,5 +1,5 @@
 #pragma once
-#include "Components/Gate.h"
+#include "Gate.h"
 class AND3 : public Gate
 {
 	AND3(const GraphicsInfo& r_GfxInfo, int r_FanOut);

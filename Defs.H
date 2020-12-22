@@ -67,11 +67,11 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 	//Note: Items are ordered here as they appear in menu
 	//If you want to change the menu items order, change the order here
 	ITM_AND2,			//AND gate item in menu
+	ITM_INV,			//Inverter gate item in menu
 	ITM_OR2,			//OR gate item in menu
 	ITM_NAND2,			//NAND gate item in menu
 	ITM_CONNECTION,		//Wire Connection item in menu
 	ITM_Buff,			//Buffer gate item in menu
-	ITM_INV,			//Inverter gate item in menu
 	ITM_NOR_2,			//NOR gate item in menu
 	ITM_XOR2,			//XOR gate item in menu
 	ITM_XNOR2,			//XNOR gate item in menu

@@ -109,8 +109,8 @@ void Output::CreateDesignToolBar() const
 	//First prepare List of images for each menu item
 	string MenuItemImages[ITM_DSN_CNT];
 	MenuItemImages[ITM_AND2] = "images\\Menu\\Menu_AND2.jpg";
+	MenuItemImages[ITM_INV] = "images\\Menu\\Menu_NOT.jpg";
 	MenuItemImages[ITM_OR2] = "images\\Menu\\Menu_OR2.jpg";
-	MenuItemImages[ITM_NAND2] = "images\\Menu\\Menu_NAND2.jpg";
 	MenuItemImages[ITM_CONNECTION] = "images\\Menu\\wire.jpg";
 	//MenuItemImages[ITM_SIMULATION] = "images\\Menu\\simulation.jpg";
 
@@ -119,7 +119,7 @@ void Output::CreateDesignToolBar() const
 	//TODO: Prepare image for each menu item and add it to the list
 
 	//Draw menu item one image at a time
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 3; i++)
 		pWind->DrawImage(MenuItemImages[i], i * UI.ToolItemWidth, 0, UI.ToolItemWidth, UI.ToolBarHeight);
 
 
@@ -184,7 +184,7 @@ void Output::DrawOR2(GraphicsInfo r_GfxInfo, bool selected) const
 	if (selected)
 		GateImage = "Images\\Gates\\Gate_OR2_Hi.jpg";
 	else
-		GateImage = "Images\\Gates\\Gate_NOT.jpg";
+		GateImage = "Images\\Gates\\Gate_OR2.jpg";
 
 	//Draw Or2 Gate at Gfx_Info (1st corner)
 	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
@@ -194,12 +194,12 @@ void Output::DrawINV(GraphicsInfo r_GfxInfo, bool selected) const
 {
 	string GateImage;
 	if (selected)
-		GateImage = "Images\\Gates\\Gate_NOT2_Hi.jpg";
+		GateImage = "Images\\Gates\\Gate_NOT_Hi.jpg";
 	else
-		GateImage = "Image\\Gates\\Gate_NOT2.jpg";
+		GateImage = "Images\\Gates\\Gate_NOT.jpg";
 	//Draw INV gate at Gfx_Info (2nd corner)
 	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
-	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
+	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.NOT_Width, UI.NOT_Height);
 }
 void Output::DrawBuff(GraphicsInfo r_GfxInfo, bool selected) const
 {

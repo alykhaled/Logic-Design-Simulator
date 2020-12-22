@@ -35,7 +35,7 @@ struct UI_Info	//User Interface Info.
 		NOT_Height = 50,
 		NAND2_Width = 87,		//NAND2 Gate Image default width
 		NAND2_Height = 50,		//NAND2 Gate Image default height
-		OR_Width = 92,			//OR Gate Image default width
+		OR_Width = 97,			//OR Gate Image default width
 		OR_Height = 50;		//OR Gate Image default height
 }UI;	//create a single global object UI
 

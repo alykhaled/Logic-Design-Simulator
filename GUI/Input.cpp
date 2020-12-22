@@ -67,6 +67,7 @@ ActionType Input::GetUserAction() const
 			switch (ClickedItemOrder)
 			{
 			case ITM_AND2: return ADD_AND_GATE_2;
+			case ITM_INV: return ADD_INV;
 			case ITM_OR2: return ADD_OR_GATE_2;
 			case ITM_NAND2: return ADD_NAND_GATE_2;
 			case ITM_CONNECTION: return ADD_CONNECTION;

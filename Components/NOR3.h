@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Components/Gate.h"
+#include "Gate.h"
 
 class NOR3 :  public Gate
 {
