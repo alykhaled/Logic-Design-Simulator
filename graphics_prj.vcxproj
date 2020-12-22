@@ -184,6 +184,7 @@
     <ClCompile Include="Components\NAND2.cpp" />
     <ClCompile Include="Components\NOR2.cpp" />
     <ClCompile Include="Components\OR2.cpp" />
+    <ClCompile Include="Xor2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actions\Action.h" />
@@ -231,6 +232,7 @@
     <ClInclude Include="Components\NAND2.h" />
     <ClInclude Include="Components\NOR2.h" />
     <ClInclude Include="Components\OR2.h" />
+    <ClInclude Include="Xor2.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
