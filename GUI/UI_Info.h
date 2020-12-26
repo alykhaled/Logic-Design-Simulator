@@ -29,12 +29,22 @@ struct UI_Info	//User Interface Info.
 
 	//This should be calculated accurately because it will be used later to create connections between gates
 	//For now, we will assume that rect width = 50 and height = 50
-	static const int	AND2_Width = 83,		//AND2 Gate Image default width
+	static const int	
+		AND2_Width = 83,		//AND2 Gate Image default width
 		AND2_Height = 50,		//AND2 Gate Image default height
+		
 		NOT_Width = 92,			//NOT Gate Image default width
 		NOT_Height = 50,
+		
 		NAND2_Width = 87,		//NAND2 Gate Image default width
-		NAND2_Height = 50,		//NAND2 Gate Image default height
+		NAND2_Height = 50,	
+		
+		XNOR2_Width = 100,		//XNOR2 Gate Image default width
+		XNOR2_Height = 50,		//XNOR2 Gate Image default height
+		
+		XOR2_Width = 95,		//XOR2 Gate Image default width
+		XOR2_Height = 50,		//XOR2 Gate Image default height
+		
 		OR_Width = 97,			//OR Gate Image default width
 		OR_Height = 50;		//OR Gate Image default height
 }UI;	//create a single global object UI

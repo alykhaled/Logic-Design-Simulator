@@ -45,9 +45,8 @@ void AddORgate2::Execute()
 	GInfo.y1 = Cy - Wdth / 2;
 	GInfo.y2 = Cy + Wdth / 2;
 	yup = Cy / 100;
-	yup--;
 	yup *= 100;
-	yup -= 55;
+	yup += 5;
 
 	ybot = Cy / 100;
 	ybot *= 100;

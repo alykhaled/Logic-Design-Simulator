@@ -1,8 +1,6 @@
-#ifndef _ADD_AND_GATE_H
-#define _ADD_AND_GATE_H
-
+#pragma once
 #include "action.h"
-#include "..\Components\AND2.h"
+#include "..\Components\XOR2.h"
 
 class AddXORgate2 : public Action
 {
@@ -22,7 +20,4 @@ public:
 	virtual void Undo();
 	virtual void Redo();
 
-
 };
-
-#endif

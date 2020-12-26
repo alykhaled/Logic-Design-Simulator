@@ -173,7 +173,12 @@
     <ClCompile Include="Actions\AddXORgate2.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
-    <ClCompile Include="Xor2.cpp" />
+    <ClCompile Include="Components\Xor2.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\AddConnection.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Defs.H" />
@@ -309,7 +314,12 @@
     <ClInclude Include="Actions\AddXORgate2.h">
       <Filter>Actions</Filter>
     </ClInclude>
-    <ClInclude Include="Xor2.h" />
+    <ClInclude Include="Components\Xor2.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\AddConnection.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

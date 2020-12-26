@@ -48,3 +48,26 @@ void AND2::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n-1].setStatus(s);
 }
+
+GraphicsInfo AND2::getInputPinPosition(int n)
+{
+	GraphicsInfo gfx = m_GfxInfo;
+	gfx.x2 -= UI.AND2_Width / 2;
+	if (n == 1)
+	{
+		gfx.y2 -= 25;
+	}
+	else
+	{
+		gfx.y1 += 25;
+	}
+	
+	return gfx;
+}
+
+GraphicsInfo AND2::getOutputPinPosition()
+{
+	GraphicsInfo gfx = m_GfxInfo;
+	gfx.x1 += UI.AND2_Width / 2;
+	return gfx;
+}

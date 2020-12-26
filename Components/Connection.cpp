@@ -1,23 +1,47 @@
 #include "Connection.h"
 
-Connection::Connection(const GraphicsInfo &r_GfxInfo, OutputPin *pSrcPin,InputPin *pDstPin):Component(r_GfxInfo)	
-	
+//Connection::Connection(const GraphicsInfo& r_GfxInfo, Component* pS, Component* pD, int Pin)
+//{
+//	SrcCmpnt = pS;
+//	DstCmpnt = pD;
+//}
+
+Connection::Connection(const GraphicsInfo& r_GfxInfo, OutputPin* pSrcPin, InputPin* pDstPin) :Component(r_GfxInfo)
+
 {
 	SrcPin = pSrcPin;
 	DstPin = pDstPin;
 }
-void Connection::setSourcePin(OutputPin *pSrcPin)
-{	SrcPin = pSrcPin;	}
+void Connection::setSourcePin(OutputPin* pSrcPin)
+{
+	SrcPin = pSrcPin;
+}
 
 OutputPin* Connection::getSourcePin()
-{	return SrcPin;	}
+{
+	return SrcPin;
+}
 
 
-void Connection::setDestPin(InputPin *pDstPin)
-{	DstPin = pDstPin;	}
+void Connection::setDestPin(InputPin* pDstPin)
+{
+	DstPin = pDstPin;
+}
 
 InputPin* Connection::getDestPin()
-{	return DstPin;	}
+{
+	return DstPin;
+}
+
+GraphicsInfo Connection::getInputPinPosition(int n)
+{
+	return GraphicsInfo();
+}
+
+GraphicsInfo Connection::getOutputPinPosition()
+{
+	return GraphicsInfo();
+}
 
 
 void Connection::Operate()

@@ -34,7 +34,7 @@ void Xor2::Operate()
 void Xor2::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
-	pOut->DrawXNOR2(m_GfxInfo);
+	pOut->DrawXOR2(m_GfxInfo);
 }
 
 //returns status of outputpin
@@ -47,6 +47,16 @@ int Xor2::GetOutPinStatus()
 int Xor2::GetInputPinStatus(int n)
 {
 	return m_InputPins[n - 1].getStatus();	//n starts from 1 but array index starts from 0.
+}
+
+GraphicsInfo Xor2::getInputPinPosition(int n)
+{
+	return GraphicsInfo();
+}
+
+GraphicsInfo Xor2::getOutputPinPosition()
+{
+	return GraphicsInfo();
 }
 
 //Set status of an input pin ot HIGH or LOW

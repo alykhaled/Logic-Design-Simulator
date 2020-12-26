@@ -43,6 +43,16 @@ int BUFFER::GetInputPinStatus(int n)
 	return m_InputPins[n - 1].getStatus();	//n starts from 1 but array index starts from 0.
 }
 
+GraphicsInfo BUFFER::getInputPinPosition(int n)
+{
+	return GraphicsInfo();
+}
+
+GraphicsInfo BUFFER::getOutputPinPosition()
+{
+	return GraphicsInfo();
+}
+
 //Set status of an input pin ot HIGH or LOW
 void BUFFER::setInputPinStatus(int n, STATUS s)
 {

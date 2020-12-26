@@ -130,6 +130,7 @@
     <ClCompile Include="Actions\AddNOTgate.cpp" />
     <ClCompile Include="Actions\AddORgate2.cpp" />
     <ClCompile Include="Actions\AddXORgate2.cpp" />
+    <ClCompile Include="Actions\AddConnection.cpp" />
     <ClCompile Include="Components\AND3.cpp" />
     <ClCompile Include="Components\BUFFER.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp" />
@@ -184,7 +185,7 @@
     <ClCompile Include="Components\NAND2.cpp" />
     <ClCompile Include="Components\NOR2.cpp" />
     <ClCompile Include="Components\OR2.cpp" />
-    <ClCompile Include="Xor2.cpp" />
+    <ClCompile Include="Components\Xor2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actions\Action.h" />
@@ -192,6 +193,7 @@
     <ClInclude Include="Actions\AddNOTgate.h" />
     <ClInclude Include="Actions\AddORgate2.h" />
     <ClInclude Include="Actions\AddXORgate2.h" />
+    <ClInclude Include="Actions\AddConnection.h" />
     <ClInclude Include="Components\AND3.h" />
     <ClInclude Include="Components\BUFFER.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
@@ -232,7 +234,7 @@
     <ClInclude Include="Components\NAND2.h" />
     <ClInclude Include="Components\NOR2.h" />
     <ClInclude Include="Components\OR2.h" />
-    <ClInclude Include="Xor2.h" />
+    <ClInclude Include="Components\Xor2.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

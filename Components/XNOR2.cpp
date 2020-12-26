@@ -50,6 +50,16 @@ int XNOR2::GetInputPinStatus(int n)
 	return m_InputPins[n - 1].getStatus();	//n starts from 1 but array index starts from 0.
 }
 
+GraphicsInfo XNOR2::getInputPinPosition(int n)
+{
+	return GraphicsInfo();
+}
+
+GraphicsInfo XNOR2::getOutputPinPosition()
+{
+	return GraphicsInfo();
+}
+
 //Set status of an input pin ot HIGH or LOW
 void XNOR2::setInputPinStatus(int n, STATUS s)
 {

@@ -34,8 +34,8 @@ void AddNOTgate::Execute()
 	ReadActionParameters();
 
 	//Calculate the rectangle Corners
-	int Len = UI.AND2_Width;
-	int Wdth = UI.AND2_Height;
+	int Len = UI.NOT_Width;
+	int Wdth = UI.NOT_Height;
 	int yup, ybot;
 
 	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
@@ -45,9 +45,8 @@ void AddNOTgate::Execute()
 	GInfo.y1 = Cy - Wdth / 2;
 	GInfo.y2 = Cy + Wdth / 2;
 	yup = Cy / 100;
-	yup--;
 	yup *= 100;
-	yup -= 55;
+	yup += 5;
 
 	ybot = Cy / 100;
 	ybot *= 100;

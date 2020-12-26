@@ -45,9 +45,8 @@ void AddXORgate2::Execute()
 	GInfo.y1 = Cy - Wdth / 2;
 	GInfo.y2 = Cy + Wdth / 2;
 	yup = Cy / 100;
-	yup--;
 	yup *= 100;
-	yup -= 55;
+	yup += 5;
 
 	ybot = Cy / 100;
 	ybot *= 100;
@@ -60,7 +59,7 @@ void AddXORgate2::Execute()
 	{
 		GInfo.y1 = yup;
 	}
-	AND2* pA = new AND2(GInfo, AND2_FANOUT);
+	Xor2* pA = new Xor2(GInfo, AND2_FANOUT);
 	pManager->AddComponent(pA);
 }
 

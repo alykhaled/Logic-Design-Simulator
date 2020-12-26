@@ -65,6 +65,19 @@ void Output::PrintMsg(string msg) const
 	pWind->DrawString(MsgX, UI.height - MsgY, msg);
 }
 //////////////////////////////////////////////////////////////////////////////////
+void Output::PrintInt(int msg) const
+{
+	ClearStatusBar();	//Clear Status bar to print message on it
+	// Set the Message offset from the Status Bar
+	int MsgX = 25;
+	int MsgY = UI.StatusBarHeight - 10;
+
+	// Print the Message
+	pWind->SetFont(20, BOLD | ITALICIZED, BY_NAME, "Arial");
+	pWind->SetPen(UI.MsgColor);
+	pWind->DrawInteger(MsgX, UI.height - MsgY, msg);
+}
+//////////////////////////////////////////////////////////////////////////////////
 void Output::ClearStatusBar()const
 {
 	// Set the Message offset from the Status Bar
@@ -111,6 +124,7 @@ void Output::CreateDesignToolBar() const
 	MenuItemImages[ITM_AND2] = "images\\Menu\\Menu_AND2.jpg";
 	MenuItemImages[ITM_INV] = "images\\Menu\\Menu_NOT.jpg";
 	MenuItemImages[ITM_OR2] = "images\\Menu\\Menu_OR2.jpg";
+	MenuItemImages[ITM_XOR2] = "images\\Menu\\Menu_OR2.jpg";
 	MenuItemImages[ITM_CONNECTION] = "images\\Menu\\wire.jpg";
 	//MenuItemImages[ITM_SIMULATION] = "images\\Menu\\simulation.jpg";
 
@@ -119,7 +133,7 @@ void Output::CreateDesignToolBar() const
 	//TODO: Prepare image for each menu item and add it to the list
 
 	//Draw menu item one image at a time
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 5; i++)
 		pWind->DrawImage(MenuItemImages[i], i * UI.ToolItemWidth, 0, UI.ToolItemWidth, UI.ToolBarHeight);
 
 
@@ -238,12 +252,12 @@ void Output::DrawXOR2(GraphicsInfo r_GfxInfo, bool selected) const
 {
 	string GateImage;
 	if (selected)
-		GateImage = "Image\\Gates\\Gate_XOR2_Hi.jpg";
+		GateImage = "Images\\Gates\\Gate_XOR2_Hi.jpg";
 	else
-		GateImage = "Image\\Gates\\Gate_XOR2.jpg";
+		GateImage = "Images\\Gates\\Gate_XOR2.jpg";
 	//Draw XORR2 Gate at Gfx_Info (7th corner)
 	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
-	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
+	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.XOR2_Width, UI.XOR2_Height);
 }
 void Output::DrawXNOR2(GraphicsInfo r_GfxInfo, bool selected) const
 {
@@ -313,9 +327,14 @@ void Output::DrawLED(GraphicsInfo r_GfxInfo, bool selected) const
 }
 void Output::DrawConnection(GraphicsInfo r_GfxInfo, bool selected) const
 {
-	//TODO: Add code to draw connection
-	pWind->SetPen(BLACK, 2);
-
+	if (selected)
+	{
+		pWind->SetPen(RED, 2);
+	}
+	else
+	{
+		pWind->SetPen(BLACK, 2);
+	}
 	pWind->DrawLine(r_GfxInfo.x1, r_GfxInfo.y1, r_GfxInfo.x2, r_GfxInfo.y1);
 	pWind->DrawLine(r_GfxInfo.x2, r_GfxInfo.y1, r_GfxInfo.x2, r_GfxInfo.y2);
 

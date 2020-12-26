@@ -1,7 +1,9 @@
 #include "ApplicationManager.h"
 #include "Actions\AddANDgate2.h"
 #include "Actions\AddORgate2.h"
+#include "Actions\AddXORgate2.h"
 #include "Actions\AddNOTgate.h"
+#include "Actions\AddConnection.h"
 
 
 
@@ -20,6 +22,14 @@ ApplicationManager::ApplicationManager()
 void ApplicationManager::AddComponent(Component* pComp)
 {
 	CompList[CompCount++] = pComp;		
+}
+Component** ApplicationManager::getComponents()
+{
+	return CompList;
+}
+int ApplicationManager::getComponetsNumber()
+{
+	return CompCount;
 }
 ////////////////////////////////////////////////////////////////////
 
@@ -46,9 +56,13 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case ADD_OR_GATE_2:
 			pAct = new AddORgate2(this);
 			break;
+		
+		case ADD_XOR_GATE_2:
+			pAct = new AddXORgate2(this);
+			break;
 
 		case ADD_CONNECTION:
-			//TODO: Create AddConection Action here
+			pAct = new AddConnection(this);
 			break;
 	
 		case EXIT:
