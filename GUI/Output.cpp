@@ -99,7 +99,10 @@ void Output::ClearDrawingArea() const
 	pWind->SetPen(GRAY, 1);
 	for (int i = 80; i < 700; i += 50)
 	{
-		pWind->DrawLine(0, i, 1500, i);
+		if (i != 80)
+		{
+			pWind->DrawLine(0, i, 1500, i);
+		}
 
 	}
 }
@@ -124,7 +127,12 @@ void Output::CreateDesignToolBar() const
 	MenuItemImages[ITM_AND2] = "images\\Menu\\Menu_AND2.jpg";
 	MenuItemImages[ITM_INV] = "images\\Menu\\Menu_NOT.jpg";
 	MenuItemImages[ITM_OR2] = "images\\Menu\\Menu_OR2.jpg";
-	MenuItemImages[ITM_XOR2] = "images\\Menu\\Menu_OR2.jpg";
+	MenuItemImages[ITM_XOR2] = "images\\Menu\\Menu_XOR2.jpg";
+	MenuItemImages[ITM_XNOR2] = "images\\Menu\\Menu_XNOR2.jpg";
+	MenuItemImages[ITM_NAND2] = "images\\Menu\\Menu_NAND2.jpg";
+	MenuItemImages[ITM_OR3] = "images\\Menu\\Menu_OR3.jpg";
+	MenuItemImages[ITM_NOR2] = "images\\Menu\\Menu_NOR2.jpg";
+	MenuItemImages[ITM_LED] = "images\\Menu\\Menu_LED.jpg";
 	MenuItemImages[ITM_CONNECTION] = "images\\Menu\\wire.jpg";
 	//MenuItemImages[ITM_SIMULATION] = "images\\Menu\\simulation.jpg";
 
@@ -133,12 +141,12 @@ void Output::CreateDesignToolBar() const
 	//TODO: Prepare image for each menu item and add it to the list
 
 	//Draw menu item one image at a time
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 10; i++)
 		pWind->DrawImage(MenuItemImages[i], i * UI.ToolItemWidth, 0, UI.ToolItemWidth, UI.ToolBarHeight);
 
 
 	//Draw a line under the toolbar
-	pWind->SetPen(BLUE, 3);
+	pWind->SetPen(BLACK, 3);
 	pWind->DrawLine(0, UI.ToolBarHeight, UI.width, UI.ToolBarHeight);
 
 }

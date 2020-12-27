@@ -60,6 +60,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case ADD_XOR_GATE_2:
 			pAct = new AddXORgate2(this);
 			break;
+		
+		case ADD_LED:
+			pAct = new AddXORgate2(this);
+			break;
 
 		case ADD_CONNECTION:
 			pAct = new AddConnection(this);

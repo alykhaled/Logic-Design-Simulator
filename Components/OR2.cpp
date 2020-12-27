@@ -48,12 +48,25 @@ int OR2::GetInputPinStatus(int n)
 
 GraphicsInfo OR2::getInputPinPosition(int n)
 {
-	return GraphicsInfo();
+	GraphicsInfo gfx = m_GfxInfo;
+	gfx.x2 -= UI.OR_Width / 2;
+	if (n == 1)
+	{
+		gfx.y2 -= 25;
+	}
+	else
+	{
+		gfx.y1 += 25;
+	}
+
+	return gfx;
 }
 
 GraphicsInfo OR2::getOutputPinPosition()
 {
-	return GraphicsInfo();
+	GraphicsInfo gfx = m_GfxInfo;
+	gfx.x1 += UI.OR_Width / 2;
+	return gfx;
 }
 
 //Set status of an input pin ot HIGH or LOW

@@ -1,6 +1,6 @@
 #include "INVERTER.h"
 
-INVERTER::INVERTER(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(2, r_FanOut)
+INVERTER::INVERTER(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(1, r_FanOut)
 {
 	m_GfxInfo.x1 = r_GfxInfo.x1;
 	m_GfxInfo.y1 = r_GfxInfo.y1;
@@ -44,12 +44,16 @@ int INVERTER::GetInputPinStatus(int n)
 
 GraphicsInfo INVERTER::getInputPinPosition(int n)
 {
-	return GraphicsInfo();
+	GraphicsInfo gfx = m_GfxInfo;
+	gfx.x2 -= UI.NOT_Width / 2;
+	return gfx;
 }
 
 GraphicsInfo INVERTER::getOutputPinPosition()
 {
-	return GraphicsInfo();
+	GraphicsInfo gfx = m_GfxInfo;
+	gfx.x1 += UI.NOT_Width / 2;
+	return gfx;
 }
 
 //Set status of an input pin ot HIGH or LOW

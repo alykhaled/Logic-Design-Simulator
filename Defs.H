@@ -17,6 +17,7 @@ enum ActionType
 	ADD_AND_GATE_3,		//Add 3-input AND gate
 	ADD_NOR_GATE_3,		//Add 3-input NOR gate
 	ADD_XOR_GATE_3,		//Add 3-input XOR gate
+	ADD_OR_GATE_3,		//Add 3-input XOR gate
 	ADD_Switch,			//Add Switch
 	ADD_LED,			//Add LED
 	ADD_CONNECTION,		//Add Wire Connection
@@ -70,16 +71,17 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 	ITM_INV,			//Inverter gate item in menu
 	ITM_OR2,			//OR gate item in menu
 	ITM_XOR2,			//XOR gate item in menu
-	ITM_CONNECTION,		//Wire Connection item in menu
-	ITM_NAND2,			//NAND gate item in menu
-	ITM_Buff,			//Buffer gate item in menu
-	ITM_NOR_2,			//NOR gate item in menu
 	ITM_XNOR2,			//XNOR gate item in menu
+	ITM_NAND2,			//NAND gate item in menu
+	ITM_OR3,			//OR gate item in menu
+	ITM_NOR2,			//NOR gate item in menu
+	ITM_LED,			//LED item in menu
+	ITM_CONNECTION,		//Wire Connection item in menu
+	ITM_Buff,			//Buffer gate item in menu
 	ITM_AND3,			//AND gate item in menu
 	ITM_NOR3,			//NOR gate item in menu
 	ITM_XOR3,			//XOR gate item in menu
 	ITM_Switch,			//Switch item in menu
-	ITM_LED,			//LED item in menu
 	ITM_ADD_Label,		//Add Label to a Component, a Connection
 	ITM_EDIT_Label,		//Edit Label of a Component, a Connection
 	ITM_EXIT,			//Exit item

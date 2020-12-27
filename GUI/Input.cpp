@@ -70,8 +70,12 @@ ActionType Input::GetUserAction() const
 			case ITM_INV: return ADD_INV;
 			case ITM_OR2: return ADD_OR_GATE_2;
 			case ITM_XOR2: return ADD_XOR_GATE_2;
-			case ITM_CONNECTION: return ADD_CONNECTION;
+			case ITM_XNOR2: return ADD_XNOR_GATE_2;
 			case ITM_NAND2: return ADD_NAND_GATE_2;
+			case ITM_OR3: return ADD_OR_GATE_3;
+			case ITM_NOR2: return ADD_NOR_GATE_2;
+			case ITM_LED: return ADD_LED;
+			case ITM_CONNECTION: return ADD_CONNECTION;
 			case ITM_EXIT: return EXIT;
 
 			default: return DSN_TOOL;	//A click on empty place in desgin toolbar

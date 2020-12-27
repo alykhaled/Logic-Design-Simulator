@@ -25,3 +25,8 @@ OutputPin* Gate::getOutputPin()
 	return &m_OutputPin;
 }
 
+int Gate::getNumInputs()
+{
+	return m_Inputs;
+}
+

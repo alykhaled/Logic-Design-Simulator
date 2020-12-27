@@ -23,6 +23,7 @@ public:
 	Gate(int r_Inputs, int r_FanOut);
 	InputPin* getInputPin(int n);
 	OutputPin* getOutputPin();
+	int getNumInputs();
 };
 
 #endif
