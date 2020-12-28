@@ -19,7 +19,7 @@ void Switch::Operate()
 void Switch::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
-	pOut->DrawAND2(m_GfxInfo);
+	pOut->DrawSwitch(m_GfxInfo);
 }
 
 //returns status of outputpin
@@ -32,6 +32,23 @@ int Switch::GetOutPinStatus()
 int Switch::GetInputPinStatus(int n)
 {
 	return -1;
+}
+GraphicsInfo Switch::getInputPinPosition(int n)
+{
+	return GraphicsInfo();
+}
+GraphicsInfo Switch::getOutputPinPosition()
+{
+	return m_GfxInfo;
+}
+
+OutputPin* Switch::getOutputPin()
+{
+	return &m_OutputPin;
+}
+InputPin* Switch::getInputPin(int n)
+{
+	return nullptr;
 }
 //Set status of an input pin ot HIGH or LOW
 void Switch::setInputPinStatus(int n, STATUS s)

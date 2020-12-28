@@ -3,8 +3,12 @@
 
 #include "..\Defs.h"
 #include "..\GUI\Output.h"
+#include "InputPin.h"
 
 //Base class for classes Gate, Switch, and LED.
+class InputPin;
+class OutputPin;
+
 class Component
 {
 private:
@@ -22,9 +26,12 @@ public:
 	
 	virtual GraphicsInfo getInputPinPosition(int n) = 0;
 	virtual GraphicsInfo getOutputPinPosition() = 0;
-
+	virtual InputPin* getInputPin(int n) = 0;
+	virtual OutputPin* getOutputPin() = 0;
 	virtual void setInputPinStatus(int n, STATUS s)=0;	//set status of Inputpin # n, to be used by connection class.
 
+	void setLabel(string label);
+	string getLabel();
 	
 	Component();	
 	

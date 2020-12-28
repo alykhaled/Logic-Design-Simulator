@@ -38,7 +38,6 @@ int NOR2::GetOutPinStatus()
 	return m_OutputPin.getStatus();
 }
 
-
 //returns status of Inputpin #n
 int NOR2::GetInputPinStatus(int n)
 {

@@ -10,6 +10,16 @@ GraphicsInfo Component::getPosition()
 	return m_GfxInfo;
 }
 
+void Component::setLabel(string label)
+{
+	m_Label = label;
+}
+
+string Component::getLabel()
+{
+	return m_Label;
+}
+
 Component::Component()
 {}
 

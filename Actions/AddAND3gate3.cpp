@@ -1,52 +1,55 @@
-#include "AddANDgate2.h"
+#include "AddAND3gate3.h"
+#include"..\Components\AND3.h"
 #include "..\ApplicationManager.h"
 
-AddANDgate2::AddANDgate2(ApplicationManager *pApp):Action(pApp)
+
+AddAND3gate3::AddAND3gate3(ApplicationManager* pApp) :Action(pApp)
 {
 
 }
 
-AddANDgate2::~AddANDgate2(void)
+AddAND3gate3::~AddAND3gate3(void)
 {
 
 }
 
-void AddANDgate2::ReadActionParameters()
+void AddAND3gate3::ReadActionParameters()
 {
 	//Get a Pointer to the Input / Output Interfaces
-	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
+	Output* pOut = pManager->GetOutput();
 
 	//Print Action Message
-	pOut->PrintMsg("2-Input AND Gate: Click to add the gate");
+	pOut->PrintMsg("2-Input AND3 Gate: Click to add the gate");
 
 	//Wait for User Input
 	pIn->GetPointClicked(Cx, Cy);
 
 	//Clear Status Bar
 	pOut->ClearStatusBar();
-	
+
 }
 
-void AddANDgate2::Execute()
+void AddAND3gate3::Execute()
 {
 	//Get Center point of the Gate
 	ReadActionParameters();
 	int yup, ybot;
 
 	//Calculate the rectangle Corners
-	int Len = UI.AND2_Width;
-	int Wdth = UI.AND2_Height;
-	
+	int Len = UI.AND3_Width;
+	int Wdth = UI.AND3_Height;
+
 	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
-	
+
 	GInfo.x1 = Cx - Len / 2;
 	GInfo.x2 = Cx + Len / 2;
 	GInfo.y1 = Cy - Wdth / 2;
 	GInfo.y2 = Cy + Wdth / 2;
 	yup = Cy / 100;
+	yup--;
 	yup *= 100;
-	yup += 5;
+	yup -= 55;
 
 	ybot = Cy / 100;
 	ybot *= 100;
@@ -62,23 +65,19 @@ void AddANDgate2::Execute()
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
 	string label = pIn->GetSrting(pOut);
-	
-	GraphicsInfo labelgfx = GInfo;
-	labelgfx.y1 - 20;
 
-	AND2 *pA=new AND2(GInfo, AND2_FANOUT); 
+	AND3* pA = new AND3(GInfo, AND3_FANOUT);
 	pA->setLabel(label);
-
-	pOut->DrawString(labelgfx,label);
+	
 	pManager->AddComponent(pA);
 }
 
-void AddANDgate2::Undo()
+void AddAND3gate3::Undo()
 {
 
 }
 
-void AddANDgate2::Redo()
+void AddAND3gate3::Redo()
 {
 
 }

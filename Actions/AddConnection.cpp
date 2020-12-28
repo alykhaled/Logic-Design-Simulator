@@ -35,7 +35,7 @@ void AddConnection::ReadActionParameters()
 				GraphicsInfo gfx1 = pManager->getComponents()[i]->getOutputPinPosition();
 				if (gfx1.x1 <= Sx && gfx1.x2 >= Sx && gfx1.y1 <= Sy && gfx1.y2 >= Sy)
 				{
-					SrcPin = dynamic_cast<Gate*>(pManager->getComponents()[i])->getOutputPin();
+					SrcPin = pManager->getComponents()[i]->getOutputPin();
 					Gfx.x1 = gfx1.x2;
 					Gfx.y1 = gfx1.y1 + 25;
 					pOut->PrintMsg("Done, select the Destination");
@@ -96,7 +96,7 @@ void AddConnection::ReadActionParameters()
 void AddConnection::Execute()
 {
 	ReadActionParameters();
-	if (SrcPin != nullptr && DesPin != nullptr)
+	if (SrcPin != NULL && DesPin != NULL)
 	{
 		Connection* connection = new Connection(Gfx, SrcPin, DesPin);;
 		SrcPin->ConnectTo(connection);

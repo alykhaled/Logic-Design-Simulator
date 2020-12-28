@@ -18,6 +18,7 @@ string Input::GetSrting(Output* pOut)
 	//If the user presses "ESCAPE". This function should return an empty string.
 	//"BACKSPACE" should be also supported
 	//User should see what he is typing at the status bar
+	pOut->PrintMsg("Add Label: ");
 	pWind->FlushKeyQueue();
 	char c;
 	keytype kt;
@@ -75,6 +76,7 @@ ActionType Input::GetUserAction() const
 			case ITM_OR3: return ADD_OR_GATE_3;
 			case ITM_NOR2: return ADD_NOR_GATE_2;
 			case ITM_LED: return ADD_LED;
+			case ITM_SWITCH: return ADD_Switch;
 			case ITM_CONNECTION: return ADD_CONNECTION;
 			case ITM_EXIT: return EXIT;
 

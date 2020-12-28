@@ -33,6 +33,16 @@ InputPin* Connection::getDestPin()
 	return DstPin;
 }
 
+InputPin* Connection::getInputPin(int n)
+{
+	return nullptr;
+}
+
+OutputPin* Connection::getOutputPin()
+{
+	return nullptr;
+}
+
 GraphicsInfo Connection::getInputPinPosition(int n)
 {
 	return GraphicsInfo();

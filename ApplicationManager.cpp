@@ -1,9 +1,14 @@
 #include "ApplicationManager.h"
 #include "Actions\AddANDgate2.h"
+#include "Actions\AddNAND2gate2.h"
 #include "Actions\AddORgate2.h"
+#include "Actions\AddNOR3gate3.h"
 #include "Actions\AddXORgate2.h"
+#include "Actions\AddXNORgate2.h"
 #include "Actions\AddNOTgate.h"
 #include "Actions\AddConnection.h"
+#include "Actions\AddSwitch.h"
+#include "Actions\AddLED.h"
 
 
 
@@ -62,11 +67,39 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		
 		case ADD_LED:
-			pAct = new AddXORgate2(this);
+			pAct = new AddLED(this);
 			break;
 
 		case ADD_CONNECTION:
 			pAct = new AddConnection(this);
+			break;
+
+		case ADD_XNOR_GATE_2:
+			pAct = new AddXNORgate2(this);
+			break;
+
+		case ADD_NAND_GATE_2:
+			pAct = new AddNAND2gate2(this);
+			break;
+
+		case ADD_NOR_GATE_3:
+			pAct = new AddNOR3gate3(this);
+			break;
+
+		case ADD_AND_GATE_3:
+			pAct = new AddANDgate2(this);
+			break;
+
+		case ADD_XOR_GATE_3:
+			pAct = new AddANDgate2(this);
+			break;
+
+		case ADD_NOR_GATE_2:
+			pAct = new AddANDgate2(this);
+			break;
+		
+		case ADD_Switch:
+			pAct = new AddSwitch(this);
 			break;
 	
 		case EXIT:

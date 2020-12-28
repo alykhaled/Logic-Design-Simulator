@@ -60,6 +60,7 @@ void AddXORgate2::Execute()
 		GInfo.y1 = yup;
 	}
 	Xor2* pA = new Xor2(GInfo, AND2_FANOUT);
+
 	pManager->AddComponent(pA);
 }
 

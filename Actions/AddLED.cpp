@@ -1,45 +1,45 @@
-#include "AddANDgate2.h"
+#include "AddLED.h"
 #include "..\ApplicationManager.h"
 
-AddANDgate2::AddANDgate2(ApplicationManager *pApp):Action(pApp)
+AddLED::AddLED(ApplicationManager* pApp) :Action(pApp)
 {
 
 }
 
-AddANDgate2::~AddANDgate2(void)
+AddLED::~AddLED(void)
 {
 
 }
 
-void AddANDgate2::ReadActionParameters()
+void AddLED::ReadActionParameters()
 {
 	//Get a Pointer to the Input / Output Interfaces
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
 
 	//Print Action Message
-	pOut->PrintMsg("2-Input AND Gate: Click to add the gate");
+	pOut->PrintMsg("2-Input OR Gate: Click to add the gate");
 
 	//Wait for User Input
 	pIn->GetPointClicked(Cx, Cy);
 
 	//Clear Status Bar
 	pOut->ClearStatusBar();
-	
+
 }
 
-void AddANDgate2::Execute()
+void AddLED::Execute()
 {
 	//Get Center point of the Gate
 	ReadActionParameters();
 	int yup, ybot;
 
 	//Calculate the rectangle Corners
-	int Len = UI.AND2_Width;
-	int Wdth = UI.AND2_Height;
-	
+	int Len = UI.LED_Width;
+	int Wdth = UI.LED_Height;
+
 	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
-	
+
 	GInfo.x1 = Cx - Len / 2;
 	GInfo.x2 = Cx + Len / 2;
 	GInfo.y1 = Cy - Wdth / 2;
@@ -59,26 +59,16 @@ void AddANDgate2::Execute()
 	{
 		GInfo.y1 = yup;
 	}
-	Output* pOut = pManager->GetOutput();
-	Input* pIn = pManager->GetInput();
-	string label = pIn->GetSrting(pOut);
-	
-	GraphicsInfo labelgfx = GInfo;
-	labelgfx.y1 - 20;
-
-	AND2 *pA=new AND2(GInfo, AND2_FANOUT); 
-	pA->setLabel(label);
-
-	pOut->DrawString(labelgfx,label);
+	LED* pA = new LED(GInfo, AND2_FANOUT);
 	pManager->AddComponent(pA);
 }
 
-void AddANDgate2::Undo()
+void AddLED::Undo()
 {
 
 }
 
-void AddANDgate2::Redo()
+void AddLED::Redo()
 {
 
 }

@@ -1,45 +1,45 @@
-#include "AddANDgate2.h"
+#include "AddXNORgate2.h"
 #include "..\ApplicationManager.h"
 
-AddANDgate2::AddANDgate2(ApplicationManager *pApp):Action(pApp)
+
+AddXNORgate2::AddXNORgate2(ApplicationManager* pApp) :Action(pApp)
 {
 
 }
 
-AddANDgate2::~AddANDgate2(void)
+AddXNORgate2::~AddXNORgate2()
 {
-
 }
 
-void AddANDgate2::ReadActionParameters()
+void AddXNORgate2::ReadActionParameters()
 {
 	//Get a Pointer to the Input / Output Interfaces
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
 
 	//Print Action Message
-	pOut->PrintMsg("2-Input AND Gate: Click to add the gate");
+	pOut->PrintMsg("2-Input XNOR2 Gate: Click to add the gate");
 
 	//Wait for User Input
 	pIn->GetPointClicked(Cx, Cy);
 
 	//Clear Status Bar
 	pOut->ClearStatusBar();
-	
+
 }
 
-void AddANDgate2::Execute()
+void AddXNORgate2::Execute()
 {
 	//Get Center point of the Gate
 	ReadActionParameters();
 	int yup, ybot;
 
 	//Calculate the rectangle Corners
-	int Len = UI.AND2_Width;
-	int Wdth = UI.AND2_Height;
-	
+	int Len = UI.XNOR2_Width;
+	int Wdth = UI.XNOR2_Height;
+
 	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
-	
+
 	GInfo.x1 = Cx - Len / 2;
 	GInfo.x2 = Cx + Len / 2;
 	GInfo.y1 = Cy - Wdth / 2;
@@ -59,26 +59,17 @@ void AddANDgate2::Execute()
 	{
 		GInfo.y1 = yup;
 	}
-	Output* pOut = pManager->GetOutput();
-	Input* pIn = pManager->GetInput();
-	string label = pIn->GetSrting(pOut);
-	
-	GraphicsInfo labelgfx = GInfo;
-	labelgfx.y1 - 20;
+	XNOR2* pA = new XNOR2(GInfo, XNOR2_FANOUT);
 
-	AND2 *pA=new AND2(GInfo, AND2_FANOUT); 
-	pA->setLabel(label);
-
-	pOut->DrawString(labelgfx,label);
 	pManager->AddComponent(pA);
 }
 
-void AddANDgate2::Undo()
+void AddXNORgate2::Undo()
 {
 
 }
 
-void AddANDgate2::Redo()
+void AddXNORgate2::Redo()
 {
 
 }

@@ -22,6 +22,8 @@ public:
 	void setDestPin(InputPin* pDstPin);
 	OutputPin* getSourcePin();
 	InputPin* getDestPin();
+	virtual InputPin* getInputPin(int n);
+	virtual OutputPin* getOutputPin();
 	virtual GraphicsInfo getInputPinPosition(int n);
 	virtual GraphicsInfo getOutputPinPosition();
 

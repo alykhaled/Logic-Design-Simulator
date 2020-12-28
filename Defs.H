@@ -76,12 +76,12 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 	ITM_OR3,			//OR gate item in menu
 	ITM_NOR2,			//NOR gate item in menu
 	ITM_LED,			//LED item in menu
+	ITM_SWITCH,			//Switch item in menu
 	ITM_CONNECTION,		//Wire Connection item in menu
 	ITM_Buff,			//Buffer gate item in menu
 	ITM_AND3,			//AND gate item in menu
 	ITM_NOR3,			//NOR gate item in menu
 	ITM_XOR3,			//XOR gate item in menu
-	ITM_Switch,			//Switch item in menu
 	ITM_ADD_Label,		//Add Label to a Component, a Connection
 	ITM_EDIT_Label,		//Edit Label of a Component, a Connection
 	ITM_EXIT,			//Exit item
@@ -118,7 +118,20 @@ enum SimMenuItem //The items of the simulation menu (you should add more items)
 //assume fan out is 5 for now it can be read from the user or can be predefined as const
 enum FANOUT
 {
-	AND2_FANOUT = 5	//Default fan out of 2-input AND gate
+	AND2_FANOUT = 5,	//Default fan out of 2-input AND gate
+	Buff_FANOUT = 5,
+	INV_FANOUT = 5,
+	OR2_FANOUT = 5,
+	NAND2_FANOUT = 5,
+	NOR2_FANOUT = 5,
+	XOR2_FANOUT = 5,
+	XNOR2_FANOUT = 5,
+	AND3_FANOUT = 5,
+	NOR3_FANOUT = 5,
+	XOR3_FANOUT = 5,
+	Switch_FANOUT = 5,
+	LED_FANOUT = 5,
+	CONNECTION_FANOUT = 5
 };
 
 //A structure to contain drawing parameters for each component

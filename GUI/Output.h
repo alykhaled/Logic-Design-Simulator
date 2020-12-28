@@ -37,7 +37,7 @@ public:
 	void DrawXOR3(GraphicsInfo r_GfxInfo, bool selected = false) const;
 	void DrawSwitch(GraphicsInfo r_GfxInfo, bool selected = false) const;
 	void DrawLED(GraphicsInfo r_GfxInfo, bool selected = false) const;
-	///TODO: Make similar functions for drawing all other gates, switch, and LED, .. etc
+	void DrawString(GraphicsInfo r_GfxInfo, string text) const;
 
 	// Draws Connection
 	void DrawConnection(GraphicsInfo r_GfxInfo, bool selected = false) const;

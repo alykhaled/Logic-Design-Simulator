@@ -1,9 +1,9 @@
 #pragma once
-
 #include "Gate.h"
 
 class NOR3 :  public Gate
 {
+public:
 	NOR3(const GraphicsInfo& r_GfxInfo, int r_FanOut);
 	virtual void Operate();	//Calculates the output of the NOR3 gate
 	virtual void Draw(Output* pOut);	//Draws 2-input gate
