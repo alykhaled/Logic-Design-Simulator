@@ -59,7 +59,7 @@ void AddLED::Execute()
 	{
 		GInfo.y1 = yup;
 	}
-	LED* pA = new LED(GInfo, AND2_FANOUT);
+	LED* pA = new LED(GInfo);
 	pManager->AddComponent(pA);
 }
 

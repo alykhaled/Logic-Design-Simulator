@@ -80,3 +80,8 @@ void Connection::setInputPinStatus(int n, STATUS s)
 {
 	SrcPin->setStatus(s);
 }
+
+int Connection::getNumInputs()
+{
+	return 1;
+}

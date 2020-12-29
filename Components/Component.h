@@ -29,7 +29,7 @@ public:
 	virtual InputPin* getInputPin(int n) = 0;
 	virtual OutputPin* getOutputPin() = 0;
 	virtual void setInputPinStatus(int n, STATUS s)=0;	//set status of Inputpin # n, to be used by connection class.
-
+	virtual int getNumInputs() = 0;
 	void setLabel(string label);
 	string getLabel();
 	

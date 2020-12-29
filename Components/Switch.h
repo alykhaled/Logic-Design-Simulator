@@ -1,6 +1,7 @@
 #pragma once
 #include "Component.h"
 #include "OutputPin.h"
+
 class Switch :
 	public Component
 {
@@ -17,7 +18,8 @@ public:
 	virtual GraphicsInfo getOutputPinPosition();
 	virtual OutputPin* getOutputPin();
 	virtual InputPin* getInputPin(int n);
-	virtual void setInputPinStatus(int n, STATUS s);	//set status of Inputpin # n, to be used by connection class.
+	virtual void setInputPinStatus(int n, STATUS s);
+	virtual int getNumInputs();	//set status of Inputpin # n, to be used by connection class.
 };
 
 

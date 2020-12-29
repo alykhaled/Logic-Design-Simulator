@@ -67,18 +67,18 @@ ActionType Input::GetUserAction() const
 
 			switch (ClickedItemOrder)
 			{
-			case ITM_AND2: return ADD_AND_GATE_2;
-			case ITM_INV: return ADD_INV;
-			case ITM_OR2: return ADD_OR_GATE_2;
-			case ITM_XOR2: return ADD_XOR_GATE_2;
-			case ITM_XNOR2: return ADD_XNOR_GATE_2;
-			case ITM_NAND2: return ADD_NAND_GATE_2;
-			case ITM_OR3: return ADD_OR_GATE_3;
-			case ITM_NOR2: return ADD_NOR_GATE_2;
-			case ITM_LED: return ADD_LED;
-			case ITM_SWITCH: return ADD_Switch;
-			case ITM_CONNECTION: return ADD_CONNECTION;
-			case ITM_EXIT: return EXIT;
+			case ITM_AND2:			return ADD_AND_GATE_2;
+			case ITM_INV:			return ADD_INV;
+			case ITM_OR2:			return ADD_OR_GATE_2;
+			case ITM_XOR2:			return ADD_XOR_GATE_2;
+			case ITM_XNOR2:			return ADD_XNOR_GATE_2;
+			case ITM_NAND2:			return ADD_NAND_GATE_2;
+			case ITM_OR3:			return ADD_OR_GATE_3;
+			case ITM_NOR2:			return ADD_NOR_GATE_2;
+			case ITM_LED:			return ADD_LED;
+			case ITM_SWITCH:		return ADD_Switch;
+			case ITM_CONNECTION:	return ADD_CONNECTION;
+			case ITM_EXIT:			return EXIT;
 
 			default: return DSN_TOOL;	//A click on empty place in desgin toolbar
 			}
@@ -102,7 +102,11 @@ ActionType Input::GetUserAction() const
 		if (y >= UI.ToolBarHeight && y < UI.ToolBarHeight + 30)
 		{
 			return DSN_MODE;
+		}
 
+		if (y >= UI.ToolBarHeight + 30 && y < UI.height - UI.StatusBarHeight)
+		{
+			return SELECT;	//user want to select/unselect a component
 		}
 		return SIM_MODE;	//This should be changed after creating the compelete simulation bar 
 	}

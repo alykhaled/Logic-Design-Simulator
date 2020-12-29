@@ -51,14 +51,14 @@ void AddConnection::ReadActionParameters()
 			if (gfx.x1 <= Dx && gfx.x2 >= Dx && gfx.y1 <= Dy && gfx.y2 >= Dy)
 			{
 
-				for (int j = 1; j <= 3; j++)
+				int numinput = pManager->getComponents()[i]->getNumInputs();
+				for (int j = 1; j <= numinput; j++)
 				{
 					GraphicsInfo gfx1 = pManager->getComponents()[i]->getInputPinPosition(j);
 					if (gfx1.x1 <= Dx && gfx1.x2 >= Dx && gfx1.y1 <= Dy && gfx1.y2 >= Dy)
 					{
 						Gfx.x2 = gfx1.x1;
-						DesPin = dynamic_cast<Gate*>(pManager->getComponents()[i])->getInputPin(j);
-						int numinput = dynamic_cast<Gate*>(pManager->getComponents()[i])->getNumInputs();
+						DesPin = pManager->getComponents()[i]->getInputPin(j);
 						if (numinput == 1)
 						{
 							Gfx.y2 = gfx1.y1 + 25;
@@ -73,6 +73,11 @@ void AddConnection::ReadActionParameters()
 							{
 								Gfx.y2 = gfx1.y2 - 14;
 							}
+						}
+						else
+						{
+							Gfx.y2 = gfx1.y1 + 25;
+
 						}
 						pOut->PrintInt(j);
 						//pOut->PrintMsg("Done");

@@ -10,7 +10,6 @@
 #include "Pin.h"
 class Connection;	//Forward class declartion
 
-
 class OutputPin: public Pin	//inherited from class Pin
 {
 private:
@@ -22,7 +21,7 @@ private:
 public:
 	OutputPin(int r_FanOut);	
 	bool ConnectTo(Connection *r_Conn);	//connect to a new connection
-
+	Connection* getConnenction(int n);
 };
 
 #endif

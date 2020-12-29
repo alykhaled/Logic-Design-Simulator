@@ -9,6 +9,7 @@
 #include "Actions\AddConnection.h"
 #include "Actions\AddSwitch.h"
 #include "Actions\AddLED.h"
+#include "Actions\Simulate.h"
 
 
 
@@ -100,6 +101,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		
 		case ADD_Switch:
 			pAct = new AddSwitch(this);
+			break;
+
+		case SIM_MODE:
+			pAct = new Simulate (this);
 			break;
 	
 		case EXIT:

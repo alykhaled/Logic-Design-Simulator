@@ -1,12 +1,13 @@
 #include"LED.h"
 
 
-LED::LED(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Component(r_GfxInfo)
+LED::LED(const GraphicsInfo& r_GfxInfo) :Component(r_GfxInfo)
 {
 	m_GfxInfo.x1 = r_GfxInfo.x1;
 	m_GfxInfo.y1 = r_GfxInfo.y1;
 	m_GfxInfo.x2 = r_GfxInfo.x2;
 	m_GfxInfo.y2 = r_GfxInfo.y2;
+	m_InputPin.setComponent(this);
 }
 
 
@@ -39,7 +40,8 @@ int LED::GetInputPinStatus(int n)
 
 GraphicsInfo LED::getInputPinPosition(int n)
 {
-	return GraphicsInfo();
+
+	return m_GfxInfo;
 }
 
 GraphicsInfo LED::getOutputPinPosition()
@@ -54,6 +56,11 @@ OutputPin* LED::getOutputPin()
 InputPin* LED::getInputPin(int n)
 {
 	return &m_InputPin;
+}
+
+int LED::getNumInputs()
+{
+	return 1;
 }
 
 //Set status of an input pin ot HIGH or LOW

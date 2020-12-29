@@ -6,7 +6,7 @@ class LED: public Component
 private:
 	InputPin m_InputPin;
 public:
-	LED(const GraphicsInfo& r_GfxInfo, int r_FanOut);
+	LED(const GraphicsInfo& r_GfxInfo);
 	virtual void Operate();	//Calculates the output of the AND gate
 	virtual void Draw(Output* pOut);	//Draws 2-input gate
 
@@ -16,6 +16,7 @@ public:
 	virtual GraphicsInfo getOutputPinPosition();
 	virtual OutputPin* getOutputPin();
 	virtual InputPin* getInputPin(int n);
+	virtual int getNumInputs();
 	virtual void setInputPinStatus(int n, STATUS s);	//set status of Inputpin # n, to be used by connection class.
 };
 

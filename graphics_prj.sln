@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "graphics_prj", "graphics_prj.vcxproj", "{AA10A871-5060-4858-9CB5-CAE63E0A749B}"
 EndProject
 Global
@@ -14,6 +16,7 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{AA10A871-5060-4858-9CB5-CAE63E0A749B}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{AA10A871-5060-4858-9CB5-CAE63E0A749B}.Debug|Any CPU.Build.0 = Debug|Win32
 		{AA10A871-5060-4858-9CB5-CAE63E0A749B}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
 		{AA10A871-5060-4858-9CB5-CAE63E0A749B}.Debug|Mixed Platforms.Build.0 = Debug|Win32
 		{AA10A871-5060-4858-9CB5-CAE63E0A749B}.Debug|Win32.ActiveCfg = Debug|Win32
@@ -26,5 +29,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F102F747-62FB-4914-8883-F9F4103C6DAB}
 	EndGlobalSection
 EndGlobal

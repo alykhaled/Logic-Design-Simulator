@@ -197,6 +197,7 @@
     <ClCompile Include="Components\NOR2.cpp" />
     <ClCompile Include="Components\OR2.cpp" />
     <ClCompile Include="Components\Xor2.cpp" />
+    <ClCompile Include="Actions\Simulate.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actions\Action.h" />
@@ -257,6 +258,7 @@
     <ClInclude Include="Components\NOR2.h" />
     <ClInclude Include="Components\OR2.h" />
     <ClInclude Include="Components\Xor2.h" />
+    <ClInclude Include="Actions\Simulate.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
