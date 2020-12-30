@@ -10,6 +10,7 @@
 #include "Actions\AddSwitch.h"
 #include "Actions\AddLED.h"
 #include "Actions\Simulate.h"
+#include "Actions\Select.h"
 
 
 
@@ -38,7 +39,14 @@ int ApplicationManager::getComponetsNumber()
 	return CompCount;
 }
 ////////////////////////////////////////////////////////////////////
-
+//Component* ApplicationManager::getSelectedComponent()
+//{
+//	return selectedComp;
+//}
+//void ApplicationManager::setSelectedComponent(Component* selectedComp)
+//{
+//	this->selectedComp = selectedComp;
+//}
 ActionType ApplicationManager::GetUserAction()
 {
 	//Call input to get what action is reuired from the user
@@ -105,6 +113,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 		case SIM_MODE:
 			pAct = new Simulate (this);
+			break;
+		case SELECT:
+			pAct = new Select(this);
 			break;
 	
 		case EXIT:

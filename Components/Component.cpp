@@ -1,8 +1,9 @@
 #include "Component.h"
 
-Component::Component(const GraphicsInfo &r_GfxInfo)
+Component::Component(const GraphicsInfo &r_GfxInfo, bool selected)
 {
 	m_GfxInfo = r_GfxInfo;	
+	this->selected = selected;
 }
 
 GraphicsInfo Component::getPosition()
@@ -18,6 +19,11 @@ void Component::setLabel(string label)
 string Component::getLabel()
 {
 	return m_Label;
+}
+
+void Component::Select()
+{
+	selected = (UI.AppMode == DESIGN) ? !selected : selected;
 }
 
 Component::Component()

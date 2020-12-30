@@ -22,8 +22,8 @@ string Input::GetSrting(Output* pOut)
 	pWind->FlushKeyQueue();
 	char c;
 	keytype kt;
-	kt = pWind->WaitKeyPress(c);
 	string text = "";
+	kt = pWind->WaitKeyPress(c);
 	text += c;
 	while (kt != ESCAPE)
 	{
@@ -49,8 +49,22 @@ string Input::GetSrting(Output* pOut)
 	return text;
 }
 
+GraphicsInfo Input::getLastClick()
+{
+	GraphicsInfo gfx;
+	gfx.x1 = lastX;
+	gfx.y1 = lastY;
+	return gfx;
+}
+
+void Input::setLastClick(int x, int y)
+{
+	lastX = x;
+	lastY = y;
+}
+
 //This function reads the position where the user clicks to determine the desired action
-ActionType Input::GetUserAction() const
+ActionType Input::GetUserAction() 
 {
 	int x, y;
 	pWind->WaitMouseClick(x, y);	//Get the coordinates of the user click
@@ -91,6 +105,7 @@ ActionType Input::GetUserAction() const
 		//[2] User clicks on the drawing area
 		if (y >= UI.ToolBarHeight + 30 && y < UI.height - UI.StatusBarHeight)
 		{
+			setLastClick(x, y);
 			return SELECT;	//user want to select/unselect a component
 		}
 
