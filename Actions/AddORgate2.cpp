@@ -45,14 +45,14 @@ void AddORgate2::Execute()
 	GInfo.x2 = Cx + Len / 2;
 	GInfo.y1 = Cy - Wdth / 2;
 	GInfo.y2 = Cy + Wdth / 2;
-	yup = (Cy-30) / 50;
-	yup *= 50;
+	yup = Cy / 100;
+	yup *= 100;
 	yup += 5;
 
-	ybot = (Cy-30) / 50;
-	ybot *= 50;
+	ybot = Cy / 100;
+	ybot *= 100;
 	ybot += 55;
-	if (abs(((Cy - 30) - yup)) > abs((Cy - 30) - ybot))
+	if (abs((Cy - yup)) > abs(Cy - ybot))
 	{
 		GInfo.y1 = ybot;
 	}

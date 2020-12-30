@@ -18,8 +18,22 @@ void Switch::Operate()
 // Draws 2-input AND gate
 void Switch::Draw(Output* pOut)
 {
+	if (UI.AppMode == DESIGN)
+	{
+		pOut->DrawSwitch(m_GfxInfo, selected, false);
+	}
+	else
+	{
+		if (on)
+		{
+			pOut->DrawSwitch(m_GfxInfo, false, on);
+		}
+		else
+		{
+			pOut->DrawSwitch(m_GfxInfo, false, false);
+		}
+	}
 	//Call output class and pass gate drawing info to it.
-	pOut->DrawSwitch(m_GfxInfo);
 }
 
 //returns status of outputpin
@@ -59,4 +73,17 @@ void Switch::setInputPinStatus(int n, STATUS s)
 int Switch::getNumInputs()
 {
 	return 0;
+}
+
+void Switch::Select()
+{
+	if (UI.AppMode == DESIGN)
+	{
+		selected = !selected;
+	}
+	else
+	{
+		on = !on;
+		m_OutputPin.setStatus((m_OutputPin.getStatus() == LOW) ? HIGH : LOW);
+	}
 }

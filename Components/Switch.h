@@ -7,6 +7,7 @@ class Switch :
 {
 private:
 	OutputPin m_OutputPin;
+	bool on = false;
 public:
 	Switch(const GraphicsInfo& r_GfxInfo, int r_FanOut);
 	virtual void Operate();	//Calculates the output of the AND gate
@@ -20,6 +21,8 @@ public:
 	virtual InputPin* getInputPin(int n);
 	virtual void setInputPinStatus(int n, STATUS s);
 	virtual int getNumInputs();	//set status of Inputpin # n, to be used by connection class.
+	virtual void Select();
+
 };
 
 

@@ -21,9 +21,15 @@ void Select::Execute()
 		for (int i = 0; i < pManager->getComponetsNumber(); i++)
 		{
 			GraphicsInfo gfx = pManager->getComponents()[i]->getPosition();
-			if (gfx.x1 <= gfx1.x1 && gfx.x2 >= gfx1.x1 && gfx.y1 <= gfx1.y1 && gfx.y2 >= gfx1.y2)
+			if (gfx.x1 <= gfx1.x1 && gfx.x2 >= gfx1.x1 && gfx.y1 <= gfx1.y1 && gfx.y2 >= gfx1.y1)
 			{
 				pManager->getComponents()[i]->Select();
+				if (dynamic_cast<Switch*>(pManager->getComponents()[i]))
+				{
+					pOut->PrintInt((pManager->getComponents()[i]->GetOutPinStatus() == HIGH) ? 1 : 0);
+					pManager->ExecuteAction(SIM_MODE);
+					break;
+				}
 			}
 		}
 	}

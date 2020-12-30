@@ -1,5 +1,6 @@
 #pragma once
 #include "Action.h"
+#include "../Components/Switch.h"
 
 class Select : public Action
 {

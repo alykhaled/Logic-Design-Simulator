@@ -121,6 +121,7 @@ ActionType Input::GetUserAction()
 
 		if (y >= UI.ToolBarHeight + 30 && y < UI.height - UI.StatusBarHeight)
 		{
+			setLastClick(x, y);
 			return SELECT;	//user want to select/unselect a component
 		}
 		return SIM_MODE;	//This should be changed after creating the compelete simulation bar 

@@ -14,7 +14,6 @@ void Simulate::Execute()
 {
 	UI.AppMode = SIMULATION;
 	Output* pOut = pManager->GetOutput();
-	pOut->CreateSimulationToolBar();
 	
 	int componentsNum = pManager->getComponetsNumber();
 	int ledscount = 0;
@@ -43,7 +42,6 @@ void Simulate::Execute()
 			switchscount++;
 		}
 	}
-	;
 	//Operate the output of the switch and gates
 	OutputPin* outpin;
 	GraphicsInfo gfx;
@@ -58,13 +56,21 @@ void Simulate::Execute()
 			conn->Operate();
 			inpin = conn->getDestPin();
 			Component* gate = inpin->getComponent();
+			InputPin* inpinnn = gate->getInputPin(1);
 			gate->Operate();
 			outpin = gate->getOutputPin();		
 		} while (outpin != nullptr);
 		
 	}
-	LED* led = leds[0];
-	InputPin* inpinn = led->getInputPin(0);
+
+	for (int i = 0; i < componentsNum; i++)
+	{
+		if (dynamic_cast<Gate*>(comp[i]))
+		{
+			Gate* switchs = dynamic_cast<Gate*>(comp[i]);
+		}
+	}
+	
 }
 
 void Simulate::Undo()

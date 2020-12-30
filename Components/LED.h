@@ -5,6 +5,7 @@ class LED: public Component
 {
 private:
 	InputPin m_InputPin;
+	bool on = false;
 public:
 	LED(const GraphicsInfo& r_GfxInfo);
 	virtual void Operate();	//Calculates the output of the AND gate

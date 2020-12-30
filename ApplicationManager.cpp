@@ -112,6 +112,12 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 
 		case SIM_MODE:
+			OutputInterface->CreateSimulationToolBar();
+			pAct = new Simulate (this);
+			break;
+		
+		case DSN_MODE:
+			OutputInterface->CreateDesignToolBar();
 			pAct = new Simulate (this);
 			break;
 		case SELECT:

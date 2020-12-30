@@ -22,8 +22,16 @@ void LED::Operate()
 // Draws 2-input AND gate
 void LED::Draw(Output* pOut)
 {
+	on = (m_InputPin.getStatus() == HIGH) ? true : false;
+	if (UI.AppMode == DESIGN)
+	{
+		pOut->DrawLED(m_GfxInfo, selected, false);
+	}
+	else
+	{
+		pOut->DrawLED(m_GfxInfo, false, on);
+	}
 	//Call output class and pass gate drawing info to it.
-	pOut->DrawLED(m_GfxInfo);
 }
 
 //returns status of outputpin

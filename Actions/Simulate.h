@@ -5,6 +5,7 @@
 #include "../ApplicationManager.h"
 #include "../Components/Switch.h"
 #include "../Components/Connection.h"
+#include "../Components/Gate.h"
 
 
 class Simulate : public Action

@@ -17,7 +17,7 @@ Gate::Gate(int r_Inputs, int r_FanOut):m_OutputPin(r_FanOut)
 
 InputPin* Gate::getInputPin(int n)
 {
-	return m_InputPins;
+	return &m_InputPins[n-1];
 }
 
 OutputPin* Gate::getOutputPin()
