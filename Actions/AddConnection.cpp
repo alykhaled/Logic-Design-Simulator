@@ -18,7 +18,7 @@ void AddConnection::ReadActionParameters()
 	//Get a Pointer to the Input / Output Interfaces
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
-
+	bool goodsrc = false;
 	if (pManager->getComponetsNumber() > 0)
 	{
 		//Print Action Message
@@ -39,9 +39,17 @@ void AddConnection::ReadActionParameters()
 					Gfx.x1 = gfx1.x2;
 					Gfx.y1 = gfx1.y1 + 25;
 					pOut->PrintMsg("Done, select the Destination");
+					goodsrc = true;
 					break;
 				}
 			}
+		}
+		if (!goodsrc)
+		{
+			SrcPin = NULL;
+			DesPin = NULL;
+			pOut->PrintMsg("Invalid Source");
+			return;
 		}
 
 		pIn->GetPointClicked(Dx, Dy);
@@ -81,10 +89,19 @@ void AddConnection::ReadActionParameters()
 						}
 						pOut->PrintInt(j);
 						//pOut->PrintMsg("Done");
+						gooddest = true;
 						break;
 					}
 				}
 			}
+		}
+
+		if (!gooddest)
+		{
+			SrcPin = NULL;
+			DesPin = NULL;
+			pOut->PrintMsg("Invalid Destination");
+			return;
 		}
 
 	}

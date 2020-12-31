@@ -354,15 +354,23 @@ void Output::DrawString(GraphicsInfo r_GfxInfo, string text) const
 	pWind->SetPen(UI.MsgColor);
 	pWind->DrawString(r_GfxInfo.x1, r_GfxInfo.y1, text);
 }
-void Output::DrawConnection(GraphicsInfo r_GfxInfo, bool selected) const
+void Output::DrawConnection(GraphicsInfo r_GfxInfo, bool selected,bool on) const
 {
-	if (selected)
+	if (on)
 	{
-		pWind->SetPen(RED, 2);
+		pWind->SetPen(GREEN, 2);
 	}
 	else
 	{
-		pWind->SetPen(BLACK, 2);
+		if (selected)
+		{
+			pWind->SetPen(RED, 2);
+		}
+		else
+		{
+			pWind->SetPen(BLACK, 2);
+		}
+		
 	}
 	pWind->DrawLine(r_GfxInfo.x1, r_GfxInfo.y1, r_GfxInfo.x2, r_GfxInfo.y1);
 	pWind->DrawLine(r_GfxInfo.x2, r_GfxInfo.y1, r_GfxInfo.x2, r_GfxInfo.y2);

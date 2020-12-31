@@ -199,6 +199,7 @@
     <ClCompile Include="Components\Xor2.cpp" />
     <ClCompile Include="Actions\Simulate.cpp" />
     <ClCompile Include="Actions\Select.cpp" />
+    <ClCompile Include="Actions\TruthTable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actions\Action.h" />
@@ -261,6 +262,7 @@
     <ClInclude Include="Components\Xor2.h" />
     <ClInclude Include="Actions\Simulate.h" />
     <ClInclude Include="Actions\Select.h" />
+    <ClInclude Include="Actions\TruthTable.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

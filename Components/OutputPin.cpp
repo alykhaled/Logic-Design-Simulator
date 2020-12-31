@@ -21,6 +21,11 @@ bool OutputPin::ConnectTo(Connection *r_Conn)
 	return false;	//can't connect to any more connections
 }
 
+int OutputPin::getNumberOfConnections()
+{
+	return m_Conn;
+}
+
 Connection* OutputPin::getConnenction(int n)
 {
 	return m_Connections[n-1];

@@ -1,5 +1,6 @@
 #pragma once
 #include "Action.h"
+#include "../Defs.H"
 #include "../GUI/UI_Info.h"
 #include "../Components/LED.h"
 #include "../ApplicationManager.h"
@@ -7,18 +8,18 @@
 #include "../Components/Connection.h"
 #include "../Components/Gate.h"
 
-
-class Simulate : public Action
+class TruthTable : public Action
 {
+private:
+	window* TruthWindow;
 public:
-	Simulate(ApplicationManager* pApp);
-	virtual ~Simulate(void);
+	TruthTable(ApplicationManager* pApp);
+	virtual ~TruthTable(void);
 
 	//Reads parameters required for action to execute
 	virtual void ReadActionParameters();
 	//Execute action (code depends on action type)
 	virtual void Execute();
-	void simulate(OutputPin* outpin, Connection* connection);
 	virtual void Undo();
 	virtual void Redo();
 };

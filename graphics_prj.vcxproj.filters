@@ -218,6 +218,9 @@
     <ClCompile Include="Actions\Select.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="Actions\TruthTable.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Defs.H" />
@@ -396,6 +399,9 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="Actions\Select.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\TruthTable.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

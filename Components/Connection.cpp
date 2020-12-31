@@ -62,7 +62,15 @@ void Connection::Operate()
 
 void Connection::Draw(Output* pOut)
 {
-	pOut->DrawConnection(m_GfxInfo);
+	if (DstPin->getStatus() == HIGH)
+	{
+		on = true;
+	}
+	else
+	{
+		on = false;
+	}
+	pOut->DrawConnection(m_GfxInfo,selected,on);
 }
 
 int Connection::GetOutPinStatus()	//returns status of outputpin if LED, return -1

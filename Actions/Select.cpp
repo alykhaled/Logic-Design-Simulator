@@ -1,5 +1,6 @@
 #include "Select.h"
 #include "../ApplicationManager.h"
+#include "Simulate.h"
 
 Select::Select(ApplicationManager* pApp) : Action(pApp)
 {
@@ -24,10 +25,12 @@ void Select::Execute()
 			if (gfx.x1 <= gfx1.x1 && gfx.x2 >= gfx1.x1 && gfx.y1 <= gfx1.y1 && gfx.y2 >= gfx1.y1)
 			{
 				pManager->getComponents()[i]->Select();
-				if (dynamic_cast<Switch*>(pManager->getComponents()[i]))
+				if (dynamic_cast<Switch*>(pManager->getComponents()[i]) && UI.AppMode == SIMULATION)
 				{
 					pOut->PrintInt((pManager->getComponents()[i]->GetOutPinStatus() == HIGH) ? 1 : 0);
-					pManager->ExecuteAction(SIM_MODE);
+					Action* pAct = new Simulate(pManager);
+					pAct->Execute();
+					//pManager->ExecuteAction(SIM_MODE);
 					break;
 				}
 			}

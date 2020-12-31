@@ -11,6 +11,7 @@
 #include "Actions\AddLED.h"
 #include "Actions\Simulate.h"
 #include "Actions\Select.h"
+#include "Actions\TruthTable.h"
 
 
 
@@ -104,7 +105,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 
 		case ADD_NOR_GATE_2:
-			pAct = new AddANDgate2(this);
+			pAct = new TruthTable(this);
 			break;
 		
 		case ADD_Switch:
@@ -118,7 +119,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		
 		case DSN_MODE:
 			OutputInterface->CreateDesignToolBar();
-			pAct = new Simulate (this);
+			UI.AppMode = DESIGN;
 			break;
 		case SELECT:
 			pAct = new Select(this);

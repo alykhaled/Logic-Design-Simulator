@@ -16,6 +16,7 @@ private:
 protected:
 	GraphicsInfo m_GfxInfo;	//The parameters required to draw a component
 	bool selected = false;
+	bool on = false;
 public:
 	Component(const GraphicsInfo &r_GfxInfo, bool selected = false);
 	virtual void Operate() = 0;	//Calculates the output according to the inputs

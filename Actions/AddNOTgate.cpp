@@ -59,7 +59,7 @@ void AddNOTgate::Execute()
 	{
 		GInfo.y1 = yup;
 	}
-	INVERTER* pA = new INVERTER(GInfo, 1);
+	INVERTER* pA = new INVERTER(GInfo, INV_FANOUT);
 	pManager->AddComponent(pA);
 }
 

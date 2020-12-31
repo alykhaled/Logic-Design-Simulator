@@ -21,6 +21,7 @@ private:
 public:
 	OutputPin(int r_FanOut);	
 	bool ConnectTo(Connection *r_Conn);	//connect to a new connection
+	int getNumberOfConnections();
 	Connection* getConnenction(int n);
 };
 
