@@ -31,6 +31,7 @@ void ApplicationManager::AddComponent(Component* pComp)
 {
 	CompList[CompCount++] = pComp;		
 }
+
 Component** ApplicationManager::getComponents()
 {
 	return CompList;
@@ -39,15 +40,15 @@ int ApplicationManager::getComponetsNumber()
 {
 	return CompCount;
 }
-////////////////////////////////////////////////////////////////////
-//Component* ApplicationManager::getSelectedComponent()
-//{
-//	return selectedComp;
-//}
-//void ApplicationManager::setSelectedComponent(Component* selectedComp)
-//{
-//	this->selectedComp = selectedComp;
-//}
+//////////////////////////////////////////////////////////////////
+Component* ApplicationManager::getSelectedComponent()
+{
+	return selectedComp;
+}
+void ApplicationManager::setSelectedComponent(Component* selectedComp)
+{
+	this->selectedComp = selectedComp;
+}
 ActionType ApplicationManager::GetUserAction()
 {
 	//Call input to get what action is reuired from the user

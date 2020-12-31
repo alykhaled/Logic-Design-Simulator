@@ -38,8 +38,8 @@ public:
 	//Adds a new component to the list of components
 	void AddComponent(Component* pComp);
 
-	/*Component* getSelectedComponent();
-	void setSelectedComponent(Component* selectedComp);*/
+	Component* getSelectedComponent();
+	void setSelectedComponent(Component* selectedComp);
 
 	Component** getComponents();
 	int getComponetsNumber();

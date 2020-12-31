@@ -7,6 +7,7 @@
 #include "../Components/Switch.h"
 #include "../Components/Connection.h"
 #include "../Components/Gate.h"
+#include "Simulate.h"
 
 class TruthTable : public Action
 {
