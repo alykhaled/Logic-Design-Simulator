@@ -6,6 +6,7 @@
 #include "../Components/Switch.h"
 #include "../Components/Connection.h"
 #include "../Components/Gate.h"
+#include "Validation.h"
 
 
 class Simulate : public Action

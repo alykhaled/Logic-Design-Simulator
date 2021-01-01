@@ -39,28 +39,48 @@ void AddXORgate2::Execute()
 	int Wdth = UI.AND2_Height;
 
 	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
+	Output* pOut = pManager->GetOutput();
+
+	yup = Cy / 100;
+	yup *= 100;
+	yup += 30;
+
+	ybot = Cy / 100;
+	ybot *= 100;
+	ybot += 80;
+
+	if (abs((Cy - yup)) > abs(Cy - ybot))
+	{
+		GInfo.y1 = ybot;
+		Cy = ybot;
+	}
+	else
+	{
+		GInfo.y1 = yup;
+		Cy = yup;
+	}
 
 	GInfo.x1 = Cx - Len / 2;
 	GInfo.x2 = Cx + Len / 2;
 	GInfo.y1 = Cy - Wdth / 2;
 	GInfo.y2 = Cy + Wdth / 2;
-	yup = Cy / 100;
-	yup *= 100;
-	yup += 5;
 
-	ybot = Cy / 100;
-	ybot *= 100;
-	ybot += 55;
-	if (abs((Cy - yup)) > abs(Cy - ybot))
-	{
-		GInfo.y1 = ybot;
-	}
-	else
-	{
-		GInfo.y1 = yup;
-	}
+	GraphicsInfo border = GInfo;
+	border.x1 -= 3;
+	border.x2 += 3;
+	border.y1 -= 3;
+	border.y2 += 3;
+	//pOut->DrawRectangle(border);
+
+	Input* pIn = pManager->GetInput();
+	string label = pIn->GetSrting(pOut);
+
+	GraphicsInfo labelgfx = GInfo;
+	labelgfx.y1 - 20;
+
 	Xor2* pA = new Xor2(GInfo, AND2_FANOUT);
-
+	pA->setLabel(label);
+	pOut->DrawString(labelgfx, label);
 	pManager->AddComponent(pA);
 }
 

@@ -6,6 +6,7 @@ class NOR3 :  public Gate
 public:
 	NOR3(const GraphicsInfo& r_GfxInfo, int r_FanOut);
 	virtual void Operate();	//Calculates the output of the NOR3 gate
+	virtual ActionType getType();
 	virtual void Draw(Output* pOut);	//Draws 2-input gate
 
 	virtual int GetOutPinStatus();	//returns status of outputpin if LED, return -1

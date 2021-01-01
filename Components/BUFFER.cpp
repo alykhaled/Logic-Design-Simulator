@@ -21,6 +21,10 @@ void BUFFER::Operate()
 		}
 }
 
+ActionType BUFFER::getType() {
+	return ADD_Buff;
+}
+
 
 // Function Draw
 // Draws 2-input AND gate

@@ -29,13 +29,17 @@ void XNOR2::Operate()
 	}
 }
 
+ActionType XNOR2::getType() {
+	return ADD_XNOR_GATE_2;
+}
+
 
 // Function Draw
 // Draws 3-input AND gate
 void XNOR2::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
-	pOut->DrawXNOR2(m_GfxInfo);
+	pOut->DrawXNOR2(m_GfxInfo,selected);
 }
 
 //returns status of outputpin

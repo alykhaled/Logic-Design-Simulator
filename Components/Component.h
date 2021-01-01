@@ -33,6 +33,7 @@ public:
 	void setLabel(string label);
 	string getLabel();
 	virtual void Select();
+	virtual ActionType getType() = 0;
 	Component();	
 	
 	//Destructor must be virtual

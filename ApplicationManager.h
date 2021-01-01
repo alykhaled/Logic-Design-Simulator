@@ -15,13 +15,23 @@ class ApplicationManager
 
 private:
 	int CompCount;		//Actual number of Components
+	bool isValid = true;		
 	Component* CompList[MaxCompCount];	//List of all Components (Array of pointers)
 	Component* selectedComp;
+	Component* copiedComp;
 	Output* OutputInterface; //pointer to the Output Clase Interface
 	Input* InputInterface; //pointer to the Input Clase Interface
 
 public:	
 	ApplicationManager(); //constructor
+
+	void setIsValid(bool isValid);
+
+	/* Sets the last copied/cut component */
+	void SetCopiedComponent(Component* pComp);
+
+	/* Returns the last copied/cut component */
+	Component* GetCopiedComponent() const;
 
 	//Reads the required action from the user and returns the corresponding action type
 	ActionType GetUserAction();

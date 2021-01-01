@@ -8,20 +8,18 @@ void TruthTable::ReadActionParameters()
 {
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
-	TruthWindow = new window(500,500,100,100);
+	TruthWindow = pOut->CreateWind(500,500,100,100);
 	//TruthWindow = pOut->CreateWind(500, 500, 100, 100);
 	TruthWindow->ChangeTitle("Truth Table");
-	TruthWindow->SetPen(RED);
-	TruthWindow->DrawString(100, 0, "x");
-
+	
 	int inputRowsNum, inputColumnsNum;
 	int ouputRowsNum, ouputColumnsNum;
+
 	int componentsNum = pManager->getComponetsNumber();
 	int ledscount = 0;
 	int switchsCount = 0;
 
 	Component** comp = pManager->getComponents();
-	
 
 	//Count the LEDs pointers
 	for (int i = 0; i < componentsNum; i++)
@@ -100,6 +98,7 @@ void TruthTable::ReadActionParameters()
 	TruthWindow->SetFont(20, BOLD | ITALICIZED, BY_NAME, "Arial");
 	TruthWindow->SetPen(UI.MsgColor);	
 	int x = 10, y = 5;
+	//Printing the values to the screen
 	for (int i = 0; i < inputRowsNum; i++)
 	{
 		for (int j = 0; j < inputColumnsNum; j++)
@@ -115,12 +114,15 @@ void TruthTable::ReadActionParameters()
 
 	ouputRowsNum = pow(2, switchsCount);
 	ouputColumnsNum = ledscount;
+
 	int** ouputValues = new int* [ouputRowsNum];
 	for (int i = 0; i < ouputRowsNum; i++)
 	{
 		ouputValues[i] = new int[ouputColumnsNum];
 	}
+
 	x = 10*(inputColumnsNum + 3), y = 5;
+	
 	for (int i = 0; i < ouputRowsNum; i++)
 	{
 		for (int j = 0; j < inputColumnsNum; j++)
@@ -138,6 +140,10 @@ void TruthTable::ReadActionParameters()
 		y += 20;
 		x = 10 * (inputColumnsNum + 3);
 	}
+
+	int xs, ys;
+	TruthWindow->WaitMouseClick(xs,ys);
+	TruthWindow->~window();
 }
 
 void TruthTable::Execute()

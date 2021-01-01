@@ -41,46 +41,46 @@ void AddORgate2::Execute()
 
 	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
 
-	GInfo.x1 = Cx - Len / 2;
-	GInfo.x2 = Cx + Len / 2;
-	GInfo.y1 = Cy - Wdth / 2;
-	GInfo.y2 = Cy + Wdth / 2;
 	yup = Cy / 100;
 	yup *= 100;
-	yup += 5;
+	yup += 30;
 
 	ybot = Cy / 100;
 	ybot *= 100;
-	ybot += 55;
+	ybot += 80;
+
 	if (abs((Cy - yup)) > abs(Cy - ybot))
 	{
 		GInfo.y1 = ybot;
+		Cy = ybot;
 	}
 	else
 	{
 		GInfo.y1 = yup;
+		Cy = yup;
 	}
-	
-	//int q = Cy / 100;
 
-	//// 1st possible closest number 
-	//int n1 = 50 * q;
+	GInfo.x1 = Cx - Len / 2;
+	GInfo.x2 = Cx + Len / 2;
+	GInfo.y1 = Cy - Wdth / 2;
+	GInfo.y2 = Cy + Wdth / 2;
 
-	//// 2nd possible closest number 
-	//int n2 = (Cy * 50) > 0 ? (50 * (q + 1)) : (50 * (q - 1));
+	GraphicsInfo border = GInfo;
+	border.x1 -= 3;
+	border.x2 += 3;
+	border.y1 -= 3;
+	border.y2 += 3;
+	//pOut->DrawRectangle(border);
 
-	//// if true, then n1 is the required closest number 
-	//if (abs(Cy - n1) < abs(Cy - n2))
-	//{
-	//	GInfo.y1 = n1;
+	Input* pIn = pManager->GetInput();
+	string label = pIn->GetSrting(pOut);
 
-	//}
-	//else
-	//{
-	//	GInfo.y1 = n2;
-	//}
+	GraphicsInfo labelgfx = GInfo;
+	labelgfx.y1 - 20;
 
 	OR2* pA = new OR2(GInfo, AND2_FANOUT);
+	pA->setLabel(label);
+	pOut->DrawString(labelgfx, label);
 	pManager->AddComponent(pA);
 }
 

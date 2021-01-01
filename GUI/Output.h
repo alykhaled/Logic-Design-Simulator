@@ -21,6 +21,7 @@ public:
 	void ClearToolBar() const;
 
 	window* CreateWind(int wd, int h, int x, int y) const; //Creates user interface window
+	void DrawRectangle(GraphicsInfo r_GfxInfo);
 
 
 	// Draws 2-input AND gate

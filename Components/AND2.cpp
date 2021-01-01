@@ -1,4 +1,5 @@
 #include "AND2.h"
+#include "Component.h"
 
 AND2::AND2(const GraphicsInfo &r_GfxInfo, int r_FanOut):Gate(2, r_FanOut)
 {
@@ -22,6 +23,9 @@ void AND2::Operate()
 	}
 }
 
+ActionType AND2::getType() {
+	return ADD_AND_GATE_2;
+}
 
 // Function Draw
 // Draws 2-input AND gate

@@ -13,4 +13,12 @@ Component* InputPin::getComponent()
 	return pComp;
 }
 
-//hgfhgfhgfh
+void InputPin::setHasConnection(bool hasConnection)
+{
+	this->hasConnection = hasConnection;
+}
+
+bool InputPin::getHasConnection()
+{
+	return hasConnection;
+}

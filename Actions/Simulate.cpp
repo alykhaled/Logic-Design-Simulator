@@ -19,6 +19,7 @@ void Simulate::Execute()
 	int ledscount = 0;
 	int switchscount = 0;
 	
+
 	Component** comp = pManager->getComponents();
 	LED** leds = new LED*[componentsNum];
 	Switch** switchs = new Switch *[componentsNum];
@@ -69,6 +70,7 @@ void Simulate::Execute()
 	//	
 	//}
 
+
 	for (int i = 0; i < switchscount; i++)
 	{
 		outpin = switchs[i]->getOutputPin();
@@ -108,16 +110,19 @@ void Simulate::simulate(OutputPin* outpin, Connection* connection)
 	{
 		return;
 	}
+
 	connection->Operate();
 	InputPin * inpin = connection->getDestPin();
 	Component* gate = inpin->getComponent();
 	//InputPin* inpinnn = gate->getInputPin(1);
 	gate->Operate();
 	newpin = gate->getOutputPin();
+
 	if (newpin == nullptr)
 	{
 		return;
 	}
+
 	int numOfConnection = newpin->getNumberOfConnections();
 
 	for (int i = 0; i < numOfConnection; i++)

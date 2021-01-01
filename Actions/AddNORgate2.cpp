@@ -32,6 +32,8 @@ void AddNORgate2::ReadActionParameters()
 
 void AddNORgate2::Execute()
 {
+	Output* pOut = pManager->GetOutput();
+
 	//Get Center point of the Gate
 	ReadActionParameters();
 	int yup, ybot;
@@ -42,27 +44,46 @@ void AddNORgate2::Execute()
 
 	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
 
-	GInfo.x1 = Cx - Len / 2;
-	GInfo.x2 = Cx + Len / 2;
-	GInfo.y1 = Cy - Wdth / 2;
-	GInfo.y2 = Cy + Wdth / 2;
 	yup = Cy / 100;
-	yup--;
 	yup *= 100;
-	yup -= 55;
+	yup += 30;
 
 	ybot = Cy / 100;
 	ybot *= 100;
-	ybot += 55;
+	ybot += 80;
+
 	if (abs((Cy - yup)) > abs(Cy - ybot))
 	{
 		GInfo.y1 = ybot;
+		Cy = ybot;
 	}
 	else
 	{
 		GInfo.y1 = yup;
+		Cy = yup;
 	}
-	NOR2* pA = new NOR2(GInfo, NOR2_FANOUT);
+
+	GInfo.x1 = Cx - Len / 2;
+	GInfo.x2 = Cx + Len / 2;
+	GInfo.y1 = Cy - Wdth / 2;
+	GInfo.y2 = Cy + Wdth / 2;
+
+	GraphicsInfo border = GInfo;
+	border.x1 -= 3;
+	border.x2 += 3;
+	border.y1 -= 3;
+	border.y2 += 3;
+	//pOut->DrawRectangle(border);
+
+	Input* pIn = pManager->GetInput();
+	string label = pIn->GetSrting(pOut);
+
+	GraphicsInfo labelgfx = GInfo;
+	labelgfx.y1 - 20;
+
+	NOR2* pA = new NOR2(GInfo, AND2_FANOUT);
+	pA->setLabel(label);
+	pOut->DrawString(labelgfx, label);
 	pManager->AddComponent(pA);
 }
 

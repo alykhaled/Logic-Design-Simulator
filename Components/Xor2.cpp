@@ -28,6 +28,10 @@ void Xor2::Operate()
 	}
 }
 
+ActionType Xor2::getType() {
+	return ADD_XOR_GATE_2;
+}
+
 
 // Function Draw
 // Draws 3-input AND gate

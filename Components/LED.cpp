@@ -16,7 +16,9 @@ void LED::Operate()
 	
 }
 
-
+ActionType LED::getType() {
+	return ADD_LED;
+}
 
 // Function Draw
 // Draws 2-input AND gate

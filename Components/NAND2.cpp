@@ -11,16 +11,26 @@ NAND2::NAND2(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(2, r_FanOut)
 
 void NAND2::Operate()
 {
+	int ones = 0;
 	for (int i = 0; i < m_Inputs; i++)
 	{
-		if (m_InputPins[i].getStatus() == LOW)
+		if (m_InputPins[i].getStatus() == HIGH)
 		{
-			m_OutputPin.setStatus(HIGH);
-			break;
+			ones++;
 		}
-		m_OutputPin.setStatus(HIGH);
-
 	}
+	if (ones == 2)
+	{
+		m_OutputPin.setStatus(LOW);
+	}
+	else
+	{
+		m_OutputPin.setStatus(HIGH);
+	}
+}
+
+ActionType NAND2::getType() {
+	return ADD_NAND_GATE_2;
 }
 
 
@@ -47,12 +57,25 @@ int NAND2::GetInputPinStatus(int n)
 
 GraphicsInfo NAND2::getInputPinPosition(int n)
 {
-	return GraphicsInfo();
+	GraphicsInfo gfx = m_GfxInfo;
+	gfx.x2 -= UI.NAND2_Width / 2;
+	if (n == 1)
+	{
+		gfx.y2 -= 25;
+	}
+	else
+	{
+		gfx.y1 += 25;
+	}
+
+	return gfx;
 }
 
 GraphicsInfo NAND2::getOutputPinPosition()
 {
-	return GraphicsInfo();
+	GraphicsInfo gfx = m_GfxInfo;
+	gfx.x1 += UI.NAND2_Width / 2;
+	return gfx;
 }
 
 //Set status of an input pin ot HIGH or LOW

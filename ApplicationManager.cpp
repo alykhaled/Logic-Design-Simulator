@@ -12,6 +12,9 @@
 #include "Actions\Simulate.h"
 #include "Actions\Select.h"
 #include "Actions\TruthTable.h"
+#include "Actions\Copy.h"
+#include "Actions\Paste.h"
+#include "Actions\Probing.h"
 
 
 
@@ -26,12 +29,23 @@ ApplicationManager::ApplicationManager()
 	OutputInterface = new Output();
 	InputInterface = OutputInterface->CreateInput();
 }
+void ApplicationManager::setIsValid(bool isValid)
+{
+	this->isValid = isValid;
+}
 ////////////////////////////////////////////////////////////////////
 void ApplicationManager::AddComponent(Component* pComp)
 {
 	CompList[CompCount++] = pComp;		
 }
+void ApplicationManager::SetCopiedComponent(Component* pComp) {
+	copiedComp = pComp;
+}
 
+/* Returns the last copied/cut component */
+Component* ApplicationManager::GetCopiedComponent() const {
+	return copiedComp;
+}
 Component** ApplicationManager::getComponents()
 {
 	return CompList;
@@ -98,11 +112,11 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 
 		case ADD_AND_GATE_3:
-			pAct = new AddANDgate2(this);
+			pAct = new TruthTable(this);
 			break;
 
 		case ADD_XOR_GATE_3:
-			pAct = new AddANDgate2(this);
+			pAct = new Paste(this);
 			break;
 
 		case ADD_NOR_GATE_2:
@@ -114,8 +128,16 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 
 		case SIM_MODE:
-			OutputInterface->CreateSimulationToolBar();
-			pAct = new Simulate (this);
+			ExecuteAction(VALIDATION);
+			if (isValid)
+			{
+				OutputInterface->CreateSimulationToolBar();
+				pAct = new Simulate(this);
+			}
+			else
+			{
+				OutputInterface->PrintMsg("Invalid Circuit");
+			}
 			break;
 		
 		case DSN_MODE:
@@ -124,6 +146,20 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case SELECT:
 			pAct = new Select(this);
+			break;
+
+		case COPY:
+			pAct = new Copy(this);
+			break;
+		
+		case PASTE:
+			pAct = new Paste(this);
+			break;
+		case Create_TruthTable:
+			pAct = new Probing(this);
+			break;
+		case VALIDATION:
+			pAct = new Validation(this);
 			break;
 	
 		case EXIT:

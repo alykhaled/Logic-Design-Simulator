@@ -13,7 +13,9 @@ void Switch::Operate()
 {
 	
 }
-
+ActionType Switch::getType() {
+	return ADD_Switch;
+}
 // Function Draw
 // Draws 2-input AND gate
 void Switch::Draw(Output* pOut)

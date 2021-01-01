@@ -23,6 +23,10 @@ void NOR2::Operate()
 	}
 }
 
+ActionType NOR2::getType() {
+	return ADD_NOR_GATE_2;
+}
+
 
 // Function Draw
 // Draws 2-input AND gate

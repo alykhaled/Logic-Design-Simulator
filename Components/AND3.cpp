@@ -21,6 +21,9 @@ void AND3::Operate()
 	}
 }
 
+ActionType AND3::getType() {
+	return ADD_AND_GATE_3;
+}
 
 // Function Draw
 // Draws 3-input AND gate

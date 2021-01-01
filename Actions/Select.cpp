@@ -17,6 +17,7 @@ void Select::Execute()
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
 	GraphicsInfo gfx1 = pIn->getLastClick();
+	
 	if (pManager->getComponetsNumber() > 0)
 	{
 		for (int i = 0; i < pManager->getComponetsNumber(); i++)

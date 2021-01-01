@@ -32,6 +32,9 @@ enum ActionType
 	SELECT,		//Select a Component, a Connection
 	DEL,		//Delete a Component, a Connection
 	MOVE,		//Move a Component, a Connection
+	COPY,		// copy component
+	CUT,		// cut component
+	PASTE,		// paste component
 
 	SAVE,		//Save the whole Circuit to a file
 	LOAD,		//Load a Circuit from a file
@@ -41,6 +44,7 @@ enum ActionType
 
 	DSN_MODE,	//Switch to Design mode
 	SIM_MODE,	//Switch to Simulatiom mode
+	VALIDATION,
 
 	EXIT,		//Exit the application
 
@@ -61,7 +65,6 @@ enum  MODE	//Modes of operation
 	DESIGN,
 	SIMULATION
 };
-
 
 enum DsgnMenuItem //The items of the design menu (you should add more items)
 {
@@ -89,18 +92,18 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 	ITM_DSN_CNT			//no. of design menu items ==> This should be the last line in this enum
 };
 
-
-enum SimMenuItem //The items of the simulation menu (you should add more items)
+enum ActionMenuItem //The items of the Action menu (you should add more items)
 {
 	//Note: Items are ordered here as they appear in menu
+	//If you want to change the menu items order, change the order here
 	ITM_SIM,				//Simulate menu item
-	ITM_TRUTH,				//Truth table menu item
 
-	ITM_Change_Switch,		//Change Switch Status in Simulation Mode menu item
-
-	ITM_SELECT,				//Select a Component, a Connection menu item
 	ITM_DEL,				//Delete a Component, a Connection menu item
 	ITM_MOVE,				//Move a Component, a Connection menu item
+	
+	ITM_COPY,
+	ITM_PASTE,
+	ITM_CUT,
 
 	ITM_SAVE,				//Save the whole Circuit to a file menu item
 	ITM_LOAD,				//Load a Circuit from a file menu item
@@ -108,6 +111,16 @@ enum SimMenuItem //The items of the simulation menu (you should add more items)
 	ITM_UNDO,				//Undo the last Action preformed menu item
 	ITM_REDO,				//Redo the last Action canceled menu item
 
+	ITM_ACTION_CNT				//no. of simulation menu items ==> This should be the last line in this enum
+
+};
+
+
+enum SimMenuItem //The items of the simulation menu (you should add more items)
+{
+	//Note: Items are ordered here as they appear in menu
+	ITM_TRUTH,				//Truth table menu item
+	ITM_PROBING,				//Truth table menu item
 	ITM_SIM_CNT				//no. of simulation menu items ==> This should be the last line in this enum
 
 };
@@ -118,20 +131,20 @@ enum SimMenuItem //The items of the simulation menu (you should add more items)
 //assume fan out is 5 for now it can be read from the user or can be predefined as const
 enum FANOUT
 {
-	AND2_FANOUT		= 5,	//Default fan out of 2-input AND gate
-	Buff_FANOUT		= 5,
-	INV_FANOUT		= 5,
-	OR2_FANOUT		= 5,
-	NAND2_FANOUT	= 5,
-	NOR2_FANOUT		= 5,
-	XOR2_FANOUT		= 5,
-	XNOR2_FANOUT	= 5,
-	AND3_FANOUT		= 5,
-	NOR3_FANOUT		= 5,
-	XOR3_FANOUT		= 5,
-	Switch_FANOUT	= 5,
-	LED_FANOUT		= 5,
-	CONNECTION_FANOUT = 5
+	AND2_FANOUT			= 5,	//Default fan out of 2-input AND gate
+	Buff_FANOUT			= 5,
+	INV_FANOUT			= 5,
+	OR2_FANOUT			= 5,
+	NAND2_FANOUT		= 5,
+	NOR2_FANOUT			= 5,
+	XOR2_FANOUT			= 5,
+	XNOR2_FANOUT		= 5,
+	AND3_FANOUT			= 5,
+	NOR3_FANOUT			= 5,
+	XOR3_FANOUT			= 5,
+	Switch_FANOUT		= 5,
+	LED_FANOUT			= 5,
+	CONNECTION_FANOUT	= 5
 };
 
 //A structure to contain drawing parameters for each component

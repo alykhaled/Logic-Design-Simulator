@@ -22,6 +22,9 @@ OutputPin* Connection::getSourcePin()
 	return SrcPin;
 }
 
+ActionType Connection::getType() {
+	return ActionType::ADD_CONNECTION;
+}
 
 void Connection::setDestPin(InputPin* pDstPin)
 {

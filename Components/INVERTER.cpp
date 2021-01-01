@@ -20,6 +20,10 @@ void INVERTER::Operate()
 	}
 }
 
+ActionType INVERTER::getType() {
+	return ADD_INV;
+}
+
 
 // Function Draw
 // Draws 2-input AND gate

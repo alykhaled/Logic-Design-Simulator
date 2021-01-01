@@ -44,6 +44,7 @@ void AddConnection::ReadActionParameters()
 				}
 			}
 		}
+
 		if (!goodsrc)
 		{
 			SrcPin = NULL;
@@ -58,7 +59,6 @@ void AddConnection::ReadActionParameters()
 			GraphicsInfo gfx = pManager->getComponents()[i]->getPosition();
 			if (gfx.x1 <= Dx && gfx.x2 >= Dx && gfx.y1 <= Dy && gfx.y2 >= Dy)
 			{
-
 				int numinput = pManager->getComponents()[i]->getNumInputs();
 				for (int j = 1; j <= numinput; j++)
 				{
@@ -67,6 +67,7 @@ void AddConnection::ReadActionParameters()
 					{
 						Gfx.x2 = gfx1.x1;
 						DesPin = pManager->getComponents()[i]->getInputPin(j);
+						DesPin->setHasConnection(true);
 						if (numinput == 1)
 						{
 							Gfx.y2 = gfx1.y1 + 25;
