@@ -1,5 +1,6 @@
 //#include "Input.h"
 #include "Output.h"
+#include "../Components/Component.h"
 
 Input::Input(window* pW)
 {
@@ -20,9 +21,7 @@ string Input::GetSrting(Output* pOut)
 	char c;
 	keytype kt;
 	string text = "";
-	kt = pWind->WaitKeyPress(c);
-	text += c;
-	while (kt != ESCAPE)
+	do
 	{
 		kt = pWind->WaitKeyPress(c);
 		//If user press ENTER
@@ -39,7 +38,8 @@ string Input::GetSrting(Output* pOut)
 			text += c;
 		}
 		pOut->PrintMsg(text);
-	}
+	} while (kt != ESCAPE);
+
 
 	if (kt == ESCAPE) // If user press ESCAPE, return an empty text
 	{
@@ -47,7 +47,9 @@ string Input::GetSrting(Output* pOut)
 	}
 	return text;
 }
-
+buttonstate Input::GetMouseState(const button btMouse, int& x, int& y) {
+	return pWind->GetButtonState(btMouse, x, y);;
+}
 GraphicsInfo Input::getLastClick()
 {
 	GraphicsInfo gfx;
@@ -63,7 +65,7 @@ void Input::setLastClick(int x, int y)
 }
 
 //This function reads the position where the user clicks to determine the desired action
-ActionType Input::GetUserAction() 
+ActionType Input::GetUserAction(Output* pOut)
 {
 	int x, y;
 	pWind->WaitMouseClick(x, y);	//Get the coordinates of the user click
@@ -146,6 +148,7 @@ ActionType Input::GetUserAction()
 			switch (ClickedItemOrder)
 			{
 			case ITM_TRUTH:		return Create_TruthTable;
+			case ITM_PROBING:		return PROBING;
 
 			default: return DSN_TOOL;	//A click on empty place in desgin toolbar
 			}

@@ -8,6 +8,7 @@ LED::LED(const GraphicsInfo& r_GfxInfo) :Component(r_GfxInfo)
 	m_GfxInfo.x2 = r_GfxInfo.x2;
 	m_GfxInfo.y2 = r_GfxInfo.y2;
 	m_InputPin.setComponent(this);
+	m_InputPin.setPinNum(1);
 }
 
 
@@ -18,6 +19,17 @@ void LED::Operate()
 
 ActionType LED::getType() {
 	return ADD_LED;
+}
+string LED::getName()
+{
+	return "LED";
+}
+GraphicsInfo LED::getCenter()
+{
+	GraphicsInfo gfx = m_GfxInfo;
+	gfx.x1 += UI.LED_Height / 2;
+	gfx.y1 += UI.LED_Height / 2;
+	return gfx;
 }
 
 // Function Draw

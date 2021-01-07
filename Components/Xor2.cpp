@@ -31,6 +31,17 @@ void Xor2::Operate()
 ActionType Xor2::getType() {
 	return ADD_XOR_GATE_2;
 }
+string Xor2::getName()
+{
+	return "Xor2";
+}
+GraphicsInfo Xor2::getCenter()
+{
+	GraphicsInfo gfx = m_GfxInfo;
+	gfx.x1 += UI.XOR2_Width / 2;
+	gfx.y1 += UI.XOR2_Height / 2;
+	return gfx;
+}
 
 
 // Function Draw

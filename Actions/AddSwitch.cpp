@@ -30,6 +30,8 @@ void AddSwitch::ReadActionParameters()
 
 void AddSwitch::Execute()
 {
+	Output* pOut = pManager->GetOutput();
+
 	//Get Center point of the Gate
 	ReadActionParameters();
 	int yup, ybot;
@@ -60,6 +62,15 @@ void AddSwitch::Execute()
 		GInfo.y1 = yup;
 	}
 	Switch* pA = new Switch(GInfo, AND2_FANOUT);
+	Input* pIn = pManager->GetInput();
+	string label = pIn->GetSrting(pOut);
+
+	GraphicsInfo labelgfx = GInfo;
+	labelgfx.y1 -= 20;
+
+	pA->setLabel(label);
+
+	pOut->DrawString(labelgfx, label);
 	pManager->AddComponent(pA);
 }
 

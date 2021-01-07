@@ -8,6 +8,16 @@ void InputPin::setComponent(Component *pCmp)
 	this->pComp = pCmp;
 }
 
+void InputPin::setPinNum(int num)
+{
+	pinnum = num;
+}
+
+int InputPin::getPinNum()
+{
+	return pinnum;
+}
+
 Component* InputPin::getComponent()
 {
 	return pComp;

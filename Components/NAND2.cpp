@@ -32,6 +32,17 @@ void NAND2::Operate()
 ActionType NAND2::getType() {
 	return ADD_NAND_GATE_2;
 }
+string NAND2::getName()
+{
+	return "NAND2";
+}
+GraphicsInfo NAND2::getCenter()
+{
+	GraphicsInfo gfx = m_GfxInfo;
+	gfx.x1 += UI.NAND2_Height / 2;
+	gfx.y1 += UI.NAND2_Height / 2;
+	return gfx;
+}
 
 
 // Function Draw

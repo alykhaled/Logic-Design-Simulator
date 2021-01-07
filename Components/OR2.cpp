@@ -27,6 +27,17 @@ void OR2::Operate()
 ActionType OR2::getType() {
 	return ADD_OR_GATE_2;
 }
+string OR2::getName()
+{
+	return "OR2";
+}
+GraphicsInfo OR2::getCenter()
+{
+	GraphicsInfo gfx = m_GfxInfo;
+	gfx.x1 += UI.OR_Width / 2;
+	gfx.y1 += UI.OR_Height / 2;
+	return gfx;
+}
 
 // Function Draw
 // Draws 2-input AND gate

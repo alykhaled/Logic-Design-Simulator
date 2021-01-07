@@ -36,6 +36,7 @@ void AddConnection::ReadActionParameters()
 				if (gfx1.x1 <= Sx && gfx1.x2 >= Sx && gfx1.y1 <= Sy && gfx1.y2 >= Sy)
 				{
 					SrcPin = pManager->getComponents()[i]->getOutputPin();
+					SrcPin->setComponent(pManager->getComponents()[i]);
 					Gfx.x1 = gfx1.x2;
 					Gfx.y1 = gfx1.y1 + 25;
 					pOut->PrintMsg("Done, select the Destination");

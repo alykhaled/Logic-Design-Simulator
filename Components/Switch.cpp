@@ -16,6 +16,17 @@ void Switch::Operate()
 ActionType Switch::getType() {
 	return ADD_Switch;
 }
+string Switch::getName()
+{
+	return "Switch";
+}
+GraphicsInfo Switch::getCenter()
+{
+	GraphicsInfo gfx = m_GfxInfo;
+	gfx.x1 += UI.AND2_Height / 2;
+	gfx.y1 += UI.AND2_Height / 2;
+	return gfx;
+}
 // Function Draw
 // Draws 2-input AND gate
 void Switch::Draw(Output* pOut)

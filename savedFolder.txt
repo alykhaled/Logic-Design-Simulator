@@ -1,0 +1,10 @@
+7
+SWITCH 1 ds 301 280
+AND2 2 dsf 605 380
+SWITCH 3 fsd 295 480
+LED 6  960 380
+Connections
+1 2 1
+3 2 2
+2 6 -842150451
+-1

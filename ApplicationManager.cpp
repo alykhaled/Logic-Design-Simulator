@@ -15,6 +15,8 @@
 #include "Actions\Copy.h"
 #include "Actions\Paste.h"
 #include "Actions\Probing.h"
+#include "Actions\Move.h"
+#include "Actions\Save.h"
 
 
 
@@ -36,7 +38,8 @@ void ApplicationManager::setIsValid(bool isValid)
 ////////////////////////////////////////////////////////////////////
 void ApplicationManager::AddComponent(Component* pComp)
 {
-	CompList[CompCount++] = pComp;		
+	CompList[CompCount++] = pComp;
+	pComp->setID(CompCount);
 }
 void ApplicationManager::SetCopiedComponent(Component* pComp) {
 	copiedComp = pComp;
@@ -66,7 +69,7 @@ void ApplicationManager::setSelectedComponent(Component* selectedComp)
 ActionType ApplicationManager::GetUserAction()
 {
 	//Call input to get what action is reuired from the user
-	return InputInterface->GetUserAction(); 	
+	return InputInterface->GetUserAction(OutputInterface);
 }
 ////////////////////////////////////////////////////////////////////
 
@@ -147,6 +150,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case SELECT:
 			pAct = new Select(this);
 			break;
+		
+		case MOVE:
+			pAct = new Move(this);
+			break;
 
 		case COPY:
 			pAct = new Copy(this);
@@ -156,10 +163,16 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new Paste(this);
 			break;
 		case Create_TruthTable:
-			pAct = new Probing(this);
+			pAct = new TruthTable(this);
 			break;
 		case VALIDATION:
 			pAct = new Validation(this);
+			break;
+		case PROBING:
+			pAct = new Probing(this);
+			break;
+		case SAVE:
+			pAct = new Save(this);
 			break;
 	
 		case EXIT:

@@ -24,6 +24,17 @@ void BUFFER::Operate()
 ActionType BUFFER::getType() {
 	return ADD_Buff;
 }
+string BUFFER::getName()
+{
+	return "Buffer";
+}
+GraphicsInfo BUFFER::getCenter()
+{
+	GraphicsInfo gfx = m_GfxInfo;
+	gfx.x1 += UI.BUFFER_Height / 2;
+	gfx.y1 += UI.BUFFER_Height / 2;
+	return gfx;
+}
 
 
 // Function Draw

@@ -32,6 +32,17 @@ void XNOR2::Operate()
 ActionType XNOR2::getType() {
 	return ADD_XNOR_GATE_2;
 }
+string XNOR2::getName()
+{
+	return "XNor2";
+}
+GraphicsInfo XNOR2::getCenter()
+{
+	GraphicsInfo gfx = m_GfxInfo;
+	gfx.x1 += UI.XNOR2_Width / 2;
+	gfx.y1 += UI.XNOR2_Height / 2;
+	return gfx;
+}
 
 
 // Function Draw

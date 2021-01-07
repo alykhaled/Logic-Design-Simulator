@@ -169,6 +169,10 @@ void Output::CreateDesignToolBar() const
 
 	
 }
+
+void Output::UpdateScreen() {
+	pWind->UpdateBuffer();
+}
 //////////////////////////////////////////////////////////////////////////////////////////
 //Draws the menu (toolbar) in the simulation mode
 void Output::CreateSimulationToolBar() const
@@ -182,10 +186,11 @@ void Output::CreateSimulationToolBar() const
 	string MenuItemImages[ITM_SIM_CNT];
 
 	MenuItemImages[ITM_TRUTH] = "images\\Simulation toolbar\\SIM_TRUTH_TABLE.jpg";
+	MenuItemImages[ITM_PROBING] = "images\\Simulation toolbar\\SIM_PROBING.jpg";
 	
 
 	//Draw menu item one image at a time
-	for (int i = 0; i < 1; i++)
+	for (int i = 0; i < ITM_SIM_CNT; i++)
 		pWind->DrawImage(MenuItemImages[i], i * UI.ToolItemWidth, UI.ActionToolBarHeight, UI.ToolItemWidth, UI.ToolBarHeight);
 
 	//Draw a line under the toolbar

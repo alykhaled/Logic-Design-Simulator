@@ -24,6 +24,17 @@ void AND3::Operate()
 ActionType AND3::getType() {
 	return ADD_AND_GATE_3;
 }
+string AND3::getName()
+{
+	return "AND3";
+}
+GraphicsInfo AND3::getCenter()
+{
+	GraphicsInfo gfx = m_GfxInfo;
+	gfx.x1 += UI.AND3_Width / 2;
+	gfx.y1 += UI.AND3_Height / 2;
+	return gfx;
+}
 
 // Function Draw
 // Draws 3-input AND gate

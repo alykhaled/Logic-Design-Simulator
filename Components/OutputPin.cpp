@@ -26,6 +26,16 @@ int OutputPin::getNumberOfConnections()
 	return m_Conn;
 }
 
+Component* OutputPin::getComponent()
+{
+	return pComp;
+}
+
+void OutputPin::setComponent(Component* comp)
+{
+	pComp = comp;
+}
+
 Connection* OutputPin::getConnenction(int n)
 {
 	return m_Connections[n-1];

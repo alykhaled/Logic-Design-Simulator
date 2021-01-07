@@ -14,6 +14,7 @@ private:
 	GraphicsInfo Gfx;
 	bool goodsrc = false, gooddest = false;
 	bool mSelected = false;
+
 public:
 	AddConnection(ApplicationManager* pApp);
 	virtual ~AddConnection(void);

@@ -26,6 +26,17 @@ void NOR2::Operate()
 ActionType NOR2::getType() {
 	return ADD_NOR_GATE_2;
 }
+string NOR2::getName()
+{
+	return "NOR2";
+}
+GraphicsInfo NOR2::getCenter()
+{
+	GraphicsInfo gfx = m_GfxInfo;
+	gfx.x1 += UI.NOR2_Height / 2;
+	gfx.y1 += UI.NOR2_Height / 2;
+	return gfx;
+}
 
 
 // Function Draw

@@ -26,6 +26,17 @@ void NOR3::Operate()
 ActionType NOR3::getType() {
 	return ADD_NOR_GATE_3;
 }
+string NOR3::getName()
+{
+	return "NOR3";
+}
+GraphicsInfo NOR3::getCenter()
+{
+	GraphicsInfo gfx = m_GfxInfo;
+	gfx.x1 += UI.NOR3_Height / 2;
+	gfx.y1 += UI.NOR3_Height / 2;
+	return gfx;
+}
 
 
 // Function Draw

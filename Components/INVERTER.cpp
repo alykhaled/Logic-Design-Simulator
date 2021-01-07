@@ -23,6 +23,17 @@ void INVERTER::Operate()
 ActionType INVERTER::getType() {
 	return ADD_INV;
 }
+string INVERTER::getName()
+{
+	return "Inverter";
+}
+GraphicsInfo INVERTER::getCenter()
+{
+	GraphicsInfo gfx = m_GfxInfo;
+	gfx.x1 += UI.NOT_Height / 2;
+	gfx.y1 += UI.NOT_Height / 2;
+	return gfx;
+}
 
 
 // Function Draw

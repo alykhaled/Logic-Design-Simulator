@@ -32,6 +32,17 @@ void XOR3::Operate()
 ActionType XOR3::getType() {
 	return ADD_XOR_GATE_3;
 }
+string XOR3::getName()
+{
+	return "Xor3";
+}
+GraphicsInfo XOR3::getCenter()
+{
+	GraphicsInfo gfx = m_GfxInfo;
+	gfx.x1 += UI.XOR3_Width / 2;
+	gfx.y1 += UI.XOR3_Height / 2;
+	return gfx;
+}
 
 
 // Function Draw

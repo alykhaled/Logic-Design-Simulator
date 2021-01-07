@@ -13,9 +13,10 @@ public:
 	Input(window*);
 	void GetPointClicked(int&, int&);	//Get coordinate where user clicks
 	string GetSrting(Output*);		//Returns a string entered by the user
+	buttonstate GetMouseState(const button btMouse, int& x, int& y);
 	GraphicsInfo getLastClick();
 	void setLastClick(int x, int y);
-	ActionType GetUserAction() ; //Reads the user click and maps it to an action
+	ActionType GetUserAction(Output* pOut);
 
 	~Input();
 };

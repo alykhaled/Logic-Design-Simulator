@@ -23,8 +23,17 @@ void AND2::Operate()
 	}
 }
 
-ActionType AND2::getType() {
+ActionType AND2::getType()
+{
 	return ADD_AND_GATE_2;
+}
+
+GraphicsInfo AND2::getCenter()
+{
+	GraphicsInfo gfx = m_GfxInfo;
+	gfx.x1 += UI.AND2_Width / 2;
+	gfx.y1 += UI.AND2_Height / 2;
+	return gfx;
 }
 
 // Function Draw

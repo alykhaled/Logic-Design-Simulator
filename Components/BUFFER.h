@@ -7,6 +7,8 @@ class BUFFER :
 		BUFFER(const GraphicsInfo& r_GfxInfo, int r_FanOut);
 		virtual void Operate();	//Calculates the output of the AND gate
 		virtual ActionType getType();
+		virtual string getName();
+		virtual GraphicsInfo getCenter();
 		virtual void Draw(Output* pOut);	//Draws 2-input gate
 
 		virtual int GetOutPinStatus();	//returns status of outputpin if LED, return -1
