@@ -75,12 +75,8 @@ void AddORgate2::Execute()
 	Input* pIn = pManager->GetInput();
 	string label = pIn->GetSrting(pOut);
 
-	GraphicsInfo labelgfx = GInfo;
-	labelgfx.y1 - 20;
-
 	OR2* pA = new OR2(GInfo, AND2_FANOUT);
 	pA->setLabel(label);
-	pOut->DrawString(labelgfx, label);
 	pManager->AddComponent(pA);
 }
 

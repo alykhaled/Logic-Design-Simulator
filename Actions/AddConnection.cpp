@@ -96,7 +96,20 @@ void AddConnection::ReadActionParameters()
 						}
 						else
 						{
-							Gfx.y2 = gfx1.y1 + 25;
+							if (j == 1)
+							{
+								Gfx.y2 = gfx1.y1 + 12;
+							}
+							else if(j == 2)
+							{
+								Gfx.y2 = gfx1.y1 + 12;
+
+							}
+							else
+							{
+								Gfx.y2 = gfx1.y2 - 14;
+
+							}
 
 						}
 						pOut->PrintInt(j);

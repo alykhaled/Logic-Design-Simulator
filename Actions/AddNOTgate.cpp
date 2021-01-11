@@ -21,6 +21,7 @@ void AddNOTgate::ReadActionParameters()
 	pOut->PrintMsg("Inverter Gate: Click to add the gate");
 
 	//Wait for User Input
+	
 	pIn->GetPointClicked(Cx, Cy);
 
 	//Clear Status Bar

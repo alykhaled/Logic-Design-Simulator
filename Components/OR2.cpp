@@ -44,7 +44,7 @@ GraphicsInfo OR2::getCenter()
 void OR2::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
-	pOut->DrawOR2(m_GfxInfo);
+	pOut->DrawOR2(m_GfxInfo,selected);
 }
 
 //returns status of outputpin

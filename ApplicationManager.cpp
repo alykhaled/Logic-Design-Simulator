@@ -4,7 +4,10 @@
 #include "Actions\AddORgate2.h"
 #include "Actions\AddNOR3gate3.h"
 #include "Actions\AddXORgate2.h"
+#include "Actions\AddAND3gate3.h"
 #include "Actions\AddXNORgate2.h"
+#include "Actions\AddXOR3gate3.h"
+#include "Actions\AddNORgate2.h"
 #include "Actions\AddNOTgate.h"
 #include "Actions\AddConnection.h"
 #include "Actions\AddSwitch.h"
@@ -117,15 +120,15 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 
 		case ADD_AND_GATE_3:
-			pAct = new TruthTable(this);
+			pAct = new AddAND3gate3(this);
 			break;
 
 		case ADD_XOR_GATE_3:
-			pAct = new Paste(this);
+			pAct = new AddXOR3gate3(this);
 			break;
 
 		case ADD_NOR_GATE_2:
-			pAct = new TruthTable(this);
+			pAct = new AddNORgate2(this);
 			break;
 		
 		case ADD_Switch:
@@ -152,15 +155,12 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case SELECT:
 			pAct = new Select(this);
 			break;
-		
 		case MOVE:
 			pAct = new Move(this);
 			break;
-
 		case COPY:
 			pAct = new Copy(this);
 			break;
-		
 		case PASTE:
 			pAct = new Paste(this);
 			break;
@@ -182,9 +182,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case EDIT:
 			pAct = new Edit(this);
 			break;
-	
 		case EXIT:
-			///TODO: create ExitAction here
 			break;
 	}
 	if(pAct)

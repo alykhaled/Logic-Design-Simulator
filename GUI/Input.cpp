@@ -14,7 +14,7 @@ void Input::GetPointClicked(int& x, int& y)
 
 string Input::GetSrting(Output* pOut)
 {
-	
+
 	pOut->PrintMsg("Add Label: ");
 	//Remove the remaning keys in the queue
 	pWind->FlushKeyQueue();
@@ -88,12 +88,13 @@ ActionType Input::GetUserAction(Output* pOut)
 			case ITM_XOR2:			return ADD_XOR_GATE_2;
 			case ITM_XNOR2:			return ADD_XNOR_GATE_2;
 			case ITM_NAND2:			return ADD_NAND_GATE_2;
-			case ITM_OR3:			return ADD_OR_GATE_3;
 			case ITM_NOR2:			return ADD_NOR_GATE_2;
+			case ITM_NOR3:			return ADD_NOR_GATE_3;
+			case ITM_AND3:			return ADD_AND_GATE_3;
+			case ITM_XOR3:			return ADD_XOR_GATE_3;
 			case ITM_LED:			return ADD_LED;
 			case ITM_SWITCH:		return ADD_Switch;
 			case ITM_CONNECTION:	return ADD_CONNECTION;
-			case ITM_EXIT:			return EXIT;
 
 			default: return DSN_TOOL;	//A click on empty place in desgin toolbar
 			}
@@ -161,7 +162,7 @@ ActionType Input::GetUserAction(Output* pOut)
 			setLastClick(x, y);
 			return SELECT;	//user want to select/unselect a component
 		}
-		return SIM_MODE;	//This should be changed after creating the compelete simulation bar 
+		return DSN_MODE;	//This should be changed after creating the compelete simulation bar 
 	}
 
 }

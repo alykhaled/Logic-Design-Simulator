@@ -49,7 +49,7 @@ GraphicsInfo Xor2::getCenter()
 void Xor2::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
-	pOut->DrawXOR2(m_GfxInfo);
+	pOut->DrawXOR2(m_GfxInfo,selected);
 }
 
 //returns status of outputpin

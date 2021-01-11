@@ -78,18 +78,16 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 	ITM_XOR2,			//XOR gate item in menu
 	ITM_XNOR2,			//XNOR gate item in menu
 	ITM_NAND2,			//NAND gate item in menu
-	ITM_OR3,			//OR gate item in menu
 	ITM_NOR2,			//NOR gate item in menu
-	ITM_LED,			//LED item in menu
-	ITM_SWITCH,			//Switch item in menu
-	ITM_CONNECTION,		//Wire Connection item in menu
-	ITM_Buff,			//Buffer gate item in menu
 	ITM_AND3,			//AND gate item in menu
 	ITM_NOR3,			//NOR gate item in menu
 	ITM_XOR3,			//XOR gate item in menu
-	ITM_ADD_Label,		//Add Label to a Component, a Connection
-	ITM_EDIT_Label,		//Edit Label of a Component, a Connection
-	ITM_EXIT,			//Exit item
+	ITM_LED,			//LED item in menu
+	ITM_SWITCH,			//Switch item in menu
+	ITM_CONNECTION,		//Wire Connection item in menu
+	//ITM_Buff,			//Buffer gate item in menu
+	//ITM_ADD_Label,		//Add Label to a Component, a Connection
+	//ITM_EDIT_Label,		//Edit Label of a Component, a Connection
 
 	ITM_DSN_CNT			//no. of design menu items ==> This should be the last line in this enum
 };
@@ -113,11 +111,11 @@ enum ActionMenuItem //The items of the Action menu (you should add more items)
 
 	ITM_UNDO,				//Undo the last Action preformed menu item
 	ITM_REDO,				//Redo the last Action canceled menu item
+	ITM_EXIT,			//Exit item
 
 	ITM_ACTION_CNT				//no. of simulation menu items ==> This should be the last line in this enum
 
 };
-
 
 enum SimMenuItem //The items of the simulation menu (you should add more items)
 {

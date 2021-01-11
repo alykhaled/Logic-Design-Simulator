@@ -39,8 +39,8 @@ AddANDgate2::AddANDgate2(ApplicationManager* pApp, AND2* obj) : Action(pApp)
 		Cy = yup;
 	}
 
-	GInfo.x1 = Cx - Len / 2;
-	GInfo.x2 = Cx + Len / 2;
+	GInfo.x1 = Cx - Len  / 2;
+	GInfo.x2 = Cx + Len  / 2;
 	GInfo.y1 = Cy - Wdth / 2;
 	GInfo.y2 = Cy + Wdth / 2;
 	obj->setPosition(GInfo);
@@ -64,6 +64,7 @@ void AddANDgate2::ReadActionParameters()
 
 	//Wait for User Input
 	pIn->GetPointClicked(Cx, Cy);
+	
 
 	//Clear Status Bar
 	pOut->ClearStatusBar();
@@ -73,15 +74,17 @@ void AddANDgate2::ReadActionParameters()
 void AddANDgate2::Execute()
 {
 	Output* pOut = pManager->GetOutput();
-
+	Input* pIn = pManager->GetInput();
 	//Get Center point of the Gate
 	ReadActionParameters();
-	int yup, ybot;
 
 	//Calculate the rectangle Corners
 	int Len = UI.AND2_Width;
 	int Wdth = UI.AND2_Height;
-	
+
+	//Spin the gate to the nearest Line
+	int yup, ybot;
+
 	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
 	
 	yup = Cy / 100;
@@ -108,7 +111,7 @@ void AddANDgate2::Execute()
 	GInfo.y1 = Cy - Wdth / 2;
 	GInfo.y2 = Cy + Wdth / 2;
 
-	Input* pIn = pManager->GetInput();
+	
 	string label = pIn->GetSrting(pOut);
 	AND2 *pA=new AND2(GInfo, AND2_FANOUT); 
 	pA->setLabel(label);

@@ -8,7 +8,8 @@
 */
 
 #include "Gate.h"
-
+#include "fstream"
+using namespace std;
 class AND2:public Gate
 {
 public:
@@ -23,6 +24,7 @@ public:
 	virtual void setInputPinStatus(int n, STATUS s);	//set status of Inputpin # n, to be used by connection class.
 	virtual GraphicsInfo getInputPinPosition(int n);
 	virtual GraphicsInfo getOutputPinPosition();
+	//virtual void save(fstream& fout);
 
 };
 

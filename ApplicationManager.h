@@ -7,6 +7,7 @@
 #include "Actions\Action.h"
 #include "Components\Component.h"
 
+class Input;
 //Main class that manages everything in the application.
 class ApplicationManager
 {
@@ -19,6 +20,8 @@ private:
 	Component* CompList[MaxCompCount];	//List of all Components (Array of pointers)
 	Component* selectedComp;
 	Component* copiedComp;
+	Action* undoAction;
+
 	Output* OutputInterface; //pointer to the Output Clase Interface
 	Input* InputInterface; //pointer to the Input Clase Interface
 

@@ -42,6 +42,7 @@ public:
 	virtual ActionType getType() = 0;
 	virtual int getID();
 	virtual void setID(int id);
+	//virtual void save(ofstream &fout) = 0;
 
 	Component();	
 	

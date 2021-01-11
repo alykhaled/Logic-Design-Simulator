@@ -30,6 +30,8 @@ void AddXNORgate2::ReadActionParameters()
 
 void AddXNORgate2::Execute()
 {
+	Output* pOut = pManager->GetOutput();
+
 	//Get Center point of the Gate
 	ReadActionParameters();
 	int yup, ybot;
@@ -60,7 +62,15 @@ void AddXNORgate2::Execute()
 		GInfo.y1 = yup;
 	}
 	XNOR2* pA = new XNOR2(GInfo, XNOR2_FANOUT);
+	Input* pIn = pManager->GetInput();
+	string label = pIn->GetSrting(pOut);
 
+	GraphicsInfo labelgfx = GInfo;
+	labelgfx.y1 -= 20;
+
+	pA->setLabel(label);
+
+	pOut->DrawString(labelgfx, label);
 	pManager->AddComponent(pA);
 }
 

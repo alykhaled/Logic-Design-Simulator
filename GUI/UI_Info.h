@@ -15,7 +15,7 @@ struct UI_Info	//User Interface Info.
 	MODE AppMode;		//Application Mode (design or simulation)
 
 	static const int	
-		width = 1500, height = 780,	//Window width and height
+		width = 1800, height = 780,	//Window width and height
 		wx = 15, wy = 15,			//Window starting coordinates
 		StatusBarHeight		= 50,		//Status Bar Height
 		ToolBarHeight		= 100,		//Tool Bar Height (distance from top of window to bottom line of toolbar)
@@ -60,7 +60,7 @@ struct UI_Info	//User Interface Info.
 		XOR2_Width = 95,		//XOR2 Gate Image default width
 		XOR2_Height = 50,		//XOR2 Gate Image default height
 
-		XOR3_Width = 97,			//OR Gate Image default width
+		XOR3_Width = 80,			//OR Gate Image default width
 		XOR3_Height = 50,
 
 		OR_Width = 97,			//OR Gate Image default width
@@ -69,7 +69,7 @@ struct UI_Info	//User Interface Info.
 		LED_Width = 38,			//OR Gate Image default width
 		LED_Height = 50,		//OR Gate Image default height
 
-		NOR2_Width = 97,			//OR Gate Image default width
+		NOR2_Width = 94,			//OR Gate Image default width
 		NOR2_Height = 50,		//OR Gate Image default height
 
 		NOR3_Width = 97,			//OR Gate Image default width

@@ -11,17 +11,18 @@ void Paste::ReadActionParameters() {
 
 /* Executes action */
 void Paste::Execute() {
-	Output* pOut = pManager->GetOutput();
 	copiedComp = pManager->GetCopiedComponent();
 	pManager->ExecuteAction(copiedComp->getType());
 }
 
 /* Undo action */
 void Paste::Undo() {
+
 }
 
 /* Redo action */
 void Paste::Redo() {
+
 }
 
 /* Destructor */

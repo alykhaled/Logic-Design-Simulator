@@ -20,7 +20,7 @@ void AddXOR3gate3::ReadActionParameters()
 	Input* pIn = pManager->GetInput();
 
 	//Print Action Message
-	pOut->PrintMsg("2-Input XOR3 Gate: Click to add the gate");
+	pOut->PrintMsg("3-Input XOR3 Gate: Click to add the gate");
 
 	//Wait for User Input
 	pIn->GetPointClicked(Cx, Cy);
@@ -37,8 +37,8 @@ void AddXOR3gate3::Execute()
 	int yup, ybot;
 
 	//Calculate the rectangle Corners
-	int Len = UI.AND2_Width;
-	int Wdth = UI.AND2_Height;
+	int Len = UI.XOR3_Width;
+	int Wdth = UI.XOR3_Height;
 
 	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
 	Output* pOut = pManager->GetOutput();
@@ -67,22 +67,18 @@ void AddXOR3gate3::Execute()
 	GInfo.y1 = Cy - Wdth / 2;
 	GInfo.y2 = Cy + Wdth / 2;
 
-	GraphicsInfo border = GInfo;
+	/*GraphicsInfo border = GInfo;
 	border.x1 -= 3;
 	border.x2 += 3;
 	border.y1 -= 3;
 	border.y2 += 3;
-	//pOut->DrawRectangle(border);
+	pOut->DrawRectangle(border);*/
 
 	Input* pIn = pManager->GetInput();
 	string label = pIn->GetSrting(pOut);
 
-	GraphicsInfo labelgfx = GInfo;
-	labelgfx.y1 - 20;
-
 	XOR3* pA = new XOR3(GInfo, AND2_FANOUT);
 	pA->setLabel(label);
-	pOut->DrawString(labelgfx, label);
 	pManager->AddComponent(pA);
 }
 
