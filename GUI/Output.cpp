@@ -144,6 +144,7 @@ void Output::CreateDesignToolBar() const
 	MenuActionItemImages[ITM_SIM]	= "Images\\Simulation toolbar\\SIM_SIMULATE.jpg";
 	MenuActionItemImages[ITM_DEL]	= "Images\\Simulation toolbar\\SIM_DELETE.jpg";
 	MenuActionItemImages[ITM_MOVE]	= "Images\\Simulation toolbar\\SIM_MOVE.jpg";
+	MenuActionItemImages[ITM_EDIT]	= "Images\\Simulation toolbar\\SIM_EDIT.jpg";
 	MenuActionItemImages[ITM_COPY]	= "Images\\Simulation toolbar\\SIM_COPY.jpg";
 	MenuActionItemImages[ITM_PASTE]	= "Images\\Simulation toolbar\\SIM_PASTE.jpg";
 	MenuActionItemImages[ITM_CUT]	= "Images\\Simulation toolbar\\SIM_CUT.jpg";
@@ -152,9 +153,8 @@ void Output::CreateDesignToolBar() const
 	MenuActionItemImages[ITM_UNDO]	= "Images\\Simulation toolbar\\SIM_UNDO.jpg";
 	MenuActionItemImages[ITM_REDO]	= "Images\\Simulation toolbar\\SIM_REDO.jpg";
 
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 11; i++)
 		pWind->DrawImage(MenuActionItemImages[i], i * UI.ActionToolBarWidth, 0, UI.ActionToolBarWidth, UI.ActionToolBarHeight);
-
 
 	//Draw a line under the toolbar
 	pWind->SetPen(BLACK, 3);
@@ -200,7 +200,7 @@ void Output::DrawRectangle(GraphicsInfo r_GfxInfo)
 {
 	//Draw AND2 Gate at Gfx_Info (1st corner)
 	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
-	pWind->SetPen(RED, 3);
+	pWind->SetPen(BLACK, 3);
 	pWind->DrawRectangle(r_GfxInfo.x1, r_GfxInfo.y1, r_GfxInfo.x2, r_GfxInfo.y2);
 
 }

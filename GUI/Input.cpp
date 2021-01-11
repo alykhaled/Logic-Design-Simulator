@@ -112,6 +112,7 @@ ActionType Input::GetUserAction(Output* pOut)
 			case ITM_SIM:		return SIM_MODE;
 			case ITM_DEL:		return DEL;
 			case ITM_MOVE:		return MOVE;
+			case ITM_EDIT:		return EDIT;
 			case ITM_COPY:		return COPY;
 			case ITM_PASTE:		return PASTE;
 			case ITM_CUT:		return CUT;
