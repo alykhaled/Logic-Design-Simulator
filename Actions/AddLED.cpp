@@ -58,7 +58,7 @@ void AddLED::ReadActionParameters()
 	Input* pIn = pManager->GetInput();
 
 	//Print Action Message
-	pOut->PrintMsg("2-Input OR Gate: Click to add the gate");
+	pOut->PrintMsg("LED");
 
 	//Wait for User Input
 	pIn->GetPointClicked(Cx, Cy);

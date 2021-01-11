@@ -26,7 +26,7 @@ void Select::Execute()
 			GraphicsInfo gfx = pManager->getComponents()[i]->getPosition();
 			if (dynamic_cast<Connection*>(pManager->getComponents()[i]))
 			{
-				if (gfx.x1 <= gfx1.x1 && gfx.x2 >= gfx1.x1 && (gfx.y1 - 5) <= gfx1.y1 && (gfx.y2 + 5) >= gfx1.y1)
+				if (gfx.x1 <= gfx1.x1 && gfx.x2 >= gfx1.x1 && (gfx.y1 - 15) <= gfx1.y1 && (gfx.y2 + 15) >= gfx1.y1)
 				{
 					pManager->getComponents()[i]->Select();
 					pManager->setSelectedComponent(pManager->getComponents()[i]);

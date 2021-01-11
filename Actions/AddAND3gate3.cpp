@@ -20,7 +20,7 @@ void AddAND3gate3::ReadActionParameters()
 	Output* pOut = pManager->GetOutput();
 
 	//Print Action Message
-	pOut->PrintMsg("2-Input AND3 Gate: Click to add the gate");
+	pOut->PrintMsg("3-Input AND3 Gate: Click to add the gate");
 
 	//Wait for User Input
 	pIn->GetPointClicked(Cx, Cy);

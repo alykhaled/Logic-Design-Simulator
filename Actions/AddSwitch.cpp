@@ -67,7 +67,7 @@ void AddSwitch::ReadActionParameters()
 	Input* pIn = pManager->GetInput();
 
 	//Print Action Message
-	pOut->PrintMsg("2-Input OR Gate: Click to add the gate");
+	pOut->PrintMsg("Switch");
 
 	//Wait for User Input
 	pIn->GetPointClicked(Cx, Cy);

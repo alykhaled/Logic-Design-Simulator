@@ -18,7 +18,7 @@ void Move::ReadActionParameters()
 	Input* pIn = pManager->GetInput();
 
 	//Print Action Message
-	pOut->PrintMsg("2-Input OR Gate: Click to add the gate");
+	pOut->PrintMsg("Move Action");
 	//Wait for User Input
 	//pIn->GetPointClicked(Cx, Cy);
 	//if (pManager->getComponetsNumber() > 0)
