@@ -30,6 +30,8 @@ void AddXORgate2::ReadActionParameters()
 
 void AddXORgate2::Execute()
 {
+	Output* pOut = pManager->GetOutput();
+
 	//Get Center point of the Gate
 	ReadActionParameters();
 	int yup, ybot;
@@ -37,9 +39,16 @@ void AddXORgate2::Execute()
 	//Calculate the rectangle Corners
 	int Len = UI.AND2_Width;
 	int Wdth = UI.AND2_Height;
-
+	for (int i = 0; i < pManager->getComponetsNumber(); i++)
+	{
+		GraphicsInfo gfx = pManager->getComponents()[i]->getPosition();
+		if (gfx.x1 <= Cx && gfx.x2 >= Cx && gfx.y1 <= Cy && gfx.y2 >= Cy)
+		{
+			pOut->PrintMsg("Invaild Position");
+			return;
+		}
+	}
 	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
-	Output* pOut = pManager->GetOutput();
 
 	yup = Cy / 100;
 	yup *= 100;

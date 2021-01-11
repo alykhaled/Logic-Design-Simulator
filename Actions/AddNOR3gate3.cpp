@@ -31,10 +31,20 @@ void AddNOR3gate3::ReadActionParameters()
 
 void AddNOR3gate3::Execute()
 {
+	Output* pOut = pManager->GetOutput();
+
 	//Get Center point of the Gate
 	ReadActionParameters();
 	int yup, ybot;
-
+	for (int i = 0; i < pManager->getComponetsNumber(); i++)
+	{
+		GraphicsInfo gfx = pManager->getComponents()[i]->getPosition();
+		if (gfx.x1 <= Cx && gfx.x2 >= Cx && gfx.y1 <= Cy && gfx.y2 >= Cy)
+		{
+			pOut->PrintMsg("Invaild Position");
+			return;
+		}
+	}
 	//Calculate the rectangle Corners
 	int Len = UI.NOR3_Width;
 	int Wdth = UI.NOR3_Height;

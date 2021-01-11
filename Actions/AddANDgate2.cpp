@@ -77,7 +77,15 @@ void AddANDgate2::Execute()
 	Input* pIn = pManager->GetInput();
 	//Get Center point of the Gate
 	ReadActionParameters();
-
+	for (int i = 0; i < pManager->getComponetsNumber(); i++)
+	{
+		GraphicsInfo gfx = pManager->getComponents()[i]->getPosition();
+		if (gfx.x1 <= Cx && gfx.x2 >= Cx && gfx.y1 <= Cy && gfx.y2 >= Cy)
+		{
+			pOut->PrintMsg("Invaild Position");
+			return;
+		}
+	}
 	//Calculate the rectangle Corners
 	int Len = UI.AND2_Width;
 	int Wdth = UI.AND2_Height;
