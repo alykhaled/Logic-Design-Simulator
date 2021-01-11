@@ -28,20 +28,13 @@ ActionType AND2::getType()
 	return ADD_AND_GATE_2;
 }
 
-GraphicsInfo AND2::getCenter()
-{
-	GraphicsInfo gfx = m_GfxInfo;
-	gfx.x1 += UI.AND2_Width / 2;
-	gfx.y1 += UI.AND2_Height / 2;
-	return gfx;
-}
-
 // Function Draw
 // Draws 2-input AND gate
 void AND2::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
 	pOut->DrawAND2(m_GfxInfo,selected);
+
 }
 
 //returns status of outputpin

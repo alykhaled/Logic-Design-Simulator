@@ -11,33 +11,9 @@ GraphicsInfo Component::getPosition()
 	return m_GfxInfo;
 }
 
-void Component::setPosition(int Cx, int Cy)
+void Component::setPosition(GraphicsInfo GfxInfo)
 {
-	//Gfx info to be used to construct the AND2 gate
-	int yup, ybot;
-	yup = Cy / 100;
-	yup *= 100;
-	yup += 30;
-
-	ybot = Cy / 100;
-	ybot *= 100;
-	ybot += 80;
-
-	if (abs((Cy - yup)) > abs(Cy - ybot))
-	{
-		m_GfxInfo.y1 = ybot;
-		Cy = ybot;
-	}
-	else
-	{
-		m_GfxInfo.y1 = yup;
-		Cy = yup;
-	}
-
-	m_GfxInfo.x1 = Cx - 50 / 2;
-	m_GfxInfo.x2 = Cx + 50 / 2;
-	m_GfxInfo.y1 = Cy - 83 / 2;
-	m_GfxInfo.y2 = Cy + 83 / 2;
+	this->m_GfxInfo = GfxInfo;
 }
 
 void Component::setLabel(string label)
@@ -49,6 +25,30 @@ string Component::getLabel()
 {
 	return m_Label;
 }
+
+GraphicsInfo Component::getCenter()
+{
+	GraphicsInfo gfx;
+	gfx.x1 = centerx;
+	gfx.y1 = centery;
+
+	return gfx;
+}
+
+void Component::DrawLabel(Output* out)
+{
+	GraphicsInfo labelPos = m_GfxInfo;
+	labelPos.y1 -= 20;
+	out->DrawString(labelPos, m_Label);
+	
+}
+
+void Component::setCenter(int cx,int cy)
+{
+	centerx = cx;
+	centery = cy;
+}
+
 
 void Component::Select()
 {

@@ -17,6 +17,8 @@
 #include "Actions\Probing.h"
 #include "Actions\Move.h"
 #include "Actions\Save.h"
+#include "Actions\Load.h"
+#include "Actions\Edit.h"
 
 
 
@@ -174,6 +176,12 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case SAVE:
 			pAct = new Save(this);
 			break;
+		case LOAD:
+			pAct = new Load(this);
+			break;
+		case EDIT:
+			pAct = new Edit(this);
+			break;
 	
 		case EXIT:
 			///TODO: create ExitAction here
@@ -190,8 +198,11 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 void ApplicationManager::UpdateInterface()
 {
-		for(int i=0; i<CompCount; i++)
-			CompList[i]->Draw(OutputInterface);
+	for (int i = 0; i < CompCount; i++)
+	{
+		CompList[i]->Draw(OutputInterface);
+		CompList[i]->DrawLabel(OutputInterface);
+	}
 
 }
 

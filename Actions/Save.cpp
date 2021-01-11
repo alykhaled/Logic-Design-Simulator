@@ -18,13 +18,17 @@ void Save::ReadActionParameters() {
 /* Executes action */
 void Save::Execute()
 {
-	Output* pOut = pManager->GetOutput();
-	Input* pIn = pManager->GetInput();
-
-
 	fout.open("savedFolder.txt");
+	int numOfGates = 0;
+	for (int i = 0; i < pManager->getComponetsNumber(); i++)
+	{
+		if (!dynamic_cast<Connection*>(pManager->getComponents()[i]))
+		{
+			numOfGates++;
+		}
+	}
 
-	fout << pManager->getComponetsNumber() << endl;
+	fout << numOfGates << endl;
 
 	for (int i = 0; i < pManager->getComponetsNumber(); i++) {
 		if (!dynamic_cast<Connection*>(pManager->getComponents()[i]))
@@ -85,7 +89,7 @@ void Save::Execute()
 			default:
 				break;
 			}
-			fout << typecomp << " " << pManager->getComponents()[i]->getID() << " " << pManager->getComponents()[i]->getLabel() << " " << center.x1 << " " << center.y1 << endl;
+			fout << typecomp << " " << pManager->getComponents()[i]->getID() << " " << ((pManager->getComponents()[i]->getLabel() == "") ? "$" : pManager->getComponents()[i]->getLabel()) << " " << center.x1 << " " << center.y1 << endl;
 		}
 	}
 
@@ -101,7 +105,8 @@ void Save::Execute()
 			fout << srcID << " " << DesID << " " << conn->getDestPin()->getPinNum() << endl;
 		}
 	}
-	fout << -1 << endl;
+	fout << "-1" << endl;
+	pManager->GetOutput()->PrintMsg("File saved successfully...");
 	fout.close();
 
 }

@@ -17,6 +17,7 @@ private:
 
 public:
 	AddConnection(ApplicationManager* pApp);
+	AddConnection(ApplicationManager* pApp,GraphicsInfo Gfx, OutputPin* SrcPin, InputPin* DesPin,int pinnum);
 	virtual ~AddConnection(void);
 
 	//Reads parameters required for action to execute

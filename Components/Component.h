@@ -15,6 +15,7 @@ private:
 	string m_Label;
 protected:
 	GraphicsInfo m_GfxInfo;	//The parameters required to draw a component
+	int centerx, centery;
 	bool selected = false;
 	bool on = false;
 	int id;
@@ -23,7 +24,7 @@ public:
 	virtual void Operate() = 0;	//Calculates the output according to the inputs
 	virtual void Draw(Output* pOut) = 0;	//for each component to Draw itself
 	GraphicsInfo getPosition();				//Get the coordinates
-	void setPosition(int Cx, int Cy);				//Get the coordinates
+	void setPosition(GraphicsInfo GfxInfo);				//Get the coordinates
 	virtual int GetOutPinStatus()=0;	//returns status of outputpin if LED, return -1
 	virtual int GetInputPinStatus(int n)=0;	//returns status of Inputpin # n if SWITCH, return -1
 	virtual GraphicsInfo getInputPinPosition(int n) = 0;
@@ -34,7 +35,9 @@ public:
 	virtual int getNumInputs() = 0;
 	void setLabel(string label);
 	string getLabel();
-	virtual GraphicsInfo getCenter() = 0;
+	virtual void DrawLabel(Output* out);
+	virtual GraphicsInfo getCenter();
+	virtual void setCenter(int cx, int cy);
 	virtual void Select();
 	virtual ActionType getType() = 0;
 	virtual int getID();

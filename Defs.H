@@ -35,6 +35,7 @@ enum ActionType
 	COPY,		// copy component
 	CUT,		// cut component
 	PASTE,		// paste component
+	EDIT,		// paste component
 
 	SAVE,		//Save the whole Circuit to a file
 	LOAD,		//Load a Circuit from a file
@@ -101,7 +102,8 @@ enum ActionMenuItem //The items of the Action menu (you should add more items)
 
 	ITM_DEL,				//Delete a Component, a Connection menu item
 	ITM_MOVE,				//Move a Component, a Connection menu item
-	
+	ITM_EDIT,				//EDIT a Component, a Connection menu item
+
 	ITM_COPY,
 	ITM_PASTE,
 	ITM_CUT,
@@ -132,20 +134,20 @@ enum SimMenuItem //The items of the simulation menu (you should add more items)
 //assume fan out is 5 for now it can be read from the user or can be predefined as const
 enum FANOUT
 {
-	AND2_FANOUT			= 5,	//Default fan out of 2-input AND gate
-	Buff_FANOUT			= 5,
-	INV_FANOUT			= 5,
-	OR2_FANOUT			= 5,
-	NAND2_FANOUT		= 5,
-	NOR2_FANOUT			= 5,
-	XOR2_FANOUT			= 5,
-	XNOR2_FANOUT		= 5,
-	AND3_FANOUT			= 5,
-	NOR3_FANOUT			= 5,
-	XOR3_FANOUT			= 5,
-	Switch_FANOUT		= 5,
-	LED_FANOUT			= 5,
-	CONNECTION_FANOUT	= 5
+	AND2_FANOUT = 5,	//Default fan out of 2-input AND gate
+	Buff_FANOUT = 5,
+	INV_FANOUT = 5,
+	OR2_FANOUT = 5,
+	NAND2_FANOUT = 5,
+	NOR2_FANOUT = 5,
+	XOR2_FANOUT = 5,
+	XNOR2_FANOUT = 5,
+	AND3_FANOUT = 5,
+	NOR3_FANOUT = 5,
+	XOR3_FANOUT = 5,
+	Switch_FANOUT = 5,
+	LED_FANOUT = 5,
+	CONNECTION_FANOUT = 5
 };
 
 //A structure to contain drawing parameters for each component

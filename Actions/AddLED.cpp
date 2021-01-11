@@ -5,6 +5,46 @@ AddLED::AddLED(ApplicationManager* pApp) :Action(pApp)
 {
 
 }
+AddLED::AddLED(ApplicationManager* pApp , LED* obj) :Action(pApp)
+{
+	int yup, ybot;
+
+	//Calculate the rectangle Corners
+	int Len = UI.LED_Width;
+	int Wdth = UI.LED_Height;
+
+	GraphicsInfo centerPos;
+	centerPos = obj->getCenter();
+	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
+	Cx = centerPos.x1;
+	Cy = centerPos.y1;
+
+	yup = Cy / 100;
+	yup *= 100;
+	yup += 30;
+
+	ybot = Cy / 100;
+	ybot *= 100;
+	ybot += 80;
+
+	if (abs((Cy - yup)) > abs(Cy - ybot))
+	{
+		GInfo.y1 = ybot;
+		Cy = ybot;
+	}
+	else
+	{
+		GInfo.y1 = yup;
+		Cy = yup;
+	}
+
+	GInfo.x1 = Cx - Len / 2;
+	GInfo.x2 = Cx + Len / 2;
+	GInfo.y1 = Cy - Wdth / 2;
+	GInfo.y2 = Cy + Wdth / 2;
+	obj->setPosition(GInfo);
+	pManager->AddComponent(obj);
+}
 
 AddLED::~AddLED(void)
 {

@@ -20,17 +20,18 @@ string Switch::getName()
 {
 	return "Switch";
 }
-GraphicsInfo Switch::getCenter()
-{
-	GraphicsInfo gfx = m_GfxInfo;
-	gfx.x1 += UI.AND2_Height / 2;
-	gfx.y1 += UI.AND2_Height / 2;
-	return gfx;
-}
+
 // Function Draw
 // Draws 2-input AND gate
 void Switch::Draw(Output* pOut)
 {
+	/*GraphicsInfo border = m_GfxInfo;
+	border.x1 -= 5;
+	border.x2 += 5;
+	border.y1 -= 5;
+	border.y2 += 5;
+	pOut->DrawRectangle(border);*/
+
 	if (UI.AppMode == DESIGN)
 	{
 		pOut->DrawSwitch(m_GfxInfo, selected, false);

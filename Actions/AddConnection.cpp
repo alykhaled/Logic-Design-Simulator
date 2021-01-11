@@ -8,6 +8,16 @@ AddConnection::AddConnection(ApplicationManager* pApp) : Action(pApp)
 
 }
 
+AddConnection::AddConnection(ApplicationManager* pApp, GraphicsInfo Gfx, OutputPin* SrcPin, InputPin* DesPin, int pinnum) : Action(pApp)
+{
+	if (SrcPin != NULL && DesPin != NULL)
+	{
+		Connection* connection = new Connection(Gfx, SrcPin, DesPin);;
+		SrcPin->ConnectTo(connection);
+		pManager->AddComponent(connection);
+	}
+}
+
 AddConnection::~AddConnection(void)
 {
 

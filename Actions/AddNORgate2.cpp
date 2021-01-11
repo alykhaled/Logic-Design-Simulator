@@ -8,6 +8,11 @@ AddNORgate2::AddNORgate2(ApplicationManager* pApp) :Action(pApp)
 
 }
 
+AddNORgate2::AddNORgate2(ApplicationManager* pApp, NOR2* obj) : Action(pApp)
+{
+
+}
+
 AddNORgate2::~AddNORgate2(void)
 {
 

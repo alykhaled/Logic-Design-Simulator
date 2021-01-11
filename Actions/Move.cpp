@@ -53,7 +53,7 @@ void Move::ReadActionParameters()
 	while (pIn->GetMouseState(LEFT_BUTTON, x, y) == BUTTON_DOWN) {
 
 
-		if (x != prvX || y != prvY) {
+		/*if (x != prvX || y != prvY) {
 
 			dx = x - gfx.x1;
 			dy = y - gfx.y1;
@@ -66,7 +66,7 @@ void Move::ReadActionParameters()
 		pOut->ClearDrawingArea();
 
 		pOut->UpdateScreen();
-		pManager->UpdateInterface();
+		pManager->UpdateInterface();*/
 	}
 	//Clear Status Bar
 	pOut->ClearStatusBar();

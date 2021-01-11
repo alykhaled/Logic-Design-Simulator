@@ -65,11 +65,11 @@ void AddORgate2::Execute()
 	GInfo.y1 = Cy - Wdth / 2;
 	GInfo.y2 = Cy + Wdth / 2;
 
-	GraphicsInfo border = GInfo;
+	/*GraphicsInfo border = GInfo;
 	border.x1 -= 3;
 	border.x2 += 3;
 	border.y1 -= 3;
-	border.y2 += 3;
+	border.y2 += 3;*/
 	//pOut->DrawRectangle(border);
 
 	Input* pIn = pManager->GetInput();

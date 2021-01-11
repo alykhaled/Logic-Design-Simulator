@@ -10,6 +10,7 @@ class AddLED : public Action
 		int x1, y1, x2, y2;	//Two corners of the rectangluar area
 	public:
 		AddLED(ApplicationManager* pApp);
+		AddLED(ApplicationManager* pApp, LED* obj);
 		virtual ~AddLED(void);
 
 		//Reads parameters required for action to execute

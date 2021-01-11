@@ -140,6 +140,8 @@
     <ClCompile Include="Actions\AddXORgate2.cpp" />
     <ClCompile Include="Actions\AddConnection.cpp" />
     <ClCompile Include="Actions\Copy.cpp" />
+    <ClCompile Include="Actions\Edit.cpp" />
+    <ClCompile Include="Actions\Load.cpp" />
     <ClCompile Include="Actions\Paste.cpp" />
     <ClCompile Include="Actions\Save.cpp" />
     <ClCompile Include="Components\AND3.cpp" />
@@ -224,6 +226,8 @@
     <ClInclude Include="Actions\AddXORgate2.h" />
     <ClInclude Include="Actions\AddConnection.h" />
     <ClInclude Include="Actions\Copy.h" />
+    <ClInclude Include="Actions\Edit.h" />
+    <ClInclude Include="Actions\Load.h" />
     <ClInclude Include="Actions\Paste.h" />
     <ClInclude Include="Actions\Save.h" />
     <ClInclude Include="Components\AND3.h" />
