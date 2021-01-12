@@ -60,7 +60,7 @@ void AddBUFFERgate::ReadActionParameters()
 	Input* pIn = pManager->GetInput();
 
 	//Print Action Message
-	pOut->PrintMsg("2-Input AND Gate: Click to add the gate");
+	pOut->PrintMsg("Buffer: Click to add the gate");
 
 	//Wait for User Input
 	pIn->GetPointClicked(Cx, Cy);
