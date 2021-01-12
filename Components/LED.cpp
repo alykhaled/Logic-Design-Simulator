@@ -90,8 +90,3 @@ void LED::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPin.setStatus(s);
 }
-void LED::savefunc(ofstream& fout)
-{
-	fout << "LED" << " " << id << " " << ((getLabel() == "") ? "$" : getLabel()) << " " << centerx <<" "<< centery << endl;
-
-}

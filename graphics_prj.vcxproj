@@ -144,7 +144,6 @@
     <ClCompile Include="Actions\Load.cpp" />
     <ClCompile Include="Actions\Paste.cpp" />
     <ClCompile Include="Actions\Save.cpp" />
-    <ClCompile Include="Actions\AddBUFFERgate.cpp" />
     <ClCompile Include="Components\AND3.cpp" />
     <ClCompile Include="Components\BUFFER.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp" />
@@ -196,7 +195,7 @@
     <ClCompile Include="Components\Switch.cpp" />
     <ClCompile Include="Components\XNOR2.cpp" />
     <ClCompile Include="Components\XOR3.cpp" />
-    <ClCompile Include="Actions\DeleteComp.cpp" />
+    <ClCompile Include="Actions\Delete.cpp" />
     <ClCompile Include="GUI\Input.cpp" />
     <ClCompile Include="GUI\Output.cpp" />
     <ClCompile Include="main.cpp" />
@@ -231,7 +230,6 @@
     <ClInclude Include="Actions\Load.h" />
     <ClInclude Include="Actions\Paste.h" />
     <ClInclude Include="Actions\Save.h" />
-    <ClInclude Include="Actions\AddBUFFERgate.h" />
     <ClInclude Include="Components\AND3.h" />
     <ClInclude Include="Components\BUFFER.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
@@ -269,7 +267,7 @@
     <ClInclude Include="Components\XNOR2.h" />
     <ClInclude Include="Components\XOR3.h" />
     <ClInclude Include="Defs.H" />
-    <ClInclude Include="Actions\DeleteComp.h" />
+    <ClInclude Include="Actions\Delete.h" />
     <ClInclude Include="GUI\Input.h" />
     <ClInclude Include="GUI\Output.h" />
     <ClInclude Include="GUI\UI_Info.h" />

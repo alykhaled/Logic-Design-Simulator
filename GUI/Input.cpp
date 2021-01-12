@@ -84,7 +84,6 @@ ActionType Input::GetUserAction(Output* pOut)
 			{
 			case ITM_AND2:			return ADD_AND_GATE_2;
 			case ITM_INV:			return ADD_INV;
-			case ITM_Buffer:		return ADD_Buff;
 			case ITM_OR2:			return ADD_OR_GATE_2;
 			case ITM_XOR2:			return ADD_XOR_GATE_2;
 			case ITM_XNOR2:			return ADD_XNOR_GATE_2;

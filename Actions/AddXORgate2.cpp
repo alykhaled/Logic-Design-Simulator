@@ -6,48 +6,6 @@ AddXORgate2::AddXORgate2(ApplicationManager* pApp) :Action(pApp)
 
 }
 
-AddXORgate2::AddXORgate2(ApplicationManager* pApp, Xor2* obj):Action(pApp)
-{
-	int yup, ybot;
-
-	//Calculate the rectangle Corners
-	int Len = UI.AND2_Width;
-	int Wdth = UI.AND2_Height;
-
-	GraphicsInfo centerPos;
-	centerPos = obj->getCenter();
-	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
-	Cx = centerPos.x1;
-	Cy = centerPos.y1;
-
-	yup = Cy / 100;
-	yup *= 100;
-	yup += 30;
-
-	ybot = Cy / 100;
-	ybot *= 100;
-	ybot += 80;
-
-	if (abs((Cy - yup)) > abs(Cy - ybot))
-	{
-		GInfo.y1 = ybot;
-		Cy = ybot;
-	}
-	else
-	{
-		GInfo.y1 = yup;
-		Cy = yup;
-	}
-
-	GInfo.x1 = Cx - Len / 2;
-	GInfo.x2 = Cx + Len / 2;
-	GInfo.y1 = Cy - Wdth / 2;
-	GInfo.y2 = Cy + Wdth / 2;
-	obj->setPosition(GInfo);
-
-	pManager->AddComponent(obj);
-}
-
 AddXORgate2::~AddXORgate2(void)
 {
 
@@ -60,7 +18,7 @@ void AddXORgate2::ReadActionParameters()
 	Input* pIn = pManager->GetInput();
 
 	//Print Action Message
-	pOut->PrintMsg("2-Input AND Gate: Click to add the gate");
+	pOut->PrintMsg("2-Input XOR Gate: Click to add the gate");
 
 	//Wait for User Input
 	pIn->GetPointClicked(Cx, Cy);
@@ -72,6 +30,8 @@ void AddXORgate2::ReadActionParameters()
 
 void AddXORgate2::Execute()
 {
+	Output* pOut = pManager->GetOutput();
+
 	//Get Center point of the Gate
 	ReadActionParameters();
 	int yup, ybot;
@@ -79,9 +39,16 @@ void AddXORgate2::Execute()
 	//Calculate the rectangle Corners
 	int Len = UI.AND2_Width;
 	int Wdth = UI.AND2_Height;
-
+	for (int i = 0; i < pManager->getComponetsNumber(); i++)
+	{
+		GraphicsInfo gfx = pManager->getComponents()[i]->getPosition();
+		if (gfx.x1 <= Cx && gfx.x2 >= Cx && gfx.y1 <= Cy && gfx.y2 >= Cy)
+		{
+			pOut->PrintMsg("Invaild Position");
+			return;
+		}
+	}
 	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
-	Output* pOut = pManager->GetOutput();
 
 	yup = Cy / 100;
 	yup *= 100;

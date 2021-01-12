@@ -10,7 +10,6 @@ private:
 	int x1, y1, x2, y2;	//Two corners of the rectangluar area
 public:
 	AddAND3gate3(ApplicationManager* pApp);
-	AddAND3gate3(ApplicationManager* pApp, AND3* obj);
 	virtual ~AddAND3gate3(void);
 
 	//Reads parameters required for action to execute

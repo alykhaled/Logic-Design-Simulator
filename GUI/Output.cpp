@@ -127,7 +127,7 @@ void Output::CreateDesignToolBar() const
 	string MenuItemImages[ITM_DSN_CNT];
 	MenuItemImages[ITM_AND2]		= "images\\Menu\\Menu_AND2.jpg";
 	MenuItemImages[ITM_INV]			= "images\\Menu\\Menu_NOT.jpg";
-	MenuItemImages[ITM_Buffer]		= "images\\Menu\\Menu_Buffer.jpg";
+	//MenuItemImages[ITM_Buff]		= "images\\Menu\\Menu_BUFFER.jpg";
 	MenuItemImages[ITM_OR2]			= "images\\Menu\\Menu_OR2.jpg";
 	MenuItemImages[ITM_XOR2]		= "images\\Menu\\Menu_XOR2.jpg";
 	MenuItemImages[ITM_XNOR2]		= "images\\Menu\\Menu_XNOR2.jpg";
@@ -233,7 +233,7 @@ void Output::DrawOR2(GraphicsInfo r_GfxInfo, bool selected) const
 
 	//Draw Or2 Gate at Gfx_Info (1st corner)
 	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
-	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.OR_Width, UI.OR_Height);
+	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.NOT_Width, UI.NOT_Height);
 }
 void Output::DrawINV(GraphicsInfo r_GfxInfo, bool selected) const
 {
@@ -250,12 +250,12 @@ void Output::DrawBuff(GraphicsInfo r_GfxInfo, bool selected) const
 {
 	string GateImage;
 	if (selected)
-		GateImage = "Images\\Gates_HI\\Gate_Buffer.jpg";
+		GateImage = "Images\\Gates_HI\\Gate_Buff.jpg";
 	else
-		GateImage = "Images\\Gates\\Gate_Buffer.jpg";
+		GateImage = "Images\\Gates\\Gate_Buff.jpg";
 	//Draw Buff. at Gfx_Info (3rd corner)
 	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
-	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.BUFFER_Width, UI.BUFFER_Height);
+	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
 }
 void Output::DrawNAND2(GraphicsInfo r_GfxInfo, bool selected) const
 {
@@ -277,7 +277,7 @@ void Output::DrawNOR2(GraphicsInfo r_GfxInfo, bool selected) const
 		GateImage = "Images\\Gates\\Gate_NOR2.jpg";
 	//Draw NORR2 Gate at Gfx_Info (5th corner)
 	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
-	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.NOR2_Width, UI.NOR2_Height);
+	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
 }
 void Output::DrawXOR2(GraphicsInfo r_GfxInfo, bool selected) const
 {
@@ -310,7 +310,7 @@ void Output::DrawAND3(GraphicsInfo r_GfxInfo, bool selected) const
 		GateImage = "Images\\Gates\\Gate_AND3.jpg";
 	//Draw AND3 Gate at Gfx_Info (6th corner)
 	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
-	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND3_Width, UI.AND3_Height);
+	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
 }
 void Output::DrawNOR3(GraphicsInfo r_GfxInfo, bool selected) const
 {
@@ -321,7 +321,7 @@ void Output::DrawNOR3(GraphicsInfo r_GfxInfo, bool selected) const
 		GateImage = "Images\\Gates\\Gate_NOR3.jpg";
 	//Draw NOR3 Gate at Gfx_Info (6th corner)
 	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
-	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.NOR3_Width, UI.NOR3_Height);
+	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
 }
 void Output::DrawXOR3(GraphicsInfo r_GfxInfo, bool selected) const
 {
@@ -332,7 +332,7 @@ void Output::DrawXOR3(GraphicsInfo r_GfxInfo, bool selected) const
 		GateImage = "Images\\Gates\\Gate_XOR3.jpg";
 	//Draw XOR3 Gate at Gfx_Info (6th corner)
 	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
-	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.XOR3_Width, UI.XOR3_Height);
+	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
 }
 void Output::DrawSwitch(GraphicsInfo r_GfxInfo, bool selected, bool on) const
 {

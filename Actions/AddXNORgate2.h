@@ -9,7 +9,6 @@ private:
 	int x1, y1, x2, y2;	//Two corners of the rectangluar area
 public:
 	AddXNORgate2(ApplicationManager* pApp);
-	AddXNORgate2(ApplicationManager* pApp, XNOR2* obj);
 	virtual ~AddXNORgate2(void);
 
 	//Reads parameters required for action to execute

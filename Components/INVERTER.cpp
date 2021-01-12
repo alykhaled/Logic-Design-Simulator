@@ -76,8 +76,3 @@ void INVERTER::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n - 1].setStatus(s);
 }
-void INVERTER::savefunc(ofstream& fout)
-{
-	fout << "INVERTER" << " " << id << " " << ((getLabel() == "") ? "$" : getLabel()) << " " << centerx<<" "<< centery << endl;
-
-}

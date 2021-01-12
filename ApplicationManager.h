@@ -48,15 +48,11 @@ public:
 	Output* GetOutput();
 	Input* GetInput();
 
-	void Delete();
-
 	//Adds a new component to the list of components
 	void AddComponent(Component* pComp);
 
 	Component* getSelectedComponent();
 	void setSelectedComponent(Component* selectedComp);
-
-	void Delete();
 
 	Component** getComponents();
 	int getComponetsNumber();

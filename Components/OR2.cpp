@@ -44,7 +44,7 @@ GraphicsInfo OR2::getCenter()
 void OR2::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
-	pOut->DrawOR2(m_GfxInfo);
+	pOut->DrawOR2(m_GfxInfo,selected);
 }
 
 //returns status of outputpin
@@ -87,9 +87,4 @@ GraphicsInfo OR2::getOutputPinPosition()
 void OR2::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n - 1].setStatus(s);
-}
-void OR2::savefunc(ofstream& fout)
-{
-	fout << "OR2" << " " << id << " " << ((getLabel() == "") ? "$" : getLabel()) << " " << centerx<<" " << centery << endl;
-
 }

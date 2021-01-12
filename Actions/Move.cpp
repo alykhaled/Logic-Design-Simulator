@@ -18,7 +18,7 @@ void Move::ReadActionParameters()
 	Input* pIn = pManager->GetInput();
 
 	//Print Action Message
-	pOut->PrintMsg("2-Input OR Gate: Click to add the gate");
+	pOut->PrintMsg("Move Action");
 	//Wait for User Input
 	//pIn->GetPointClicked(Cx, Cy);
 	//if (pManager->getComponetsNumber() > 0)
@@ -45,31 +45,50 @@ void Move::ReadActionParameters()
 
 
 	//}
-	GraphicsInfo gfx = pIn->getLastClick();
+	//GraphicsInfo gfx = pIn->getLastClick();
+	//int mStartX,mStartY;
+	//GraphicsInfo last = pIn->getLastClick();
+	//mStartX = last.x1;
+	//mStartY = last.y1;
+	//int x = mStartX, prvX = x, dx = 0;
+	//int y = mStartY, prvY = y, dy = 0;
+	//pIn->GetButtonState(LEFT_BUTTON, x, y);
 
-	int x = gfx.x1, prvX = x, dx = 0;
-	int y = gfx.y1, prvY = y, dy = 0;
+	//int minX = 0;
+	//int maxX = UI.width;
+	//int minY = UI.ToolBarHeight + 100;
+	//int maxY = UI.height - UI.StatusBarHeight;
 
-	while (pIn->GetMouseState(LEFT_BUTTON, x, y) == BUTTON_DOWN) {
 
+	//// Reading the mouse input from the user
+	//while (pIn->GetButtonState(LEFT_BUTTON, x, y) == BUTTON_DOWN) {
 
-		/*if (x != prvX || y != prvY) {
+	//	if (x < minX || x > maxX) x = prvX;
+	//	if (y < minY || y > maxY) y = prvY;
 
-			dx = x - gfx.x1;
-			dy = y - gfx.y1;
-			GraphicsInfo prvCoord = pManager->getSelectedComponent()->getPosition();
+	//	dx = x - mStartX;
+	//	dy = y - mStartY;
 
-			pManager->getSelectedComponent()->setPosition(x,y);
-			prvX = x;
-			prvY = y;
-		}
-		pOut->ClearDrawingArea();
+	//	if (x != prvX || y != prvY)
+	//	{		
+	//		GraphicsInfo prvCoord = pManager->getSelectedComponent()->getPosition();
+	//		GraphicsInfo newCoord = prvCoord;
+	//		newCoord.x1 += dx;
+	//		newCoord.x2 += dx;
+	//		newCoord.y1 += dy;
+	//		newCoord.y2 += dy;
 
-		pOut->UpdateScreen();
-		pManager->UpdateInterface();*/
-	}
-	//Clear Status Bar
-	pOut->ClearStatusBar();
+	//		pManager->getSelectedComponent()->setPosition(newCoord);
+	//		prvX = x;
+	//		prvY = y;
+	//	}
+	//	pOut->ClearDrawingArea();
+
+	//	//pOut->UpdateScreen();
+	//	pManager->UpdateInterface();
+	//}
+	////Clear Status Bar
+	//pOut->ClearStatusBar();
 
 }
 

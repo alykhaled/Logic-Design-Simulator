@@ -32,7 +32,9 @@ void Load::Execute()
 	fin.open("savedFolder.txt");
 
 	if (fin.is_open())
-	{}
+	{
+
+	}
 	OutputPin* SrcPin;
 	InputPin* DesPin;
 	string typecomp,label;
@@ -55,26 +57,12 @@ void Load::Execute()
 			AddANDgate2* ss = new AddANDgate2(pManager, obj);
 		}
 		else if (typecomp == "NOT") {
-			INVERTER* obj = new INVERTER (position, 5);
-			obj->setCenter(position.x1, position.y1);
-			obj->setLabel(label);
-			AddNOTgate* ss = new AddNOTgate(pManager, obj);
 
 		}
 		else if (typecomp == "OR2") {
-			OR2* obj = new OR2(position, 5);
-			obj->setCenter(position.x1, position.y1);
-			obj->setLabel(label);
-			AddORgate2* ss = new AddORgate2(pManager, obj);
-
 
 		}
 		else if (typecomp == "XOR2") {
-			Xor2* obj = new Xor2(position, 5);
-			obj->setCenter(position.x1, position.y1);
-			obj->setLabel(label);
-			AddXORgate2* ss = new AddXORgate2(pManager, obj);
-
 
 		}
 		else if (typecomp == "LED") {
@@ -84,43 +72,18 @@ void Load::Execute()
 			AddLED* ss = new AddLED(pManager, obj);
 		}
 		else if (typecomp == "XNOR2") {
-			XNOR2* obj = new XNOR2(position, 5);
-			obj->setCenter(position.x1, position.y1);
-			obj->setLabel(label);
-			AddXNORgate2* ss = new AddXNORgate2(pManager, obj);
-
 
 		}
 		else if (typecomp == "NAND2") {
-			NAND2* obj = new NAND2(position, 5);
-			obj->setCenter(position.x1, position.y1);
-			obj->setLabel(label);
-			AddNAND2gate2* ss = new AddNAND2gate2(pManager, obj);
-
 
 		}
 		else if (typecomp == "NOR3") {
-			NOR3* obj = new NOR3(position, 5);
-			obj->setCenter(position.x1, position.y1);
-			obj->setLabel(label);
-			AddNOR3gate3* ss = new AddNOR3gate3(pManager, obj);
-
 
 		}
 		else if (typecomp == "AND3") {
-			AND3* obj = new AND3(position, 5);
-			obj->setCenter(position.x1, position.y1);
-			obj->setLabel(label);
-			AddAND3gate3* ss = new AddAND3gate3(pManager, obj);
-
 
 		}
 		else if (typecomp == "XOR3") {
-			XOR3* obj = new XOR3(position, 5);
-			obj->setCenter(position.x1, position.y1);
-			obj->setLabel(label);
-			AddXOR3gate3* ss = new AddXOR3gate3(pManager, obj);
-
 
 		}
 		else if (typecomp == "NOR2") {

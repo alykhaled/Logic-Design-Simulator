@@ -50,7 +50,7 @@ GraphicsInfo NAND2::getCenter()
 void NAND2::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
-	pOut->DrawNAND2(m_GfxInfo);
+	pOut->DrawNAND2(m_GfxInfo,selected);
 }
 
 //returns status of outputpin
@@ -93,10 +93,5 @@ GraphicsInfo NAND2::getOutputPinPosition()
 void NAND2::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n - 1].setStatus(s);
-}
-void NAND2::savefunc(ofstream& fout)
-{
-	fout << "NAND2" << " " << id << " " << ((getLabel() == "") ? "$" : getLabel()) << "" << centerx <<" "<< centery << endl;
-
 }
 

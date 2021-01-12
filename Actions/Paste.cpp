@@ -18,10 +18,12 @@ void Paste::Execute() {
 
 /* Undo action */
 void Paste::Undo() {
+
 }
 
 /* Redo action */
 void Paste::Redo() {
+
 }
 
 /* Destructor */

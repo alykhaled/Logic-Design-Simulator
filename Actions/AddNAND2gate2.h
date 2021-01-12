@@ -9,7 +9,6 @@ private:
 	int x1, y1, x2, y2;	//Two corners of the rectangluar area
 public:
 	AddNAND2gate2(ApplicationManager* pApp);
-	AddNAND2gate2(ApplicationManager* pApp, NAND2* obj);
 	virtual ~AddNAND2gate2(void);
 
 	//Reads parameters required for action to execute

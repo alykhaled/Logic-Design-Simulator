@@ -49,7 +49,7 @@ GraphicsInfo Xor2::getCenter()
 void Xor2::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
-	pOut->DrawXOR2(m_GfxInfo);
+	pOut->DrawXOR2(m_GfxInfo,selected);
 }
 
 //returns status of outputpin
@@ -91,10 +91,5 @@ GraphicsInfo Xor2::getOutputPinPosition()
 void Xor2::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n - 1].setStatus(s);
-}
-void Xor2::savefunc(ofstream& fout)
-{
-	fout << "Xor2" << " " << id << " " << ((getLabel() == "") ? "$" : getLabel()) << "" << centerx<<" " << centery << endl;
-
 }
 

@@ -73,8 +73,3 @@ void BUFFER::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n - 1].setStatus(s);
 }
-void BUFFER::savefunc(ofstream& fout)
-{
-	fout << "BUFFER" << " " << id << " " << ((getLabel() == "") ? "$" : getLabel()) << " " << centerx <<" "<< centery << endl;
-
-}
