@@ -9,6 +9,7 @@
 #include "Actions\AddXOR3gate3.h"
 #include "Actions\AddNORgate2.h"
 #include "Actions\AddNOTgate.h"
+#include "Actions\AddBUFFERgate.h"
 #include "Actions\AddConnection.h"
 #include "Actions\AddSwitch.h"
 #include "Actions\AddLED.h"
@@ -89,6 +90,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 		case ADD_INV:
 			pAct = new AddNOTgate(this);
+			break;
+		
+		case ADD_Buff:
+			pAct = new AddBUFFERgate(this);
 			break;
 		
 		case ADD_OR_GATE_2:

@@ -144,6 +144,7 @@
     <ClCompile Include="Actions\Load.cpp" />
     <ClCompile Include="Actions\Paste.cpp" />
     <ClCompile Include="Actions\Save.cpp" />
+    <ClCompile Include="Actions\AddBUFFERgate.cpp" />
     <ClCompile Include="Components\AND3.cpp" />
     <ClCompile Include="Components\BUFFER.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp" />
@@ -230,6 +231,7 @@
     <ClInclude Include="Actions\Load.h" />
     <ClInclude Include="Actions\Paste.h" />
     <ClInclude Include="Actions\Save.h" />
+    <ClInclude Include="Actions\AddBUFFERgate.h" />
     <ClInclude Include="Components\AND3.h" />
     <ClInclude Include="Components\BUFFER.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />

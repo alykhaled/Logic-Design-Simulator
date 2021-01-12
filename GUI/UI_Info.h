@@ -42,7 +42,7 @@ struct UI_Info	//User Interface Info.
 		NOT_Width = 92,			//NOT Gate Image default width
 		NOT_Height = 50,
 
-		BUFFER_Width = 97,
+		BUFFER_Width = 69,
 		BUFFER_Height = 50,
 
 		NAND2_Width = 87,		//NAND2 Gate Image default width
