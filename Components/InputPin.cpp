@@ -32,3 +32,18 @@ bool InputPin::getHasConnection()
 {
 	return hasConnection;
 }
+void InputPin::setConnection(Connection* C)
+{
+	m_Connection = C;
+}
+
+Connection* InputPin::getConnection()
+{
+	return m_Connection;
+}
+
+void InputPin::DeleteConnection()
+{
+	delete m_Connection;
+}
+

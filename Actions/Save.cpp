@@ -30,12 +30,13 @@ void Save::Execute()
 
 	fout << numOfGates << endl;
 
-	/*for (int i = 0; i < pManager->getComponetsNumber(); i++) {
+	for (int i = 0; i < pManager->getComponetsNumber(); i++) {
 		if (!dynamic_cast<Connection*>(pManager->getComponents()[i]))
 		{
-			pManager->getComponents()[i]->save(fout);
+			pManager->getComponents()[i]->savefunc(fout);
+			
 		}
-	}*/
+	}
 
 	fout << "Connections" << endl;
 	

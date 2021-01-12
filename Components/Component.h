@@ -4,6 +4,9 @@
 #include "..\Defs.h"
 #include "..\GUI\Output.h"
 #include "InputPin.h"
+#include <fstream>
+#include<string>
+using namespace std;
 
 //Base class for classes Gate, Switch, and LED.
 class InputPin;
@@ -19,6 +22,9 @@ protected:
 	bool selected = false;
 	bool on = false;
 	int id;
+	int ID;
+	string typeComp, Label;
+	GraphicsInfo GFX;
 public:
 	Component(const GraphicsInfo &r_GfxInfo, bool selected = false);
 	virtual void Operate() = 0;	//Calculates the output according to the inputs
@@ -42,7 +48,8 @@ public:
 	virtual ActionType getType() = 0;
 	virtual int getID();
 	virtual void setID(int id);
-	//virtual void save(ofstream &fout) = 0;
+	virtual void savefunc(ofstream& fout) = 0;
+	virtual void loadfunc(ifstream& fin) = 0;
 
 	Component();	
 	

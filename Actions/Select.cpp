@@ -16,7 +16,6 @@ void Select::Execute()
 {
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
-
 	GraphicsInfo gfx1 = pIn->getLastClick();
 	
 	if (pManager->getComponetsNumber() > 0)
@@ -26,29 +25,11 @@ void Select::Execute()
 			GraphicsInfo gfx = pManager->getComponents()[i]->getPosition();
 			if (dynamic_cast<Connection*>(pManager->getComponents()[i]))
 			{
-				if (gfx.x1 <= gfx1.x1 && gfx.x2 >= gfx1.x1)
+				if (gfx.x1 <= gfx1.x1 && gfx.x2 >= gfx1.x1 && (gfx.y1 - 5) <= gfx1.y1 && (gfx.y2 + 5) >= gfx1.y1)
 				{
-					if ((gfx.y1 - 7) < gfx1.y1 && (gfx.y1 + 7) > gfx1.y1)
-					{
-						pManager->getComponents()[i]->Select();
-						pManager->setSelectedComponent(pManager->getComponents()[i]);
-						break;
-					}
-				}
-				else if ((gfx.x2 - 7) <= gfx1.x1 && (gfx.x2 + 7) >= gfx1.x1)
-				{
-					if ((gfx.y1 > gfx.y2) && gfx.y2 < gfx1.y1 && gfx.y1 > gfx1.y1)
-					{
-						pManager->getComponents()[i]->Select();
-						pManager->setSelectedComponent(pManager->getComponents()[i]);
-						break;
-					}
-					else if ((gfx.y1 < gfx.y2) && gfx.y2 > gfx1.y1 && gfx.y1 < gfx1.y1)
-					{
-						pManager->getComponents()[i]->Select();
-						pManager->setSelectedComponent(pManager->getComponents()[i]);
-						break;
-					}
+					pManager->getComponents()[i]->Select();
+					pManager->setSelectedComponent(pManager->getComponents()[i]);
+					break;
 				}
 			}
 			else if (gfx.x1 <= gfx1.x1 && gfx.x2 >= gfx1.x1 && gfx.y1 <= gfx1.y1 && gfx.y2 >= gfx1.y1)
@@ -63,6 +44,7 @@ void Select::Execute()
 					//pManager->ExecuteAction(SIM_MODE);
 					break;
 				}
+				
 			}
 		}
 	}

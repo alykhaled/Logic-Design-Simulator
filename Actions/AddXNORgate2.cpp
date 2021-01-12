@@ -7,6 +7,48 @@ AddXNORgate2::AddXNORgate2(ApplicationManager* pApp) :Action(pApp)
 
 }
 
+AddXNORgate2::AddXNORgate2(ApplicationManager* pApp, XNOR2* obj):Action(pApp)
+{
+	int yup, ybot;
+
+	//Calculate the rectangle Corners
+	int Len = UI.AND2_Width;
+	int Wdth = UI.AND2_Height;
+
+	GraphicsInfo centerPos;
+	centerPos = obj->getCenter();
+	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
+	Cx = centerPos.x1;
+	Cy = centerPos.y1;
+
+	yup = Cy / 100;
+	yup *= 100;
+	yup += 30;
+
+	ybot = Cy / 100;
+	ybot *= 100;
+	ybot += 80;
+
+	if (abs((Cy - yup)) > abs(Cy - ybot))
+	{
+		GInfo.y1 = ybot;
+		Cy = ybot;
+	}
+	else
+	{
+		GInfo.y1 = yup;
+		Cy = yup;
+	}
+
+	GInfo.x1 = Cx - Len / 2;
+	GInfo.x2 = Cx + Len / 2;
+	GInfo.y1 = Cy - Wdth / 2;
+	GInfo.y2 = Cy + Wdth / 2;
+	obj->setPosition(GInfo);
+
+	pManager->AddComponent(obj);
+}
+
 AddXNORgate2::~AddXNORgate2()
 {
 }
@@ -30,8 +72,6 @@ void AddXNORgate2::ReadActionParameters()
 
 void AddXNORgate2::Execute()
 {
-	Output* pOut = pManager->GetOutput();
-
 	//Get Center point of the Gate
 	ReadActionParameters();
 	int yup, ybot;
@@ -39,15 +79,7 @@ void AddXNORgate2::Execute()
 	//Calculate the rectangle Corners
 	int Len = UI.XNOR2_Width;
 	int Wdth = UI.XNOR2_Height;
-	for (int i = 0; i < pManager->getComponetsNumber(); i++)
-	{
-		GraphicsInfo gfx = pManager->getComponents()[i]->getPosition();
-		if (gfx.x1 <= Cx && gfx.x2 >= Cx && gfx.y1 <= Cy && gfx.y2 >= Cy)
-		{
-			pOut->PrintMsg("Invaild Position");
-			return;
-		}
-	}
+
 	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
 
 	GInfo.x1 = Cx - Len / 2;
@@ -70,15 +102,7 @@ void AddXNORgate2::Execute()
 		GInfo.y1 = yup;
 	}
 	XNOR2* pA = new XNOR2(GInfo, XNOR2_FANOUT);
-	Input* pIn = pManager->GetInput();
-	string label = pIn->GetSrting(pOut);
 
-	GraphicsInfo labelgfx = GInfo;
-	labelgfx.y1 -= 20;
-
-	pA->setLabel(label);
-
-	pOut->DrawString(labelgfx, label);
 	pManager->AddComponent(pA);
 }
 

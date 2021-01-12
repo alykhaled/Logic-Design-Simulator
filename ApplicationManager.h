@@ -54,6 +54,8 @@ public:
 	Component* getSelectedComponent();
 	void setSelectedComponent(Component* selectedComp);
 
+	void Delete();
+
 	Component** getComponents();
 	int getComponetsNumber();
 	//destructor

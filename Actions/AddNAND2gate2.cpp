@@ -8,6 +8,48 @@ AddNAND2gate2::AddNAND2gate2(ApplicationManager* pApp) :Action(pApp)
 
 }
 
+AddNAND2gate2::AddNAND2gate2(ApplicationManager* pApp, NAND2* obj):Action(pApp)
+{
+	int yup, ybot;
+
+	//Calculate the rectangle Corners
+	int Len = UI.AND2_Width;
+	int Wdth = UI.AND2_Height;
+
+	GraphicsInfo centerPos;
+	centerPos = obj->getCenter();
+	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
+	Cx = centerPos.x1;
+	Cy = centerPos.y1;
+
+	yup = Cy / 100;
+	yup *= 100;
+	yup += 30;
+
+	ybot = Cy / 100;
+	ybot *= 100;
+	ybot += 80;
+
+	if (abs((Cy - yup)) > abs(Cy - ybot))
+	{
+		GInfo.y1 = ybot;
+		Cy = ybot;
+	}
+	else
+	{
+		GInfo.y1 = yup;
+		Cy = yup;
+	}
+
+	GInfo.x1 = Cx - Len / 2;
+	GInfo.x2 = Cx + Len / 2;
+	GInfo.y1 = Cy - Wdth / 2;
+	GInfo.y2 = Cy + Wdth / 2;
+	obj->setPosition(GInfo);
+
+	pManager->AddComponent(obj);
+}
+
 AddNAND2gate2::~AddNAND2gate2(void)
 {
 
@@ -36,21 +78,13 @@ void AddNAND2gate2::Execute()
 	//Get Center point of the Gate
 	ReadActionParameters();
 	int yup, ybot;
-	Output* pOut = pManager->GetOutput();
 
 	//Calculate the rectangle Corners
 	int Len = UI.NAND2_Width;
 	int Wdth = UI.NAND2_Height;
-	for (int i = 0; i < pManager->getComponetsNumber(); i++)
-	{
-		GraphicsInfo gfx = pManager->getComponents()[i]->getPosition();
-		if (gfx.x1 <= Cx && gfx.x2 >= Cx && gfx.y1 <= Cy && gfx.y2 >= Cy)
-		{
-			pOut->PrintMsg("Invaild Position");
-			return;
-		}
-	}
+
 	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
+	Output* pOut = pManager->GetOutput();
 
 	yup = Cy / 100;
 	yup *= 100;

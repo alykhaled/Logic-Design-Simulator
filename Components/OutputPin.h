@@ -27,6 +27,7 @@ public:
 	Component* getComponent();	//returns the component of this input pin
 	void setComponent(Component* comp);	//returns the component of this input pin
 	Connection* getConnenction(int n);
+	void DeleteConnections();
 };
 
 #endif

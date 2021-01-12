@@ -1,6 +1,6 @@
 #include "XOR3.h"
 
-XOR3::XOR3(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(3, r_FanOut)
+XOR3::XOR3(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(2, r_FanOut)
 {
 	m_GfxInfo.x1 = r_GfxInfo.x1;
 	m_GfxInfo.y1 = r_GfxInfo.y1;
@@ -50,7 +50,7 @@ GraphicsInfo XOR3::getCenter()
 void XOR3::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
-	pOut->DrawXOR3(m_GfxInfo,selected);
+	pOut->DrawXOR3(m_GfxInfo);
 }
 
 //returns status of outputpin
@@ -68,19 +68,14 @@ int XOR3::GetInputPinStatus(int n)
 GraphicsInfo XOR3::getInputPinPosition(int n)
 {
 	GraphicsInfo gfx = m_GfxInfo;
-	gfx.x2 -= UI.XOR3_Width / 2;
+	gfx.x2 -= UI.XOR2_Width / 2;
 	if (n == 1)
 	{
-		gfx.y2 -= 38;
-	}
-	else if (n == 2)
-	{
-		gfx.y1 += 12;
-		gfx.y2 -= 12;
+		gfx.y2 -= 25;
 	}
 	else
 	{
-		gfx.y1 += 38;
+		gfx.y1 += 25;
 	}
 
 	return gfx;
@@ -89,12 +84,18 @@ GraphicsInfo XOR3::getInputPinPosition(int n)
 GraphicsInfo XOR3::getOutputPinPosition()
 {
 	GraphicsInfo gfx = m_GfxInfo;
-	gfx.x1 += UI.XOR3_Width / 2;
+	gfx.x1 += UI.XOR2_Width / 2;
 	return gfx;
 }
+
 //Set status of an input pin ot HIGH or LOW
 void XOR3::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n - 1].setStatus(s);
+}
+void XOR3::savefunc(ofstream& fout)
+{
+	fout << "XOR3" << " " << id << " " << ((getLabel() == "") ? "$" : getLabel()) << " " << centerx<<" " << centery << endl;
+
 }
 

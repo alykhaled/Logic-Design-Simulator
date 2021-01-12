@@ -1,6 +1,7 @@
 #include "AND2.h"
 #include "Component.h"
 
+
 AND2::AND2(const GraphicsInfo &r_GfxInfo, int r_FanOut):Gate(2, r_FanOut)
 {
 	m_GfxInfo.x1 = r_GfxInfo.x1;
@@ -77,8 +78,13 @@ GraphicsInfo AND2::getOutputPinPosition()
 	gfx.x1 += UI.AND2_Width / 2;
 	return gfx;
 }
+void AND2::savefunc(ofstream& fout)
+{
+	fout << "AND2" << " " << id << " " << ((getLabel() == "") ? "$" : getLabel()) << " " << centerx<< " " << centery << endl;
 
-//void AND2::save(fstream& fout)
-//{
-//	fout << "AND2" << " " << id << " " << ((getLabel() == "") ? "$" : getLabel()) << " " << centerx << " " << centery << endl;
-//}
+}
+
+//void AND2::loadfunc(ifstream& fin)
+{
+	//fin>>typeComp>>
+}
