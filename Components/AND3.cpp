@@ -71,7 +71,7 @@ GraphicsInfo AND3::getInputPinPosition(int n)
 	}
 	else
 	{
-		gfx.y1 += 38;
+		gfx.y1 += 35;
 	}
 
 	return gfx;

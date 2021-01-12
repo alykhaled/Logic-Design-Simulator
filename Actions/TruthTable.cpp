@@ -65,6 +65,10 @@ void TruthTable::ReadActionParameters()
 
 	//TruthWindow = pOut->CreateWind(500, 500, 100, 100);
 	TruthWindow->ChangeTitle("Truth Table");
+	TruthWindow->SetFont(15, BOLD | ITALICIZED, BY_NAME, "Arial");
+	TruthWindow->SetPen(UI.MsgColor);
+	TruthWindow->DrawString(10, 3, "Click Anywhere to exit");
+	TruthWindow->SetFont(20, BOLD | ITALICIZED, BY_NAME, "Arial");
 
 	inputRowsNum = pow(2, switchsCount);
 	inputColumnsNum = switchsCount;
@@ -99,7 +103,7 @@ void TruthTable::ReadActionParameters()
 
 	TruthWindow->SetFont(20, BOLD | ITALICIZED, BY_NAME, "Arial");
 	TruthWindow->SetPen(UI.MsgColor);	
-	int x = 20, y = 5;
+	int x = 20, y = 15;
 
 	//Printing the values to the screen
 	for (int i = 0; i < inputColumnsNum; i++)
@@ -108,7 +112,7 @@ void TruthTable::ReadActionParameters()
 		x += 50;
 	}
 
-	y = 20;
+	y = 30;
 	x = 20;
 	for (int i = 0; i < inputRowsNum; i++)
 	{
@@ -121,7 +125,7 @@ void TruthTable::ReadActionParameters()
 		x = 20;
 	}
 	x = 20;
-	TruthWindow->DrawLine(20 + (50 * inputColumnsNum), 5, 20 + (50 * inputColumnsNum), 500);
+	TruthWindow->DrawLine(20 + (50 * inputColumnsNum), 15, 20 + (50 * inputColumnsNum), 500);
 	
 
 	ouputRowsNum = pow(2, switchsCount);
@@ -132,7 +136,7 @@ void TruthTable::ReadActionParameters()
 	{
 		ouputValues[i] = new int[ouputColumnsNum];
 	}
-	x = 20 + (50 * inputColumnsNum) + 10, y = 5;
+	x = 20 + (50 * inputColumnsNum) + 10, y = 15;
 
 	for (int i = 0; i < ouputColumnsNum; i++)
 	{
@@ -141,7 +145,7 @@ void TruthTable::ReadActionParameters()
 	}
 
 	x = 20 + (50 * inputColumnsNum) + 10, y = 5;
-	y = 20;
+	y = 30;
 
 	for (int i = 0; i < ouputRowsNum; i++)
 	{

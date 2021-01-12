@@ -62,7 +62,7 @@ int NOR3::GetInputPinStatus(int n)
 GraphicsInfo NOR3::getInputPinPosition(int n)
 {
 	GraphicsInfo gfx = m_GfxInfo;
-	gfx.x2 -= UI.NOR3_Width / 2;
+	gfx.x2 -= UI.AND3_Width / 2;
 	if (n == 1)
 	{
 		gfx.y2 -= 38;
@@ -83,7 +83,7 @@ GraphicsInfo NOR3::getInputPinPosition(int n)
 GraphicsInfo NOR3::getOutputPinPosition()
 {
 	GraphicsInfo gfx = m_GfxInfo;
-	gfx.x1 += UI.NOR3_Width / 2;
+	gfx.x1 += UI.AND3_Width / 2;
 	return gfx;
 }
 //Set status of an input pin ot HIGH or LOW

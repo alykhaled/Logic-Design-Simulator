@@ -84,12 +84,8 @@ void AddXORgate2::Execute()
 	Input* pIn = pManager->GetInput();
 	string label = pIn->GetSrting(pOut);
 
-	GraphicsInfo labelgfx = GInfo;
-	labelgfx.y1 - 20;
-
 	Xor2* pA = new Xor2(GInfo, AND2_FANOUT);
 	pA->setLabel(label);
-	pOut->DrawString(labelgfx, label);
 	pManager->AddComponent(pA);
 }
 

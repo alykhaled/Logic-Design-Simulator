@@ -44,34 +44,46 @@ void AddNOR3gate3::Execute()
 			pOut->PrintMsg("Invaild Position");
 			return;
 		}
+
 	}
 	//Calculate the rectangle Corners
 	int Len = UI.NOR3_Width;
 	int Wdth = UI.NOR3_Height;
 
+	//Spin the gate to the nearest Line
+
 	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
+
+	yup = Cy / 100;
+	yup *= 100;
+	yup += 30;
+
+	ybot = Cy / 100;
+	ybot *= 100;
+	ybot += 80;
+
+	if (abs((Cy - yup)) > abs(Cy - ybot))
+	{
+		GInfo.y1 = ybot;
+		Cy = ybot;
+	}
+	else
+	{
+		GInfo.y1 = yup;
+		Cy = yup;
+	}
 
 	GInfo.x1 = Cx - Len / 2;
 	GInfo.x2 = Cx + Len / 2;
 	GInfo.y1 = Cy - Wdth / 2;
 	GInfo.y2 = Cy + Wdth / 2;
-	yup = Cy / 100;
-	yup--;
-	yup *= 100;
-	yup -= 55;
 
-	ybot = Cy / 100;
-	ybot *= 100;
-	ybot += 55;
-	if (abs((Cy - yup)) > abs(Cy - ybot))
-	{
-		GInfo.y1 = ybot;
-	}
-	else
-	{
-		GInfo.y1 = yup;
-	}
 	NOR3* pA = new NOR3(GInfo, NOR3_FANOUT);
+	Input* pIn = pManager->GetInput();
+
+	string label = pIn->GetSrting(pOut);
+	pA->setLabel(label);
+
 	pManager->AddComponent(pA);
 }
 
