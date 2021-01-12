@@ -110,6 +110,10 @@ void AddLED::Execute()
 		GInfo.y1 = yup;
 	}
 	LED* pA = new LED(GInfo);
+	Input* pIn = pManager->GetInput();
+	string label = pIn->GetSrting(pOut);
+	pA->setLabel(label);
+
 	pManager->AddComponent(pA);
 }
 

@@ -8,9 +8,7 @@ void TruthTable::ReadActionParameters()
 {
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
-	TruthWindow = pOut->CreateWind(500,500,100,100);
-	//TruthWindow = pOut->CreateWind(500, 500, 100, 100);
-	TruthWindow->ChangeTitle("Truth Table");
+	
 	
 	int inputRowsNum, inputColumnsNum;
 	int ouputRowsNum, ouputColumnsNum;
@@ -63,6 +61,10 @@ void TruthTable::ReadActionParameters()
 			c++;
 		}
 	}
+	TruthWindow = pOut->CreateWind(500, 500, 100, 100);
+
+	//TruthWindow = pOut->CreateWind(500, 500, 100, 100);
+	TruthWindow->ChangeTitle("Truth Table");
 
 	inputRowsNum = pow(2, switchsCount);
 	inputColumnsNum = switchsCount;
@@ -97,19 +99,29 @@ void TruthTable::ReadActionParameters()
 
 	TruthWindow->SetFont(20, BOLD | ITALICIZED, BY_NAME, "Arial");
 	TruthWindow->SetPen(UI.MsgColor);	
-	int x = 10, y = 5;
+	int x = 20, y = 5;
+
 	//Printing the values to the screen
+	for (int i = 0; i < inputColumnsNum; i++)
+	{
+		TruthWindow->DrawString(x, y, switchs[i]->getLabel());
+		x += 50;
+	}
+
+	y = 20;
+	x = 20;
 	for (int i = 0; i < inputRowsNum; i++)
 	{
 		for (int j = 0; j < inputColumnsNum; j++)
 		{
 			TruthWindow->DrawInteger(x, y, inputValues[i][j]);
-			x += 10;
+			x += 50;
 		}
 		y += 20;
-		x = 10;
+		x = 20;
 	}
-	TruthWindow->DrawLine(x * (inputColumnsNum + 3), 5, x * (inputColumnsNum + 3), 500);
+	x = 20;
+	TruthWindow->DrawLine(20 + (50 * inputColumnsNum), 5, 20 + (50 * inputColumnsNum), 500);
 	
 
 	ouputRowsNum = pow(2, switchsCount);
@@ -120,9 +132,17 @@ void TruthTable::ReadActionParameters()
 	{
 		ouputValues[i] = new int[ouputColumnsNum];
 	}
+	x = 20 + (50 * inputColumnsNum) + 10, y = 5;
 
-	x = 10*(inputColumnsNum + 3), y = 5;
-	
+	for (int i = 0; i < ouputColumnsNum; i++)
+	{
+		TruthWindow->DrawString(x, y, leds[i]->getLabel());
+		x += 50;
+	}
+
+	x = 20 + (50 * inputColumnsNum) + 10, y = 5;
+	y = 20;
+
 	for (int i = 0; i < ouputRowsNum; i++)
 	{
 		for (int j = 0; j < inputColumnsNum; j++)
@@ -135,10 +155,10 @@ void TruthTable::ReadActionParameters()
 		for (int j = 0; j < ouputColumnsNum; j++)
 		{
 			TruthWindow->DrawInteger(x, y, leds[j]->GetInputPinStatus(1) == HIGH ? 1 : 0);
-			x += 10;
+			x += 50;
 		}
 		y += 20;
-		x = 10 * (inputColumnsNum + 3);
+		x = 20 + (50 * inputColumnsNum) + 10;
 	}
 
 	int xs, ys;
