@@ -20,6 +20,7 @@
 #include "Actions\Paste.h"
 #include "Actions\Probing.h"
 #include "Actions\Move.h"
+#include "Actions\DeleteComp.h"
 #include "Actions\Save.h"
 #include "Actions\Load.h"
 #include "Actions\Edit.h"
@@ -187,6 +188,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case EDIT:
 			pAct = new Edit(this);
 			break;
+		case DEL:
+			pAct = new DeleteComp(this);
+			break;
 		case EXIT:
 			break;
 	}
@@ -207,6 +211,38 @@ void ApplicationManager::UpdateInterface()
 		CompList[i]->DrawLabel(OutputInterface);
 	}
 
+}
+////////////////////////////////////////////////////////////////////
+void ApplicationManager::Delete()
+{
+	int Count = CompCount;
+	for (int i = 0; i < Count; i++)
+	{
+		if (dynamic_cast<Gate*>(CompList[i]))
+		{
+			dynamic_cast<Gate*>(CompList[i])->getOutputPin()->DeleteConnections();
+			for (int k = 0; k < dynamic_cast<Gate*>(CompList[i])->getNumInputs(); k++)
+			{
+				if (dynamic_cast<Gate*>(CompList[i])->getInputPin(k + 1) != NULL)
+				{
+					dynamic_cast<Gate*>(CompList[i])->getInputPin(k + 1)->DeleteConnection();
+				}
+			}
+		}
+		if (CompList[i])
+		{
+			if (CompList[i] == getSelectedComponent())
+			{
+				delete CompList[i];
+				CompList[i] = NULL;
+				for (int j = i; j < CompCount; j++) {
+					CompList[j] = CompList[j + 1];
+				}
+				i--;
+				CompCount--;
+			}
+		}
+	}
 }
 
 ////////////////////////////////////////////////////////////////////

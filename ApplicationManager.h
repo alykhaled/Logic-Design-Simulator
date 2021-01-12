@@ -48,6 +48,8 @@ public:
 	Output* GetOutput();
 	Input* GetInput();
 
+	void Delete();
+
 	//Adds a new component to the list of components
 	void AddComponent(Component* pComp);
 

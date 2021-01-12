@@ -1,22 +1,22 @@
 #pragma once
 #include "Action.h"
 #include"../ApplicationManager.h"
-class Delete : public Action
+class DeleteComp : public Action
 {
 	public:
-		Delete(ApplicationManager* pApp);
-		virtual ~Delete(void);
+		DeleteComp(ApplicationManager* pApp);
+		virtual ~DeleteComp(void);
 		//Reads parameters required for action to execute
-		virtual void ReadActionParameters() = 0;
+		virtual void ReadActionParameters();
 
 		//Execute action (code depends on action type)
-		virtual void Execute() = 0;
+		virtual void Execute();
 
 		//To undo this action (code depends on action type)
-		virtual void Undo() = 0;
+		virtual void Undo();
 
 		//To redo this action (code depends on action type)
-		virtual void Redo() = 0;
+		virtual void Redo();
 
 };
 

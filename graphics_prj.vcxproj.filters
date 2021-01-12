@@ -239,9 +239,6 @@
     <ClCompile Include="Actions\Save.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
-    <ClCompile Include="Actions\Delete.cpp">
-      <Filter>Actions</Filter>
-    </ClCompile>
     <ClCompile Include="Actions\Load.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
@@ -249,6 +246,9 @@
       <Filter>Actions</Filter>
     </ClCompile>
     <ClCompile Include="Actions\AddBUFFERgate.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\DeleteComp.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
   </ItemGroup>
@@ -262,9 +262,6 @@
     </ClInclude>
     <ClInclude Include="Components\AND2.h">
       <Filter>Components</Filter>
-    </ClInclude>
-    <ClInclude Include="ApplicationManager.h">
-      <Filter>Application Manager</Filter>
     </ClInclude>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
       <Filter>CMUgraphics Library</Filter>
@@ -452,9 +449,6 @@
     <ClInclude Include="Actions\Save.h">
       <Filter>Actions</Filter>
     </ClInclude>
-    <ClInclude Include="Actions\Delete.h">
-      <Filter>Actions</Filter>
-    </ClInclude>
     <ClInclude Include="Actions\Load.h">
       <Filter>Actions</Filter>
     </ClInclude>
@@ -462,6 +456,12 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="Actions\AddBUFFERgate.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="ApplicationManager.h">
+      <Filter>Application Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\DeleteComp.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>
