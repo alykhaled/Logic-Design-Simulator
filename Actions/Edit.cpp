@@ -27,7 +27,6 @@ void Edit::Execute()
 		string label = pIn->GetSrting(pOut);
 		pManager->getSelectedComponent()->setLabel(label);
 		pOut->ClearDrawingArea();
-		pOut->PrintMsg("Edit Label");
 	}
 	else 
 	{

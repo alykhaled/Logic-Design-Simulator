@@ -61,29 +61,21 @@ int NOR2::GetInputPinStatus(int n)
 
 GraphicsInfo NOR2::getInputPinPosition(int n)
 {
-	GraphicsInfo gfx = m_GfxInfo;
-	gfx.x2 -= UI.NOR2_Width / 2;
-	if (n == 1)
-	{
-		gfx.y2 -= 25;
-	}
-	else
-	{
-		gfx.y1 += 25;
-	}
-
-	return gfx;
+	return GraphicsInfo();
 }
 
 GraphicsInfo NOR2::getOutputPinPosition()
 {
-	GraphicsInfo gfx = m_GfxInfo;
-	gfx.x1 += UI.NOR2_Width / 2;
-	return gfx;
+	return GraphicsInfo();
 }
 
 //Set status of an input pin ot HIGH or LOW
 void NOR2::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n - 1].setStatus(s);
+}
+void NOR2::savefunc(ofstream& fout)
+{
+	fout << "NOR2" << " " << id << " " << ((getLabel() == "") ? "$" : getLabel()) << " " << centerx<<" " << centery << endl;
+
 }

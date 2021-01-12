@@ -15,5 +15,7 @@ class OR2 : public Gate
 		virtual GraphicsInfo getInputPinPosition(int n);
 		virtual GraphicsInfo getOutputPinPosition();
 		virtual void setInputPinStatus(int n, STATUS s);	//set status of Inputpin # n, to be used by connection class.
+		virtual void savefunc(ofstream& fout);
+		virtual void loadfunc(ifstream& fin);
 };
 

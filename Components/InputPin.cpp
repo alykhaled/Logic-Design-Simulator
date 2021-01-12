@@ -1,5 +1,4 @@
 #include "InputPin.h"
-#include "Connection.h"
 
 InputPin::InputPin()
 {}
@@ -47,3 +46,4 @@ void InputPin::DeleteConnection()
 {
 	delete m_Connection;
 }
+

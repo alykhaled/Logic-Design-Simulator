@@ -101,3 +101,9 @@ int Connection::getNumInputs()
 {
 	return 1;
 }
+void Connection::savefunc(ofstream& fout)
+{		Connection* conn;
+		int srcID = conn->getSourcePin()->getComponent()->getID();
+		int DesID = conn->getDestPin()->getComponent()->getID();
+		fout << srcID << " " << DesID << " " << conn->getDestPin()->getPinNum() << endl;
+}

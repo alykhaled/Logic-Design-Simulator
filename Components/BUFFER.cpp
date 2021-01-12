@@ -1,7 +1,7 @@
 #include "BUFFER.h"
 
 
-BUFFER::BUFFER(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(1, r_FanOut)
+BUFFER::BUFFER(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(2, r_FanOut)
 {
 	m_GfxInfo.x1 = r_GfxInfo.x1;
 	m_GfxInfo.y1 = r_GfxInfo.y1;
@@ -42,7 +42,7 @@ GraphicsInfo BUFFER::getCenter()
 void BUFFER::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
-	pOut->DrawBuff(m_GfxInfo,selected);
+	pOut->DrawBuff(m_GfxInfo);
 }
 
 //returns status of outputpin
@@ -60,20 +60,21 @@ int BUFFER::GetInputPinStatus(int n)
 
 GraphicsInfo BUFFER::getInputPinPosition(int n)
 {
-	GraphicsInfo gfx = m_GfxInfo;
-	gfx.x2 -= UI.BUFFER_Width/ 2;
-	return gfx;
+	return GraphicsInfo();
 }
 
 GraphicsInfo BUFFER::getOutputPinPosition()
 {
-	GraphicsInfo gfx = m_GfxInfo;
-	gfx.x1 += UI.BUFFER_Width / 2;
-	return gfx;
+	return GraphicsInfo();
 }
 
 //Set status of an input pin ot HIGH or LOW
 void BUFFER::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n - 1].setStatus(s);
+}
+void BUFFER::savefunc(ofstream& fout)
+{
+	fout << "BUFFER" << " " << id << " " << ((getLabel() == "") ? "$" : getLabel()) << " " << centerx <<" "<< centery << endl;
+
 }

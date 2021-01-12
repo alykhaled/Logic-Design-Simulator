@@ -101,3 +101,8 @@ void Switch::Select()
 		m_OutputPin.setStatus((m_OutputPin.getStatus() == LOW) ? HIGH : LOW);
 	}
 }
+void Switch::savefunc(ofstream& fout)
+{
+	fout << "Switch" << " " << id << " " << ((getLabel() == "") ? "$" : getLabel()) << " " << centerx <<" "<< centery << endl;
+
+}

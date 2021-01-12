@@ -10,6 +10,7 @@ private:
 	int x1, y1, x2, y2;	//Two corners of the rectangluar area
 public:
 	AddXOR3gate3(ApplicationManager* pApp);
+	AddXOR3gate3(ApplicationManager* pApp, XOR3* obj);
 	virtual ~AddXOR3gate3(void);
 
 	//Reads parameters required for action to execute

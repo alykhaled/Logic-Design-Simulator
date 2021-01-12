@@ -41,7 +41,7 @@ GraphicsInfo AND3::getCenter()
 void AND3::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
-	pOut->DrawAND3(m_GfxInfo,selected);
+	pOut->DrawAND3(m_GfxInfo);
 }
 
 //returns status of outputpin
@@ -58,34 +58,21 @@ int AND3::GetInputPinStatus(int n)
 
 GraphicsInfo AND3::getInputPinPosition(int n)
 {
-	GraphicsInfo gfx = m_GfxInfo;
-	gfx.x2 -= UI.AND3_Width / 2;
-	if (n == 1)
-	{
-		gfx.y2 -= 38;
-	}
-	else if(n == 2)
-	{
-		gfx.y1 += 12;
-		gfx.y2 -= 12;
-	}
-	else
-	{
-		gfx.y1 += 38;
-	}
-
-	return gfx;
+	return GraphicsInfo();
 }
 
 GraphicsInfo AND3::getOutputPinPosition()
 {
-	GraphicsInfo gfx = m_GfxInfo;
-	gfx.x1 += UI.AND3_Width / 2;
-	return gfx;
+	return GraphicsInfo();
 }
 
 //Set status of an input pin ot HIGH or LOW
 void AND3::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n - 1].setStatus(s);
+}
+void AND3::savefunc(ofstream& fout)
+{
+	fout << "AND3" << " " << id << " " << ((getLabel() == "") ? "$" : getLabel()) << " " << centerx <<" "<< centery << endl;
+
 }

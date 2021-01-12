@@ -76,7 +76,6 @@ void Simulate::Execute()
 		outpin = switchs[i]->getOutputPin();
 		Connection* conn;
 		InputPin* inpin;
-		
 		//do
 		//{
 		//	int numOfConnection = outpin->getNumberOfConnections();
@@ -91,7 +90,6 @@ void Simulate::Execute()
 		//		outpin = gate->getOutputPin();
 		//	}
 		//} while (outpin != nullptr);
-		
 		int numOfConnection = outpin->getNumberOfConnections();
 		for (int j = 1; j < numOfConnection + 1; j++)
 		{
@@ -100,6 +98,8 @@ void Simulate::Execute()
 		}
 	}
 
+
+	
 }
 
 //Recursion Function to simulate every connection

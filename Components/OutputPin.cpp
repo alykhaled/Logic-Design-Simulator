@@ -40,6 +40,7 @@ Connection* OutputPin::getConnenction(int n)
 {
 	return m_Connections[n-1];
 }
+
 void OutputPin::DeleteConnections()
 {
 	for (int i = 0; i < m_Conn; i++)

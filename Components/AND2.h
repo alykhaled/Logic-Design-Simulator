@@ -7,9 +7,9 @@
   represent the 2-input AND gate
 */
 
-#include "Gate.h"
-#include "fstream"
-using namespace std;
+#include "Gate.h"\
+
+
 class AND2:public Gate
 {
 public:
@@ -24,7 +24,8 @@ public:
 	virtual void setInputPinStatus(int n, STATUS s);	//set status of Inputpin # n, to be used by connection class.
 	virtual GraphicsInfo getInputPinPosition(int n);
 	virtual GraphicsInfo getOutputPinPosition();
-	//virtual void save(fstream& fout);
+	virtual void savefunc(ofstream& fout);
+	virtual void loadfunc(ifstream& fin);
 
 };
 
