@@ -78,11 +78,16 @@ void AddLED::Execute()
 	for (int i = 0; i < pManager->getComponetsNumber(); i++)
 	{
 		GraphicsInfo gfx = pManager->getComponents()[i]->getPosition();
-		if (gfx.x1 <= Cx && gfx.x2 >= Cx && gfx.y1 <= Cy && gfx.y2 >= Cy)
+		if (gfx.x1 <= Cx && gfx.x2 >= Cx && gfx.y1 <= Cy && gfx.y2 >= Cy || (Cy >= 0 && Cy < UI.ToolBarHeight + UI.ActionToolBarHeight))
 		{
 			pOut->PrintMsg("Invaild Position");
 			return;
 		}
+	}
+	if (Cy >= 0 && Cy < UI.ToolBarHeight + UI.ActionToolBarHeight)
+	{
+		pOut->PrintMsg("Invaild Position");
+		return;
 	}
 	//Calculate the rectangle Corners
 	int Len = UI.LED_Width;

@@ -1,5 +1,10 @@
-2
-XOR2 1 hkj 530 280
-XOR2 2 kkkk 892 380
+7
+SWITCH 1 as 397 205
+SWITCH 2 da 404 305
+AND2 3 da 579 255
+LED 6 da 737 280
 Connections
+2 3 2
+1 3 1
+3 6 1
 -1

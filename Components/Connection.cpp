@@ -65,7 +65,7 @@ void Connection::Operate()
 
 void Connection::Draw(Output* pOut)
 {
-	if (DstPin->getStatus() == HIGH)
+	if (DstPin->getStatus() == HIGH && UI.AppMode == SIMULATION)
 	{
 		on = true;
 	}

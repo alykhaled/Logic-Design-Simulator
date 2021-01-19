@@ -106,7 +106,7 @@ void Simulate::Execute()
 void Simulate::simulate(OutputPin* outpin, Connection* connection)
 {
 	OutputPin *newpin;
-	if (outpin == nullptr && connection->getOutputPin()== nullptr)
+	if (outpin == nullptr && connection->getOutputPin() == nullptr)
 	{
 		return;
 	}

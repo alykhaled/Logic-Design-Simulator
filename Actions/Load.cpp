@@ -38,7 +38,6 @@ void Load::Execute()
 	OutputPin* SrcPin;
 	InputPin* DesPin;
 	string typecomp,label;
-	Action* pAct = NULL;
 	
 	int count,id, x, y;
 	fin >> count;

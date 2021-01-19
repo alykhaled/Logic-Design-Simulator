@@ -84,6 +84,7 @@ ActionType Input::GetUserAction(Output* pOut)
 			{
 			case ITM_AND2:			return ADD_AND_GATE_2;
 			case ITM_INV:			return ADD_INV;
+			case ITM_Buff:			return ADD_Buff;
 			case ITM_OR2:			return ADD_OR_GATE_2;
 			case ITM_XOR2:			return ADD_XOR_GATE_2;
 			case ITM_XNOR2:			return ADD_XNOR_GATE_2;
@@ -112,7 +113,6 @@ ActionType Input::GetUserAction(Output* pOut)
 			{
 			case ITM_SIM:		return SIM_MODE;
 			case ITM_DEL:		return DEL;
-			case ITM_MOVE:		return MOVE;
 			case ITM_EDIT:		return EDIT;
 			case ITM_COPY:		return COPY;
 			case ITM_PASTE:		return PASTE;

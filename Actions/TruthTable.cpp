@@ -9,7 +9,6 @@ void TruthTable::ReadActionParameters()
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
 	
-	
 	int inputRowsNum, inputColumnsNum;
 	int ouputRowsNum, ouputColumnsNum;
 
@@ -61,14 +60,6 @@ void TruthTable::ReadActionParameters()
 			c++;
 		}
 	}
-	TruthWindow = pOut->CreateWind(500, 500, 100, 100);
-
-	//TruthWindow = pOut->CreateWind(500, 500, 100, 100);
-	TruthWindow->ChangeTitle("Truth Table");
-	TruthWindow->SetFont(15, BOLD | ITALICIZED, BY_NAME, "Arial");
-	TruthWindow->SetPen(UI.MsgColor);
-	TruthWindow->DrawString(10, 3, "Click Anywhere to exit");
-	TruthWindow->SetFont(20, BOLD | ITALICIZED, BY_NAME, "Arial");
 
 	inputRowsNum = pow(2, switchsCount);
 	inputColumnsNum = switchsCount;
@@ -81,7 +72,7 @@ void TruthTable::ReadActionParameters()
 
 	int value = 0;
 	int m = 1;
-	for (int i = inputColumnsNum -1; i >= 0; i--)
+	for (int i = inputColumnsNum - 1; i >= 0; i--)
 	{
 		// for (int k = 0; k < m; k++)
 		// {
@@ -101,73 +92,137 @@ void TruthTable::ReadActionParameters()
 		m *= 2;
 	}
 
-	TruthWindow->SetFont(20, BOLD | ITALICIZED, BY_NAME, "Arial");
-	TruthWindow->SetPen(UI.MsgColor);	
-	int x = 20, y = 15;
 
-	//Printing the values to the screen
-	for (int i = 0; i < inputColumnsNum; i++)
+	if (switchsCount > 5)
 	{
-		TruthWindow->DrawString(x, y, switchs[i]->getLabel());
-		x += 50;
-	}
+		ouputRowsNum = pow(2, switchsCount);
+		ouputColumnsNum = ledscount;
 
-	y = 30;
-	x = 20;
-	for (int i = 0; i < inputRowsNum; i++)
-	{
-		for (int j = 0; j < inputColumnsNum; j++)
+		/*int** ouputValues = new int* [ouputRowsNum];
+		for (int i = 0; i < ouputRowsNum; i++)
 		{
-			TruthWindow->DrawInteger(x, y, inputValues[i][j]);
-			x += 50;
+			ouputValues[i] = new int[ouputColumnsNum];
+		}*/
+
+		fout.open("TruthTable.txt");
+
+		for (int i = 0; i < inputColumnsNum; i++)
+		{
+			fout << switchs[i]->getLabel() << "\t";
 		}
-		y += 20;
-		x = 20;
-	}
-	x = 20;
-	TruthWindow->DrawLine(20 + (50 * inputColumnsNum), 15, 20 + (50 * inputColumnsNum), 500);
+		fout << " | ";
+
+		for (int i = 0; i < ouputColumnsNum; i++)
+		{
+			fout << leds[i]->getLabel() << "\t";
+		}
+		fout << "\n";
+		for (int i = 0; i < inputRowsNum; i++)
+		{
+			for (int j = 0; j < inputColumnsNum; j++)
+			{
+				fout << inputValues[i][j] << "\t";
+			}
+			for (int j = 0; j < inputColumnsNum; j++)
+			{
+				switchs[j]->getOutputPin()->setStatus(inputValues[i][j] == 0 ? LOW : HIGH);
+			}
+			Action* pAct = new Simulate(pManager);
+			pAct->Execute();
+			fout << " | ";
+
+			for (int j = 0; j < ouputColumnsNum; j++)
+			{
+				fout << (leds[j]->GetInputPinStatus(1) == HIGH ? 1 : 0) << "\t";
+			}
+			fout << "|  \n";
+		}
 	
+		fout.close();
 
-	ouputRowsNum = pow(2, switchsCount);
-	ouputColumnsNum = ledscount;
-
-	int** ouputValues = new int* [ouputRowsNum];
-	for (int i = 0; i < ouputRowsNum; i++)
-	{
-		ouputValues[i] = new int[ouputColumnsNum];
+		
 	}
-	x = 20 + (50 * inputColumnsNum) + 10, y = 15;
-
-	for (int i = 0; i < ouputColumnsNum; i++)
+	else
 	{
-		TruthWindow->DrawString(x, y, leds[i]->getLabel());
-		x += 50;
-	}
+		TruthWindow = pOut->CreateWind(500, 800, 100, 100);
 
-	x = 20 + (50 * inputColumnsNum) + 10, y = 5;
-	y = 30;
+		//TruthWindow = pOut->CreateWind(500, 500, 100, 100);
+		TruthWindow->ChangeTitle("Truth Table");
+		TruthWindow->SetFont(15, BOLD | ITALICIZED, BY_NAME, "Arial");
+		TruthWindow->SetPen(UI.MsgColor);
+		TruthWindow->DrawString(10, 3, "Click Anywhere to exit");
+		TruthWindow->SetFont(20, BOLD | ITALICIZED, BY_NAME, "Arial");
 
-	for (int i = 0; i < ouputRowsNum; i++)
-	{
-		for (int j = 0; j < inputColumnsNum; j++)
+		
+		TruthWindow->SetFont(20, BOLD | ITALICIZED, BY_NAME, "Arial");
+		TruthWindow->SetPen(UI.MsgColor);
+		int x = 20, y = 15;
+
+		//Printing the values to the screen
+		for (int i = 0; i < inputColumnsNum; i++)
 		{
-			switchs[j]->getOutputPin()->setStatus(inputValues[i][j] == 0 ? LOW : HIGH);
-		}
-		Action* pAct = new Simulate(pManager);
-		pAct->Execute();
-
-		for (int j = 0; j < ouputColumnsNum; j++)
-		{
-			TruthWindow->DrawInteger(x, y, leds[j]->GetInputPinStatus(1) == HIGH ? 1 : 0);
+			TruthWindow->DrawString(x, y, switchs[i]->getLabel());
 			x += 50;
 		}
-		y += 20;
-		x = 20 + (50 * inputColumnsNum) + 10;
-	}
 
-	int xs, ys;
-	TruthWindow->WaitMouseClick(xs,ys);
-	TruthWindow->~window();
+		y = 30;
+		x = 20;
+		for (int i = 0; i < inputRowsNum; i++)
+		{
+			for (int j = 0; j < inputColumnsNum; j++)
+			{
+				TruthWindow->DrawInteger(x, y, inputValues[i][j]);
+				x += 50;
+			}
+			y += 20;
+			x = 20;
+		}
+		x = 20;
+		TruthWindow->DrawLine(20 + (50 * inputColumnsNum), 15, 20 + (50 * inputColumnsNum), 500);
+
+
+		ouputRowsNum = pow(2, switchsCount);
+		ouputColumnsNum = ledscount;
+
+		int** ouputValues = new int* [ouputRowsNum];
+		for (int i = 0; i < ouputRowsNum; i++)
+		{
+			ouputValues[i] = new int[ouputColumnsNum];
+		}
+		x = 20 + (50 * inputColumnsNum) + 10, y = 15;
+
+		for (int i = 0; i < ouputColumnsNum; i++)
+		{
+			TruthWindow->DrawString(x, y, leds[i]->getLabel());
+			x += 50;
+		}
+
+		x = 20 + (50 * inputColumnsNum) + 10, y = 5;
+		y = 30;
+
+		for (int i = 0; i < ouputRowsNum; i++)
+		{
+			for (int j = 0; j < inputColumnsNum; j++)
+			{
+				switchs[j]->getOutputPin()->setStatus(inputValues[i][j] == 0 ? LOW : HIGH);
+			}
+			Action* pAct = new Simulate(pManager);
+			pAct->Execute();
+
+			for (int j = 0; j < ouputColumnsNum; j++)
+			{
+				TruthWindow->DrawInteger(x, y, leds[j]->GetInputPinStatus(1) == HIGH ? 1 : 0);
+				x += 50;
+			}
+			y += 20;
+			x = 20 + (50 * inputColumnsNum) + 10;
+		}
+
+		int xs, ys;
+		TruthWindow->WaitMouseClick(xs, ys);
+		pManager->ExecuteAction(DSN_MODE);
+		TruthWindow->~window();
+	}
 }
 
 void TruthTable::Execute()

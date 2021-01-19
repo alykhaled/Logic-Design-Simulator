@@ -227,9 +227,6 @@
     <ClCompile Include="Actions\Copy.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
-    <ClCompile Include="Actions\Move.cpp">
-      <Filter>Actions</Filter>
-    </ClCompile>
     <ClCompile Include="Actions\Probing.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
@@ -246,6 +243,12 @@
       <Filter>Actions</Filter>
     </ClCompile>
     <ClCompile Include="Actions\Edit.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\AddBUFFERgate.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\Cut.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
   </ItemGroup>
@@ -437,9 +440,6 @@
     <ClInclude Include="Actions\Copy.h">
       <Filter>Actions</Filter>
     </ClInclude>
-    <ClInclude Include="Actions\Move.h">
-      <Filter>Actions</Filter>
-    </ClInclude>
     <ClInclude Include="Actions\Probing.h">
       <Filter>Actions</Filter>
     </ClInclude>
@@ -456,6 +456,12 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="Actions\Edit.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\AddBUFFERgate.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\Cut.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,7 +1,6 @@
 #include "AddBUFFERgate.h"
-#include "..\ApplicationManager.h"
 
-AddBUFFERgate::AddBUFFERgate(ApplicationManager* pApp) :Action(pApp)
+AddBUFFERgate::AddBUFFERgate(ApplicationManager * pApp) : Action(pApp)
 {
 
 }
@@ -73,6 +72,7 @@ void AddBUFFERgate::ReadActionParameters()
 
 void AddBUFFERgate::Execute()
 {
+	
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
 	//Get Center point of the Gate
@@ -137,3 +137,4 @@ void AddBUFFERgate::Redo()
 {
 
 }
+

@@ -127,7 +127,7 @@ void Output::CreateDesignToolBar() const
 	string MenuItemImages[ITM_DSN_CNT];
 	MenuItemImages[ITM_AND2]		= "images\\Menu\\Menu_AND2.jpg";
 	MenuItemImages[ITM_INV]			= "images\\Menu\\Menu_NOT.jpg";
-	//MenuItemImages[ITM_Buff]		= "images\\Menu\\Menu_BUFFER.jpg";
+	MenuItemImages[ITM_Buff]		= "images\\Menu\\Menu_BUFFER.jpg";
 	MenuItemImages[ITM_OR2]			= "images\\Menu\\Menu_OR2.jpg";
 	MenuItemImages[ITM_XOR2]		= "images\\Menu\\Menu_XOR2.jpg";
 	MenuItemImages[ITM_XNOR2]		= "images\\Menu\\Menu_XNOR2.jpg";
@@ -144,7 +144,6 @@ void Output::CreateDesignToolBar() const
 	string MenuActionItemImages[ITM_ACTION_CNT];
 	MenuActionItemImages[ITM_SIM]	= "Images\\Simulation toolbar\\SIM_SIMULATE.jpg";
 	MenuActionItemImages[ITM_DEL]	= "Images\\Simulation toolbar\\SIM_DELETE.jpg";
-	MenuActionItemImages[ITM_MOVE]	= "Images\\Simulation toolbar\\SIM_MOVE.jpg";
 	MenuActionItemImages[ITM_EDIT]	= "Images\\Simulation toolbar\\SIM_EDIT.jpg";
 	MenuActionItemImages[ITM_COPY]	= "Images\\Simulation toolbar\\SIM_COPY.jpg";
 	MenuActionItemImages[ITM_PASTE]	= "Images\\Simulation toolbar\\SIM_PASTE.jpg";
@@ -250,9 +249,9 @@ void Output::DrawBuff(GraphicsInfo r_GfxInfo, bool selected) const
 {
 	string GateImage;
 	if (selected)
-		GateImage = "Images\\Gates_HI\\Gate_Buff.jpg";
+		GateImage = "Images\\Gates_HI\\Gate_Buffer.jpg";
 	else
-		GateImage = "Images\\Gates\\Gate_Buff.jpg";
+		GateImage = "Images\\Gates\\Gate_Buffer.jpg";
 	//Draw Buff. at Gfx_Info (3rd corner)
 	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
 	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.BUFFER_Width, UI.BUFFER_Height);

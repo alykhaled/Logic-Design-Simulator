@@ -14,7 +14,7 @@ public:
 	//Connection(const GraphicsInfo &r_GfxInfo, Component *pS=NULL,Component *pD=NULL, int Pin=0);
 	Connection(const GraphicsInfo& r_GfxInfo, OutputPin* pSrcPin, InputPin* pDstPin);
 
-	virtual void Operate();	//Calculates the output according to the inputs
+	virtual void Operate();				//Calculates the output according to the inputs
 	virtual void Draw(Output* pOut);	//for each component to Draw itself
 	virtual ActionType getType();
 
@@ -24,7 +24,7 @@ public:
 	InputPin* getDestPin();
 	virtual InputPin* getInputPin(int n);
 	virtual OutputPin* getOutputPin();
-	virtual GraphicsInfo getInputPinPosition(int n);
+	virtual GraphicsInfo getInputPinPosition(int n); //
 	virtual GraphicsInfo getOutputPinPosition();
 
 	virtual GraphicsInfo getCenter();

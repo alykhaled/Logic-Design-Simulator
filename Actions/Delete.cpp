@@ -1,15 +1,15 @@
 #include "Delete.h"
-Delete::Delete(ApplicationManager* pApp) :Action(pApp)
+DeleteComp::DeleteComp(ApplicationManager* pApp) :Action(pApp)
 {
 
 }
 
-Delete::~Delete(void)
+DeleteComp::~DeleteComp(void)
 {
 
 }
 
-void Delete::ReadActionParameters()
+void DeleteComp::ReadActionParameters()
 {
 	//Get a Pointer to the Input / Output Interfaces
 	Output* pOut = pManager->GetOutput();
@@ -18,14 +18,16 @@ void Delete::ReadActionParameters()
 
 }
 
-void Delete::Execute()
+void DeleteComp::Execute()
 {
 	//Get Center point of the Gate
 	ReadActionParameters();
 	Output* pOut = pManager->GetOutput();
+	pOut->ClearDrawingArea();
 
-	//Delete Connection
+	//Delete Gate
 	Component* selected = pManager->getSelectedComponent();
+	Component** compList = pManager->getComponents();
 	OutputPin* outpin = selected->getOutputPin();
 	//for (int i = 0; i < outpin->getNumberOfConnections(); i++)
 	//{
@@ -36,19 +38,53 @@ void Delete::Execute()
 	//	//delete selected->getInputPin(i + 1)->getConnection();
 	//}
 	//Delete gate
-	delete selected;
-	selected = pManager->getComponents()[pManager->getComponetsNumber() - 1];
-	//pManager->decreaseComponentNum();
+	int compCount = pManager->getComponetsNumber();
+	for (int i = 0; i < compCount; i++)
+	{
+		if (dynamic_cast<Connection*>(compList[i]))
+		{
+			if (dynamic_cast<Connection*>(compList[i])->getSourcePin() == selected->getOutputPin())
+			{
+				delete compList[i];
+				compList[i] = pManager->getComponents()[pManager->getComponetsNumber() - 1];
+				pManager->decreaseComponentNum();
+				continue;
+			}
+			int numOfInput = selected->getNumInputs();
+			for (int j = 0; j < numOfInput; j++)
+			{
+				if (dynamic_cast<Connection*>(compList[i])->getDestPin() == selected->getInputPin(j+1))
+				{
+					delete compList[i];
+					compList[i] = pManager->getComponents()[pManager->getComponetsNumber() - 1];
+					pManager->decreaseComponentNum();
+				}
+			}
+		}
+	}
+
+	for (int i = 0; i < compCount; i++)
+	{
+		if (selected == compList[i])
+		{
+			delete compList[i];
+			compList[i] = pManager->getComponents()[pManager->getComponetsNumber() - 1];
+			pManager->decreaseComponentNum();
+		}
+	}
+	
+	pManager->setComponents(compList);
 	pOut->ClearDrawingArea();
+
 
 }
 
-void Delete::Undo()
+void DeleteComp::Undo()
 {
 
 }
 
-void Delete::Redo()
+void DeleteComp::Redo()
 {
 
 }

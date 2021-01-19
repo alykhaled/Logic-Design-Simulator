@@ -13,7 +13,7 @@ void Paste::ReadActionParameters() {
 void Paste::Execute() {
 	Output* pOut = pManager->GetOutput();
 	copiedComp = pManager->GetCopiedComponent();
-	pManager->ExecuteAction(copiedComp->getType());
+	pManager->ExecuteAction(pManager->getActionType());
 }
 
 /* Undo action */

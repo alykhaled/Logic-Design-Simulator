@@ -9,6 +9,7 @@
 #include "Actions\AddXOR3gate3.h"
 #include "Actions\AddNORgate2.h"
 #include "Actions\AddNOTgate.h"
+#include "Actions\AddBUFFERgate.h"
 #include "Actions\AddConnection.h"
 #include "Actions\AddSwitch.h"
 #include "Actions\AddLED.h"
@@ -18,10 +19,11 @@
 #include "Actions\Copy.h"
 #include "Actions\Paste.h"
 #include "Actions\Probing.h"
-#include "Actions\Move.h"
 #include "Actions\Save.h"
 #include "Actions\Load.h"
 #include "Actions\Edit.h"
+#include "Actions\Delete.h"
+#include "Actions\Cut.h"
 
 
 
@@ -39,6 +41,14 @@ ApplicationManager::ApplicationManager()
 void ApplicationManager::setIsValid(bool isValid)
 {
 	this->isValid = isValid;
+}
+void ApplicationManager::setActionType(ActionType type)
+{
+	copiedType = type;
+}
+ActionType ApplicationManager::getActionType()
+{
+	return copiedType;
 }
 ////////////////////////////////////////////////////////////////////
 void ApplicationManager::AddComponent(Component* pComp)
@@ -58,9 +68,20 @@ Component** ApplicationManager::getComponents()
 {
 	return CompList;
 }
+void ApplicationManager::setComponents(Component** compList)
+{
+	for (int i = 0; i < CompCount; i++)
+	{
+		CompList[i] = compList[i];
+	}
+}
 int ApplicationManager::getComponetsNumber()
 {
 	return CompCount;
+}
+void ApplicationManager::decreaseComponentNum()
+{
+	CompCount--;
 }
 //////////////////////////////////////////////////////////////////
 Component* ApplicationManager::getSelectedComponent()
@@ -101,6 +122,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		
 		case ADD_LED:
 			pAct = new AddLED(this);
+			break;
+
+		case ADD_Buff:
+			pAct = new AddBUFFERgate(this);
 			break;
 
 		case ADD_CONNECTION:
@@ -155,9 +180,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case SELECT:
 			pAct = new Select(this);
 			break;
-		case MOVE:
-			pAct = new Move(this);
-			break;
+		
 		case COPY:
 			pAct = new Copy(this);
 			break;
@@ -182,6 +205,12 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case EDIT:
 			pAct = new Edit(this);
 			break;
+		case DEL:
+			pAct = new DeleteComp(this);
+			break;
+		case CUT:
+			pAct = new Cut(this);
+			break;
 		case EXIT:
 			break;
 	}
@@ -203,7 +232,37 @@ void ApplicationManager::UpdateInterface()
 	}
 
 }
-
+void ApplicationManager::Delete()
+{
+	int Count = CompCount;
+	for (int i = 0; i < Count; i++)
+	{
+		if (dynamic_cast<Gate*>(CompList[i]))
+		{
+			dynamic_cast<Gate*>(CompList[i])->getOutputPin()->DeleteConnections();
+			for (int k = 0; k < dynamic_cast<Gate*>(CompList[i])->getNumInputs(); k++)
+			{
+				if (dynamic_cast<Gate*>(CompList[i])->getInputPin(k + 1) != NULL)
+				{
+					dynamic_cast<Gate*>(CompList[i])->getInputPin(k + 1)->DeleteConnection();
+				}
+			}
+		}
+		if (CompList[i])
+		{
+			if (CompList[i] == getSelectedComponent())
+			{
+				delete CompList[i];
+				CompList[i] = NULL;
+				for (int j = i; j < CompCount; j++) {
+					CompList[j] = CompList[j + 1];
+				}
+				i--;
+				CompCount--;
+			}
+		}
+	}
+}
 ////////////////////////////////////////////////////////////////////
 Input* ApplicationManager::GetInput()
 {

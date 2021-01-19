@@ -1,15 +1,14 @@
 #pragma once
 #include "Action.h"
-#include "../Components/Component.h"
-class Copy : public Action
+class Cut : public Action
 {
 private:
-	int mX, mY;				// The point clicked by the user
-	Component* mComp;		// Pointer to the copied component
+				// The point clicked by the user
+		// Pointer to the copied component
 
 public:
 	/* Constructor */
-	Copy(ApplicationManager* pApp);
+	Cut(ApplicationManager* pApp);
 
 	/* Reads parameters required for action to execute */
 	virtual void ReadActionParameters();
@@ -24,5 +23,5 @@ public:
 	virtual void Redo();
 
 	/* Destructor */
-	virtual ~Copy();
+	virtual ~Cut();
 };

@@ -8,11 +8,14 @@
 #include "../Components/Connection.h"
 #include "../Components/Gate.h"
 #include "Simulate.h"
-
+#include "fstream"
+using namespace std;
 class TruthTable : public Action
 {
 private:
 	window* TruthWindow;
+	ofstream fout;
+
 public:
 	TruthTable(ApplicationManager* pApp);
 	virtual ~TruthTable(void);

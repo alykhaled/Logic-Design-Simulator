@@ -19,6 +19,7 @@ private:
 	bool isValid = true;		
 	Component* CompList[MaxCompCount];	//List of all Components (Array of pointers)
 	Component* selectedComp;
+	ActionType copiedType;
 	Component* copiedComp;
 	Action* undoAction;
 
@@ -29,6 +30,8 @@ public:
 	ApplicationManager(); //constructor
 
 	void setIsValid(bool isValid);
+	void setActionType(ActionType type);
+	ActionType getActionType();
 
 	/* Sets the last copied/cut component */
 	void SetCopiedComponent(Component* pComp);
@@ -47,7 +50,7 @@ public:
 	//Gets a pointer to Input / Output Object
 	Output* GetOutput();
 	Input* GetInput();
-
+	void Delete();
 	//Adds a new component to the list of components
 	void AddComponent(Component* pComp);
 
@@ -55,7 +58,9 @@ public:
 	void setSelectedComponent(Component* selectedComp);
 
 	Component** getComponents();
+	void setComponents(Component** compList);
 	int getComponetsNumber();
+	void decreaseComponentNum();
 	//destructor
 	~ApplicationManager();
 };

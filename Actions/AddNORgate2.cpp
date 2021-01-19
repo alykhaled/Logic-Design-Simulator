@@ -47,6 +47,22 @@ void AddNORgate2::Execute()
 	int Len = UI.NOR2_Width;
 	int Wdth = UI.NOR2_Height;
 
+	for (int i = 0; i < pManager->getComponetsNumber(); i++)
+	{
+		GraphicsInfo gfx = pManager->getComponents()[i]->getPosition();
+		if (gfx.x1 <= Cx && gfx.x2 >= Cx && gfx.y1 <= Cy && gfx.y2 >= Cy || (Cy >= 0 && Cy < UI.ToolBarHeight + UI.ActionToolBarHeight))
+		{
+			pOut->PrintMsg("Invaild Position");
+			return;
+		}
+
+	}
+
+	if (Cy >= 0 && Cy < UI.ToolBarHeight + UI.ActionToolBarHeight)
+	{
+		pOut->PrintMsg("Invaild Position");
+		return;
+	}
 	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
 
 	yup = Cy / 100;

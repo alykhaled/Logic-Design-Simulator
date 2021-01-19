@@ -1,0 +1,11 @@
+8
+AND2 1 and1 462 255
+SWITCH 2 s1 282 355
+SWITCH 3 s2 267 205
+LED 6 led1 658 280
+AND2 8 and3 692 455
+Connections
+3 1 1
+2 1 2
+1 6 1
+-1

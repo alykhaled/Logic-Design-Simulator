@@ -74,6 +74,7 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 	//If you want to change the menu items order, change the order here
 	ITM_AND2,			//AND gate item in menu
 	ITM_INV,			//Inverter gate item in menu
+	ITM_Buff,
 	ITM_OR2,			//OR gate item in menu
 	ITM_XOR2,			//XOR gate item in menu
 	ITM_XNOR2,			//XNOR gate item in menu
@@ -99,7 +100,6 @@ enum ActionMenuItem //The items of the Action menu (you should add more items)
 	ITM_SIM,				//Simulate menu item
 
 	ITM_DEL,				//Delete a Component, a Connection menu item
-	ITM_MOVE,				//Move a Component, a Connection menu item
 	ITM_EDIT,				//EDIT a Component, a Connection menu item
 
 	ITM_COPY,
